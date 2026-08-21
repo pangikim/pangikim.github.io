@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PANTAX.ai | 판기세무회계</title>
+  <meta name="description" content="PANTAX.ai. 매출·매입·세금과 지원금까지 매일 갱신되는 판기의 세무 시스템입니다.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/apple-touch.png">
+  <link rel="stylesheet" href="css/site.css?v=8">
+</head>
+<body>
+  <header class="hd">
+    <div class="wrap hd-in">
+      <a class="logo" href="index.html" aria-label="판기세무회계">
+        <img src="img/logo.png?v=3" alt="" width="39" height="39">
+      </a>
+      <nav class="nav">
+        <div class="drop">
+          <button type="button">세무 서비스 <span class="chev"></span></button>
+          <div class="menu">
+            <a href="gijang.html">세무기장</a>
+            <a href="consulting.html">컨설팅</a>
+            <a href="refund.html">더낸세금</a>
+          </div>
+        </div>
+        <a href="review.html">고객 후기</a>
+        <a href="pantax.html">PANTAX.ai</a>
+        <a href="blog.html">블로그</a>
+      </nav>
+      <div class="hd-btns">
+        <a class="btn ghost" href="index.html#consult">로그인</a>
+        <a class="btn line" href="index.html#consult">상담 신청하기</a>
+        <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
+          <i></i><i></i><i></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="overlay-in">
+      <details>
+        <summary>세무 서비스</summary>
+        <a href="gijang.html">세무 기장</a>
+        <a href="consulting.html">컨설팅</a>
+        <a href="refund.html">경정청구(더낸세금)</a>
+      </details>
+      <a href="review.html">고객 후기</a>
+      <a href="pantax.html">PANTAX.ai</a>
+      <a href="blog.html">블로그</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="svc wrap">
+      <p class="eyebrow">들어오는 돈, 나가는 돈, 세금까지</p>
+      <h1>PANTAX.ai</h1>
+      <p class="sub">매일 아침 갱신되는 회사 숫자부터 업종에 맞는 지원금 추천까지.<br>기장 고객이 쓰는 판기의 세무 시스템입니다.</p>
+      <div class="svc-points">
+        <article>
+          <b>홈 대시보드</b>
+          <p>이번 달 매출·매입·예상 세금과 월별 추이를 한 화면에서 봅니다.</p>
+        </article>
+        <article>
+          <b>매출·매입 관리</b>
+          <p>카드·세금계산서 자료를 모아 분기 손익을 맞춰 둡니다.</p>
+        </article>
+        <article>
+          <b>지원금 · AI 비서</b>
+          <p>업종에 맞는 공고와 이번 주 할 일을 정리해 카카오톡으로 안내합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="system">
+      <div class="wrap">
+        <ul class="htabs" id="sys-tabs">
+          <li><button type="button" class="on" data-pane="home">홈 대시보드</button></li>
+          <li><button type="button" data-pane="sales">매출·매입 관리</button></li>
+          <li><button type="button" data-pane="fund">지원금 추천</button></li>
+          <li><button type="button" data-pane="ai">AI 비서</button></li>
+        </ul>
+        <div class="board" id="sys-dash">
+          <article data-pane="home" class="on">
+            <div class="alfred">
+              <header>
+                <b>판기</b>
+                <span>2026.3 기준</span>
+              </header>
+              <div class="kpis">
+                <div><em>이번 달 매출</em><strong>12,180,000</strong></div>
+                <div><em>이번 달 매입</em><strong>4,450,000</strong></div>
+                <div><em>예상 세금</em><strong>1,280,000</strong></div>
+              </div>
+              <div class="chart">
+                <div class="chart-head">
+                  <p>월별 추이</p>
+                  <ul class="legend">
+                    <li><i class="a"></i>매출</li>
+                    <li><i class="b"></i>매입</li>
+                    <li><i class="c"></i>세금</li>
+                  </ul>
+                </div>
+                <div class="bars">
+                  <div><span class="a" style="--h:72%"></span><span class="b" style="--h:38%"></span><span class="c" style="--h:18%"></span><em>1월</em></div>
+                  <div><span class="a" style="--h:86%"></span><span class="b" style="--h:44%"></span><span class="c" style="--h:22%"></span><em>2월</em></div>
+                  <div><span class="a" style="--h:78%"></span><span class="b" style="--h:40%"></span><span class="c" style="--h:20%"></span><em>3월</em></div>
+                  <div><span class="a" style="--h:90%"></span><span class="b" style="--h:42%"></span><span class="c" style="--h:24%"></span><em>4월</em></div>
+                </div>
+              </div>
+              <div class="sheet">
+                <p>손익계산서</p>
+                <div class="sheet-scroll">
+                  <table>
+                    <thead><tr><th>항목</th><th>1월</th><th>2월</th><th>3월</th></tr></thead>
+                    <tbody>
+                      <tr><td>매출</td><td>11,972,130</td><td>13,420,000</td><td>12,180,000</td></tr>
+                      <tr><td>매출원가</td><td>4,210,000</td><td>4,880,000</td><td>4,450,000</td></tr>
+                      <tr><td>순이익</td><td>7,762,130</td><td>8,540,000</td><td>7,730,000</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article data-pane="sales">
+            <div class="alfred">
+              <header>
+                <b>매출·매입</b>
+                <span>1분기</span>
+              </header>
+              <div class="kpis">
+                <div><em>분기 매출</em><strong>37,572,130</strong></div>
+                <div><em>분기 매입</em><strong>13,540,000</strong></div>
+                <div><em>마진율</em><strong>64%</strong></div>
+              </div>
+              <div class="chart">
+                <div class="chart-head">
+                  <p>월별 매출·매입</p>
+                  <ul class="legend">
+                    <li><i class="a"></i>매출</li>
+                    <li><i class="b"></i>매입</li>
+                  </ul>
+                </div>
+                <div class="bars">
+                  <div><span class="a" style="--h:74%"></span><span class="b" style="--h:34%"></span><em>1월</em></div>
+                  <div><span class="a" style="--h:88%"></span><span class="b" style="--h:40%"></span><em>2월</em></div>
+                  <div><span class="a" style="--h:80%"></span><span class="b" style="--h:36%"></span><em>3월</em></div>
+                  <div><span class="a" style="--h:92%"></span><span class="b" style="--h:38%"></span><em>4월</em></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article data-pane="fund">
+            <div class="alfred">
+              <header>
+                <b>지원금</b>
+                <span>추천 4건</span>
+              </header>
+              <div class="kpis">
+                <div><em>추천 공고</em><strong>4건</strong></div>
+                <div><em>마감 임박</em><strong>1건</strong></div>
+                <div><em>진행 중</em><strong>2건</strong></div>
+              </div>
+              <ul class="glist">
+                <li><b>스마트상점 기술보급</b><span class="tag warn">마감 D-6</span></li>
+                <li><b>수출바우처 1차</b><span class="tag on">접수 중</span></li>
+                <li><b>일자리안정자금</b><span class="tag on">진행 중</span></li>
+                <li><b>디지털바우처 2차</b><span class="tag">검토 중</span></li>
+              </ul>
+            </div>
+          </article>
+          <article data-pane="ai">
+            <div class="alfred">
+              <header>
+                <b>AI 비서</b>
+                <span>이번 주</span>
+              </header>
+              <div class="kpis">
+                <div><em>이번 주 할 일</em><strong>3</strong></div>
+                <div><em>자료 요청</em><strong>5</strong></div>
+                <div><em>답변 대기</em><strong>0</strong></div>
+              </div>
+              <ul class="glist">
+                <li><b>부가세 예정고지 확인</b><span class="tag warn">오늘</span></li>
+                <li><b>3월 매입세금계산서 취합</b><span class="tag">내일</span></li>
+                <li><b>원천세 신고 자료 요청</b><span class="tag">수요일</span></li>
+                <li><b>지원금 공고 3건 요약</b><span class="tag on">완료</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <a class="demo" href="index.html#consult">세무 레포트 데모 체험하기</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap">
+      <div class="ft-body">
+        <div class="ft-info">
+          <a class="ft-word" href="index.html"><img src="img/logo-white.png?v=4" alt=""><span>판기세무회계</span></a>
+          <p class="ft-tel">문의전화: <a href="tel:0323230268">032-323-0268</a></p>
+          <div>
+            <p>대표 김판기</p>
+            <p>경기도 부천시 신흥로 268 (중동)</p>
+          </div>
+          <div class="sns">
+            <a href="blog.html" aria-label="인스타그램">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="blog.html" aria-label="페이스북">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z" fill="currentColor"/></svg>
+            </a>
+            <a href="blog.html" aria-label="블로그">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+            <a href="blog.html" aria-label="유튜브">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 10l5 2-5 2z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ft-links">
+          <div>
+            <p>서비스</p>
+            <a href="gijang.html">세무기장</a>
+            <a href="consulting.html">컨설팅</a>
+            <a href="refund.html">더낸세금</a>
+            <a href="pantax.html">PANTAX.ai</a>
+          </div>
+          <div>
+            <p>바로가기</p>
+            <a href="review.html">고객 후기</a>
+            <a href="blog.html">블로그</a>
+            <a href="index.html#consult">상담 신청</a>
+          </div>
+        </div>
+      </div>
+      <p class="ft-copy">© 2026 판기세무회계</p>
+    </div>
+  </footer>
+
+  <aside class="dock" id="dock" hidden>
+    <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
+    <a class="btn solid" href="index.html#consult">상담 신청하기</a>
+  </aside>
+  <script src="js/site.js"></script>
+</body>
+</html>

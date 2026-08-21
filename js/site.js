@@ -1,81 +1,73 @@
-const hd = document.getElementById("hd");
-const hero = document.querySelector(".hero");
-const onScroll = () => {
-  const past = window.scrollY > (hero?.offsetHeight || 400) - 80;
-  hd.classList.toggle("solid", past);
+const burger = document.getElementById("burger");
+const overlay = document.getElementById("overlay");
+const setMenu = (open) => {
+  overlay.hidden = !open;
+  burger.classList.toggle("on", open);
+  burger.setAttribute("aria-expanded", String(open));
+  document.body.style.overflow = open ? "hidden" : "";
 };
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+burger?.addEventListener("click", () => setMenu(overlay.hidden));
+overlay?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
-const mBtn = document.getElementById("m-btn");
-const mNav = document.getElementById("m-nav");
-mBtn?.addEventListener("click", () => {
-  mNav.hidden = !mNav.hidden;
-});
-mNav?.querySelectorAll("a").forEach((a) => {
-  a.addEventListener("click", () => { mNav.hidden = true; });
-});
-
-const pills = document.getElementById("report-pills");
-const dash = document.getElementById("report-dash");
-pills?.addEventListener("click", (e) => {
+const tabs = document.getElementById("sys-tabs");
+const dash = document.getElementById("sys-dash");
+tabs?.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
-  pills.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
-  dash.querySelectorAll("article").forEach((p) => p.classList.toggle("on", p.dataset.pane === btn.dataset.tab));
+  tabs.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
+  dash.querySelectorAll("article").forEach((p) => p.classList.toggle("on", p.dataset.pane === btn.dataset.pane));
 });
 
-const whyPills = document.getElementById("why-pills");
-const whySlide = document.getElementById("why-slide");
-whyPills?.addEventListener("click", (e) => {
-  const btn = e.target.closest("button");
-  if (!btn) return;
-  whyPills.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
-  whySlide.querySelectorAll("article").forEach((a, i) => a.classList.toggle("on", String(i) === btn.dataset.why));
-});
-
-const track = document.getElementById("review-track");
-if (track) track.innerHTML += track.innerHTML;
-
-const nums = document.querySelectorAll(".num[data-count]");
-const tick = (el) => {
-  const end = Number(el.dataset.count);
-  const start = performance.now();
-  const step = (now) => {
-    const t = Math.min(1, (now - start) / 1200);
-    el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3))).toLocaleString("ko-KR");
-    if (t < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-};
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((en) => {
-    if (!en.isIntersecting) return;
-    tick(en.target);
-    io.unobserve(en.target);
-  });
-}, { threshold: 0.4 });
-nums.forEach((n) => io.observe(n));
-
-const feeModal = document.getElementById("fee-modal");
-const feeName = document.getElementById("fee-name");
-document.querySelectorAll("[data-fee]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    feeName.textContent = btn.dataset.fee;
-    feeModal.hidden = false;
-  });
-});
-document.getElementById("fee-close")?.addEventListener("click", () => { feeModal.hidden = true; });
-feeModal?.addEventListener("click", (e) => { if (e.target === feeModal) feeModal.hidden = true; });
-
-const privacy = document.getElementById("privacy-modal");
-document.getElementById("privacy-open")?.addEventListener("click", () => { privacy.hidden = false; });
-document.getElementById("privacy-close")?.addEventListener("click", () => { privacy.hidden = true; });
-privacy?.addEventListener("click", (e) => { if (e.target === privacy) privacy.hidden = true; });
-
-document.getElementById("consult-form")?.addEventListener("submit", (e) => {
+document.getElementById("form")?.addEventListener("submit", (e) => {
   e.preventDefault();
   const form = e.currentTarget;
   if (!form.reportValidity()) return;
   form.querySelector(".ok").hidden = false;
 });
+
+const track = document.getElementById("rev-track");
+if (track) track.innerHTML += track.innerHTML;
+["logo-a", "logo-b"].forEach((id) => {
+  const row = document.getElementById(id);
+  if (row) row.innerHTML += row.innerHTML + row.innerHTML;
+});
+const press = document.getElementById("press-track");
+if (press) press.innerHTML += press.innerHTML;
+
+const dock = document.getElementById("dock");
+const consult = document.getElementById("consult");
+const toggleDock = () => {
+  if (!dock) return;
+  const passedTop = window.scrollY >= 480;
+  const atForm = consult && consult.getBoundingClientRect().top < window.innerHeight - 80;
+  dock.hidden = !passedTop || atForm;
+};
+window.addEventListener("scroll", toggleDock, { passive: true });
+toggleDock();
+
+const blogQ = document.getElementById("blog-q");
+if (blogQ) {
+  const cards = [...document.querySelectorAll(".bcard")];
+  const secs = [...document.querySelectorAll("[data-sec]")];
+  const applyQ = () => {
+    const q = blogQ.value.trim().toLowerCase();
+    cards.forEach((c) => {
+      const hit = !q || (c.dataset.q || c.innerText).toLowerCase().includes(q);
+      c.hidden = q ? !hit : c.classList.contains("extra") && !c.closest(".blog-mosaic")?.classList.contains("open");
+    });
+    secs.forEach((s) => {
+      s.hidden = q && ![...s.querySelectorAll(".bcard")].some((c) => !c.hidden);
+    });
+  };
+  blogQ.addEventListener("input", applyQ);
+  document.querySelectorAll(".blog-more").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const mosaic = document.querySelector(btn.getAttribute("href"));
+      if (!mosaic) return;
+      mosaic.classList.add("open");
+      mosaic.querySelectorAll(".extra").forEach((c) => { c.hidden = false; });
+      btn.hidden = true;
+    });
+  });
+}

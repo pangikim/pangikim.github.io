@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48">
+  <circle cx="24" cy="24" r="16" fill="#111"/>
+  <path d="M16 24c4-8 12-8 16 0-4 8-12 8-16 0z" fill="#fff"/>
+  <text x="50" y="31" fill="#181d27" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">SWIVE</text>
+</svg>
