@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>판기세무회계 | IT와 세무의 결합 | 세무기장, 환급, 절세 전문</title>
+  <meta name="description" content="판기세무회계. 김판기 세무사가 세무기장, 경정청구, 상속·증여, 법인 컨설팅을 직접 담당합니다.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <header class="hd" id="hd">
+    <div class="hd-in">
+      <a class="logo" href="#top" aria-label="판기세무회계">
+        <span class="mark">판</span>
+        <strong>판기세무회계</strong>
+      </a>
+      <nav class="nav">
+        <a href="#about">판기 소개</a>
+        <a href="#service">세무 서비스</a>
+        <a href="#corp">법인 설립</a>
+        <a href="#refund">세무 환급</a>
+        <a href="#report">세무 리포트</a>
+      </nav>
+      <a class="hd-cta" href="#consult">무료 세무 상담
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <button class="m-btn" id="m-btn" aria-label="메뉴" type="button"><i></i></button>
+    </div>
+  </header>
+
+  <nav class="m-nav" id="m-nav" hidden>
+    <a href="#about">판기 소개</a>
+    <a href="#service">세무 서비스</a>
+    <a href="#corp">법인 설립</a>
+    <a href="#refund">세무 환급</a>
+    <a href="#report">세무 리포트</a>
+    <a href="#consult">무료 세무 상담</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <img class="hero-bg" src="img/hero.jpg" alt="">
+      <div class="hero-copy">
+        <h1><span>IT기술로 세무의 미래를 선도하는</span>판기세무회계</h1>
+        <p>사업의 시작부터 성장까지 모든 여정을 함께 합니다.</p>
+      </div>
+    </section>
+
+    <section class="team" id="about">
+      <div class="wrap">
+        <div class="team-top">
+          <div class="tit">
+            <span class="kicker">명쾌한 자문이 가능한 전문가</span>
+            <h2>고객님 사업에 필요한 모든 세무,<br><em>검증된 세무사</em>가 직접 책임집니다</h2>
+            <p class="desc">사업 단계와 업종 특성을 고려한 맞춤형 세무 · 법인 컨설팅으로<br>세무 부담은 최소화하고 절세와 성장의 든든한 힘이 되겠습니다.</p>
+            <a class="btn" href="#consult"><span>무료로 상담 받아보기<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span></a>
+          </div>
+          <figure class="ceo">
+            <img src="img/ceo.jpg" alt="김판기 대표 세무사">
+            <figcaption><strong>김판기</strong>대표 세무사</figcaption>
+          </figure>
+        </div>
+        <ul class="faces">
+          <li>
+            <img src="img/work-01.jpg" alt="세무기장 상담">
+            <p><strong>세무기장</strong>장부 · 신고 전담</p>
+          </li>
+          <li>
+            <img src="img/work-02.jpg" alt="세금 환급 검토">
+            <p><strong>세금 환급</strong>경정청구</p>
+          </li>
+          <li>
+            <img src="img/work-03.jpg" alt="법인 컨설팅">
+            <p><strong>법인 컨설팅</strong>설립 · 전환</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="report" id="report">
+      <div class="wrap split">
+        <div class="tit">
+          <span class="kicker">판기 &amp; IT 세무 리포트</span>
+          <h2>매월 한눈에 미리보는 경영 현황,<br>고객사 맞춤 세무 데이터 제공</h2>
+          <p class="desc">판기 세무파트너와 함께하시면 월별 손익, 매출 추이,<br>인건비, 예상 부가세까지 사업 현황을 직관적으로 확인하실 수 있도록<br>리포트를 매달 받아보실 수 있습니다.</p>
+          <div class="pills" id="report-pills" role="tablist">
+            <button type="button" class="on" data-tab="biz">사업분석</button>
+            <button type="button" data-tab="vat">부가세</button>
+            <button type="button" data-tab="sales">매출/매입</button>
+            <button type="button" data-tab="pay">인건비</button>
+          </div>
+        </div>
+        <div class="dash" id="report-dash">
+          <article data-pane="biz" class="on">
+            <header><b>사업분석</b><small>2026.07</small></header>
+            <p class="dash-h">이번 달 손익 요약</p>
+            <div class="kpis">
+              <div><em>매출</em><strong>48,200,000</strong></div>
+              <div><em>매입</em><strong>19,450,000</strong></div>
+              <div><em>영업이익</em><strong>28,750,000</strong></div>
+            </div>
+            <div class="bars">
+              <i style="--v:78%"></i><i style="--v:52%"></i><i style="--v:64%"></i><i style="--v:71%"></i><i style="--v:88%"></i><i style="--v:60%"></i>
+            </div>
+            <p class="hint">전월 대비 매출 +12.4% · 예상 종합소득세 중간정산 가능</p>
+          </article>
+          <article data-pane="vat">
+            <header><b>부가세 예정</b><small>2기 예정</small></header>
+            <p class="dash-h">이번 예정 신고 추정</p>
+            <div class="kpis">
+              <div><em>매출세액</em><strong>4,820,000</strong></div>
+              <div><em>매입세액</em><strong>1,945,000</strong></div>
+              <div><em>납부세액</em><strong>2,875,000</strong></div>
+            </div>
+            <ul class="rows">
+              <li><span>과세 매출</span><b>48,200,000</b></li>
+              <li><span>공제 매입</span><b>19,450,000</b></li>
+              <li><span>예정 고지 대비</span><b>−210,000</b></li>
+            </ul>
+          </article>
+          <article data-pane="sales">
+            <header><b>매출 / 매입</b><small>최근 6개월</small></header>
+            <p class="dash-h">거래 흐름</p>
+            <ul class="rows">
+              <li><span>카드 매출</span><b>21,400,000</b></li>
+              <li><span>현금영수증</span><b>6,800,000</b></li>
+              <li><span>세금계산서</span><b>20,000,000</b></li>
+              <li><span>매입 세금계산서</span><b>14,220,000</b></li>
+              <li><span>카드 매입</span><b>5,230,000</b></li>
+            </ul>
+          </article>
+          <article data-pane="pay">
+            <header><b>인건비</b><small>2026.07</small></header>
+            <p class="dash-h">급여 · 4대보험</p>
+            <div class="kpis">
+              <div><em>지급 총액</em><strong>8,640,000</strong></div>
+              <div><em>원천세</em><strong>412,000</strong></div>
+              <div><em>4대보험</em><strong>786,000</strong></div>
+            </div>
+            <p class="hint">근로자 4명 · 연말정산 대상 포함 · 추가 과금 없음</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="svc" id="service">
+      <div class="wrap">
+        <div class="tit center">
+          <span class="kicker">맞춤형 세무 · 법인 컨설팅</span>
+          <h2>판기세무회계 서비스 한눈에 보기</h2>
+          <p class="desc">사업자 등록, 법인 전환, 투자 자문, 세무 신고, 가업 상속, 증여 등<br>고객의 상황과 성장 단계를 고려한 맞춤형 솔루션을 제공합니다.</p>
+        </div>
+        <ul class="svc-grid">
+          <li>
+            <i class="ic">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#053e8b" stroke-width="2"><rect x="8" y="6" width="32" height="36" rx="3"/><path d="M16 16h16M16 24h16M16 32h10"/></svg>
+            </i>
+            <h3>세무기장</h3>
+            <p>중간 결산, 손익 분석을 기반으로 각종 세제 혜택을 적용한 절세 관리</p>
+          </li>
+          <li id="refund">
+            <i class="ic">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#053e8b" stroke-width="2"><circle cx="24" cy="24" r="16"/><path d="M24 14v20M18 20h8a4 4 0 010 8h-6"/></svg>
+            </i>
+            <h3>세금 환급(경정청구)</h3>
+            <p>과거 5년 이내 더 낸 세금을 찾아드리는 간편 환급 서비스</p>
+          </li>
+          <li>
+            <i class="ic">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#053e8b" stroke-width="2"><path d="M24 8l14 8v12c0 9-6.5 14-14 16-7.5-2-14-7-14-16V16l14-8z"/></svg>
+            </i>
+            <h3>상속 · 증여</h3>
+            <p>절세 전략 수립부터 재산 평가와 세금신고까지 원스톱으로 지원</p>
+          </li>
+          <li id="corp">
+            <i class="ic">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#053e8b" stroke-width="2"><path d="M8 40V18l16-10 16 10v22"/><path d="M20 40V28h8v12"/></svg>
+            </i>
+            <h3>무료 법인 설립</h3>
+            <p>설립 절차부터 세무 신고까지 추가 비용 없는 법인 설립 지원</p>
+          </li>
+          <li>
+            <i class="ic">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#053e8b" stroke-width="2"><rect x="6" y="14" width="36" height="24" rx="3"/><path d="M6 22h36M16 14V8h16v6"/></svg>
+            </i>
+            <h3>법인 컨설팅</h3>
+            <p>법인 전환, 가지급금 정리, 이익 소각 등 주요 세무 이슈를 체계적으로 해결</p>
+          </li>
+          <li>
+            <i class="ic">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#053e8b" stroke-width="2"><path d="M8 36l8-12 8 6 8-14 8 20"/><circle cx="16" cy="24" r="2" fill="#053e8b"/><circle cx="24" cy="30" r="2" fill="#053e8b"/><circle cx="32" cy="16" r="2" fill="#053e8b"/></svg>
+            </i>
+            <h3>세무 리포트</h3>
+            <p>대표님 의사결정에 활용 가능한 맞춤형 세무 인사이트 리포트 제공</p>
+          </li>
+        </ul>
+        <div class="bounce" aria-hidden="true">
+          <svg width="40" height="22" viewBox="0 0 61 33" fill="none"><path d="M2 2l28.5 28L59 2" stroke="#053e8b" stroke-width="3"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="wrap">
+        <div class="tit center white">
+          <span class="kicker">차별화 포인트</span>
+          <h2>판기세무회계를 선택해야 하는 이유</h2>
+          <p class="desc">단순 세무 대리를 넘어, 사업의 현재와 미래를 함께 설계합니다.</p>
+        </div>
+        <div class="pills light" id="why-pills">
+          <button type="button" class="on" data-why="0">선제적 세금 관리</button>
+          <button type="button" data-why="1">전문 자문</button>
+          <button type="button" data-why="2">세금 환급</button>
+          <button type="button" data-why="3">내 전담 세무팀</button>
+        </div>
+        <div class="why-slide" id="why-slide">
+          <article class="on" style="background-image:url('img/point-01.jpg')">
+            <h3>세금 신고 전 미리 준비하는 절세 전략</h3>
+            <p>매년 9월 중간결산을 통해 다음 해 예상 소득세와 법인세를 미리 진단하고<br>현재 시점에서 적용 가능한 합법적인 절세 방안을 선제적으로 마련해 드립니다.</p>
+          </article>
+          <article style="background-image:url('img/point-02.jpg')">
+            <h3>사업 성장 단계별 전문 자문</h3>
+            <p>김판기 세무사가 사업자 등록, 법인 전환, 법인 컨설팅, 투자 자문,<br>가업 상속, 증여 등 기업의 현재와 미래를 함께 고민합니다.</p>
+          </article>
+          <article style="background-image:url('img/point-03.jpg')">
+            <h3>더 낸 세금 꼼꼼하게 환급</h3>
+            <p>과거 5년 이내 신고 내역을 체계적으로 확인하여 놓친 공제와 감면 항목을 찾고<br>실제 환급 가능성 중심으로 소중한 자산을 지켜드립니다.</p>
+          </article>
+          <article style="background-image:url('img/point-04.jpg')">
+            <h3>질문은 바로 답하고 이슈는 미루지 않습니다.</h3>
+            <p>대표 세무사와 담당이 함께하는 전담 카카오톡 단톡방이 운영되어<br>세무 이슈, 자료 요청, 문의에 실시간으로 대응합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stat" id="stat">
+      <div class="wrap">
+        <div class="tit white">
+          <span class="kicker">검증된 세무 성과</span>
+          <h2>매년 새로운 기업에게 선택받는<br>세무 파트너, 판기세무회계</h2>
+          <p class="desc">깊이 있는 상담, 빠르고 정확한 피드백, 문제 해결 능력을 인정받아<br>기존 거래처 대표님들의 소개가 이어지는 세무 사무소입니다.</p>
+        </div>
+        <ul class="nums">
+          <li>
+            <h3>함께하는 고객사</h3>
+            <p><span class="num" data-count="186">0</span><small>곳</small></p>
+          </li>
+          <li>
+            <h3>경정청구 진행 프로젝트</h3>
+            <p><span class="num" data-count="94">0</span><small>건</small></p>
+          </li>
+          <li>
+            <h3>찾아드린 환급금 평균</h3>
+            <p><span class="num" data-count="820">0</span><small>만원</small></p>
+          </li>
+          <li>
+            <h3>누적 절세 금액</h3>
+            <p><span class="num" data-count="17">0</span><small>억원</small></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="review" id="review">
+      <div class="wrap">
+        <div class="tit center white">
+          <span class="kicker">고객 리뷰</span>
+          <h2>판기에서 세무 고민을 해결한<br>대표님들의 후기를 확인해 보세요.</h2>
+          <p class="stars">★★★★★ <span>만족도 4.95점</span></p>
+        </div>
+      </div>
+      <div class="track-wrap">
+        <ul class="track" id="review-track">
+          <li>
+            <a href="#consult">
+              <small>네이버 방문자 리뷰</small>
+              <h3>초보 사업자 세무 상담, 원리부터 알려줘서 걱정이 줄었어요</h3>
+              <p>사업자등록부터 증빙 관리, 인건비 신고까지 아무것도 몰랐는데 원리부터 차근히 설명해 주셨어요. 상담받지 않았다면 세금 때문에 사업을 시작하기 어려웠을 겁니다.</p>
+              <span>개인, 법인사업자 장부기장 · rla****</span>
+            </a>
+          </li>
+          <li>
+            <a href="#consult">
+              <small>네이버 방문자 리뷰</small>
+              <h3>법인 전문 세무 상담, 대표 세무사 직접 진행으로 믿음이 갔어요</h3>
+              <p>대표 세무사님이 직접 상담해 주셨고 경험도 풍부하고 세심하게 봐 주셨어요. 상담 과정부터 결과까지 만족스럽습니다.</p>
+              <span>개인, 법인사업자 장부기장 · 주****</span>
+            </a>
+          </li>
+          <li>
+            <a href="#consult">
+              <small>네이버 방문자 리뷰</small>
+              <h3>상가 양수양도 세금 상담, 명확한 설명으로 빠르게 해결했어요</h3>
+              <p>며칠을 고민했는데 듣고 싶었던 내용을 알기 쉽게 설명해 주셨습니다. 친절은 기본이고 경험도 많아서 안심이 됐습니다.</p>
+              <span>사업자등록 상담 · jin****</span>
+            </a>
+          </li>
+          <li>
+            <a href="#consult">
+              <small>네이버 방문자 리뷰</small>
+              <h3>체계적인 세무 관리와 빠른 소통, 상담 후 바로 계약했어요</h3>
+              <p>전화 상담부터 친절했고, 방문하니 절세 팁도 자세히 알려 주셔서 바로 기장 계약했습니다.</p>
+              <span>개인, 법인사업자 장부기장 · 행****</span>
+            </a>
+          </li>
+          <li>
+            <a href="#consult">
+              <small>네이버 방문자 리뷰</small>
+              <h3>개인사업자 장부기장 상담 받고 법인 세무까지 대비했어요</h3>
+              <p>법인 세무까지 대비할 수 있게 안내해 주셔서 든든했어요. 실질적인 절세 팁도 얻었습니다.</p>
+              <span>개인, 법인사업자 장부기장 · hou****</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fee" id="fee">
+      <div class="wrap">
+        <div class="tit center">
+          <span class="kicker">세무 전문가가 설계한 업종 기준</span>
+          <h2>업종별 기장료</h2>
+        </div>
+        <ul class="fee-list">
+          <li><button type="button" data-fee="요식업">요식업<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="IT·전자상거래">IT·전자상거래<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="도소매업">도소매업<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="학원">학원<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="제조업">제조업<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="건설업">건설업<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="병·의원">병·의원<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="1인 사업자(스타트업)">1인 사업자(스타트업)<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+          <li><button type="button" data-fee="기타">기타<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="consult" id="consult">
+      <div class="wrap split">
+        <div class="tit white">
+          <h2>전문 세무사 실시간 상담 접수</h2>
+          <p class="desc">궁금한 점이 있다면 편하게 문의하세요.<br>작은 질문 하나가 큰 절세로 이어질 수 있습니다.</p>
+        </div>
+        <form id="consult-form">
+          <div class="fields">
+            <input name="name" type="text" placeholder="이름" required>
+            <input name="phone" type="tel" placeholder="연락처" required>
+            <select name="topic" required>
+              <option value="" disabled selected>상담 항목</option>
+              <option>세무기장</option>
+              <option>경정청구</option>
+              <option>상속증여양도</option>
+              <option>법인컨설팅</option>
+              <option>기타</option>
+            </select>
+            <button type="submit">상담 신청</button>
+          </div>
+          <label class="agree">
+            <input type="checkbox" required>
+            개인정보 수집 및 이용에 동의합니다.
+            <button type="button" class="link" id="privacy-open">개인정보 수집 및 이용 동의</button>
+          </label>
+          <p class="ok" hidden>접수했습니다. 확인 후 연락드리겠습니다.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="map" id="place">
+      <div class="wrap">
+        <div class="map-top">
+          <a class="logo map-logo" href="#top" aria-label="판기세무회계">
+            <span class="mark">판</span>
+            <strong>판기세무회계</strong>
+          </a>
+        </div>
+        <div class="map-body">
+          <div>
+            <h2>판기세무회계 찾아오시는 길</h2>
+            <p>7호선 신중동역과 가깝습니다.</p>
+            <dl>
+              <div><dt>상세주소</dt><dd>부천시 신흥로 268 (중동)</dd></div>
+              <div><dt>주차 안내</dt><dd>방문 전 연락 주시면 안내합니다</dd></div>
+              <div><dt>대표 전화</dt><dd>032-323-0268</dd></div>
+              <div><dt>이메일</dt><dd>contact@pantax.co.kr</dd></div>
+            </dl>
+          </div>
+          <div class="map-box">
+            <iframe title="판기세무회계 위치" src="https://maps.google.com/maps?q=경기도%20부천시%20신흥로%20268&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap">
+      <address>
+        <span>상호명 : 판기세무회계</span>
+        <span>대표 : 김판기</span>
+        <span>전화번호 : 032-323-0268</span>
+        <span>이메일 : contact@pantax.co.kr</span>
+        <span>주소 : 부천시 신흥로 268 (중동)</span>
+      </address>
+      <p>Copyright © 판기세무회계. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <aside class="quick">
+    <a href="#corp">무료<br>법인설립</a>
+    <a href="#consult">카톡상담</a>
+    <a href="#top" class="top">↑</a>
+  </aside>
+
+  <div class="modal" id="fee-modal" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="fee-title">
+      <p class="sheet-k" id="fee-title">세무 전문가가 설계한 업종별 기장료</p>
+      <h3 id="fee-name">요식업</h3>
+      <table>
+        <thead>
+          <tr><th>매출액 구간</th><th>개인사업자</th><th>법인사업자</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1억 원 미만</td><td>80,000</td><td>120,000</td></tr>
+          <tr><td>1억 원 ~ 3억 원</td><td>100,000</td><td>150,000</td></tr>
+          <tr><td>3억 원 ~ 7억 원</td><td>120,000</td><td>180,000</td></tr>
+          <tr><td>7억 원 ~ 10억 원</td><td>150,000</td><td>200,000</td></tr>
+          <tr><td>10억 원 ~ 20억 원</td><td>200,000</td><td>250,000</td></tr>
+          <tr><td>20억 원 ~ 30억 원</td><td>250,000</td><td>300,000</td></tr>
+          <tr><td>30억 원 ~ 50억 원</td><td>300,000</td><td>350,000</td></tr>
+          <tr><td>50억 원 이상</td><td colspan="2">협의</td></tr>
+        </tbody>
+      </table>
+      <ul class="notes">
+        <li>* 계약일 기준 익월부터 청구됩니다.</li>
+        <li>* 월 단위 기준이며, VAT 별도 금액입니다.</li>
+        <li>* 4대보험 대상자 5인까지는 추가 비용이 발생하지 않습니다.</li>
+        <li>* 근로자 연말정산 및 4대보험 관련 업무가 포함되어 있습니다.</li>
+        <li>* 사업자 유형, 거래 구조, 업무량 등을 기준으로 변동될 수 있습니다.</li>
+      </ul>
+      <button type="button" class="close" id="fee-close">확인</button>
+    </div>
+  </div>
+
+  <div class="modal" id="privacy-modal" hidden>
+    <div class="sheet" role="dialog" aria-modal="true">
+      <h3>개인정보 수집 및 이용 동의</h3>
+      <p class="legal">상담 접수를 위해 이름, 연락처, 상담 항목을 수집합니다. 이용 목적은 상담 회신이며, 보유 기간은 상담 종료 후 1년입니다. 동의를 거부할 수 있으나 상담 접수가 제한됩니다.</p>
+      <button type="button" class="close" id="privacy-close">확인</button>
+    </div>
+  </div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>
