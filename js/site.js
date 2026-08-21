@@ -1,10 +1,19 @@
 const burger = document.getElementById("burger");
 const overlay = document.getElementById("overlay");
+let menuY = 0;
 const setMenu = (open) => {
   overlay.hidden = !open;
   burger.classList.toggle("on", open);
   burger.setAttribute("aria-expanded", String(open));
-  document.body.style.overflow = open ? "hidden" : "";
+  if (open) {
+    menuY = window.scrollY;
+    document.documentElement.classList.add("is-menu");
+    document.body.style.top = `-${menuY}px`;
+  } else {
+    document.documentElement.classList.remove("is-menu");
+    document.body.style.top = "";
+    window.scrollTo(0, menuY);
+  }
 };
 burger?.addEventListener("click", () => setMenu(overlay.hidden));
 overlay?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
