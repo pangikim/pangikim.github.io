@@ -351,7 +351,6 @@ h2 {
   border-radius: 0;
   object-fit: contain;
   object-position: 50% 100%;
-  transform: translateX(-3.91%);
   z-index: 1;
 }
 .hero .shot figcaption {
@@ -1246,6 +1245,7 @@ input, select {
     margin: 0 auto;
   }
   .hero .shot-card { right: 6.26%; }
+  .hero .shot-pic img { transform: translateX(-3.21%); }
   .hero .shot-pic {
     width: 100%;
     height: auto;
