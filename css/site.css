@@ -1237,8 +1237,8 @@ input, select {
     align-items: center;
   }
   .hero .shot.lg {
-    width: min(511px, calc(100% + 24px));
-    margin: 0 -12px;
+    width: min(511px, 100%);
+    margin: 0 auto;
   }
   .hero .shot-pic {
     width: 100%;
