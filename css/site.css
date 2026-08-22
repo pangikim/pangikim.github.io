@@ -271,8 +271,8 @@ html.is-menu body {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 511px;
-  gap: 0;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 40px;
   align-items: end;
   min-height: 532px;
   padding: 0 0 40px;
@@ -302,6 +302,7 @@ h2 {
   line-height: 62.4px;
   letter-spacing: -1.92px;
 }
+.hero-copy { width: max-content; }
 .hero .btn { margin-top: 40px; }
 .sub {
   margin-top: 16px;
@@ -321,16 +322,20 @@ h2 {
 }
 .shot.lg { width: 511px; }
 .shot.lg img { width: 511px; height: 456px; }
+.hero .shot.lg {
+  width: min(511px, 100%);
+  justify-self: end;
+}
 .hero .shot-pic {
   position: relative;
-  width: 511px;
+  width: 100%;
   aspect-ratio: 1028 / 900;
   height: auto;
 }
 .hero .shot-card {
   position: absolute;
   left: 6.26%;
-  right: 6.26%;
+  right: 0;
   top: 28%;
   bottom: 0;
   background: rgba(0, 0, 0, 0.15);
@@ -1240,6 +1245,7 @@ input, select {
     width: min(511px, 100%);
     margin: 0 auto;
   }
+  .hero .shot-card { right: 6.26%; }
   .hero .shot-pic {
     width: 100%;
     height: auto;
