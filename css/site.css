@@ -275,7 +275,7 @@ html.is-menu body {
   gap: 0;
   align-items: end;
   min-height: 532px;
-  padding: 0;
+  padding: 0 0 40px;
 }
 .lead, .eyebrow {
   font-size: 28px;
@@ -314,6 +314,7 @@ h2 {
 .eyebrow { margin-bottom: 16px; }
 
 .shot { margin: 0; min-width: 0; }
+.hero .shot { position: relative; }
 .shot img {
   background: var(--wash);
   border-radius: var(--r-shot);
@@ -323,17 +324,17 @@ h2 {
 .hero .shot-pic {
   position: relative;
   width: 511px;
-  height: 456px;
+  aspect-ratio: 1028 / 900;
+  height: auto;
 }
 .hero .shot-card {
   position: absolute;
-  left: 32px;
-  right: 32px;
+  left: 6.26%;
+  right: 6.26%;
   top: 28%;
-  bottom: 8px;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.15);
   border-radius: 24px;
-  transform: translateY(6px);
   z-index: 0;
 }
 .hero .shot-pic img {
@@ -344,14 +345,21 @@ h2 {
   background: transparent;
   border-radius: 0;
   object-fit: contain;
-  transform: translateX(-20px);
+  object-position: 50% 100%;
+  transform: translateX(-3.91%);
   z-index: 1;
 }
 .hero .shot figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
   display: block;
   text-align: center;
-  font-size: 16px;
-  line-height: 20px;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
 }
 .shot.sm { width: 265px; flex: 0 0 265px; }
 .shot.sm img { width: 265px; height: 490px; }
@@ -1229,19 +1237,23 @@ input, select {
     align-items: center;
   }
   .hero .shot.lg {
-    width: min(511px, 100%);
-    margin: 0 auto;
+    width: min(511px, calc(100% + 24px));
+    margin: 0 -12px;
   }
   .hero .shot-pic {
     width: 100%;
     height: auto;
-    aspect-ratio: 511 / 456;
+    aspect-ratio: 1028 / 900;
   }
   .hero .shot-pic img {
     width: 100%;
     height: 100%;
   }
-  .hero .shot figcaption { width: 100%; text-align: center; }
+  .hero .shot figcaption {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
   .statbox {
     flex-direction: column;
     align-items: stretch;
