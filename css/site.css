@@ -1243,6 +1243,7 @@ input, select {
   .hero .shot.lg {
     width: min(511px, 100%);
     margin: 0 auto;
+    justify-self: center;
   }
   .hero .shot-card { right: 6.26%; }
   .hero .shot-pic img { transform: translateX(-3.21%); }
