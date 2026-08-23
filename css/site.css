@@ -44,6 +44,56 @@ ul { list-style: none; padding: 0; }
   height: 84px;
   background: #fff;
 }
+body.home .hd {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: transparent;
+  transition: background .2s ease;
+}
+body.home .hd.is-solid {
+  background: #fff;
+}
+body.home .nav a,
+body.home .nav button {
+  color: #fff;
+}
+body.home .nav .menu a {
+  color: var(--ink);
+}
+body.home .chev {
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+}
+body.home .hd-btns .btn {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+body.home .hd-btns .ghost,
+body.home .hd-btns .line {
+  color: #fff;
+}
+body.home .burger i {
+  background: #fff;
+}
+body.home .hd.is-solid .nav a,
+body.home .hd.is-solid .nav button {
+  color: var(--ink);
+}
+body.home .hd.is-solid .chev {
+  border-right-color: #111;
+  border-bottom-color: #111;
+}
+body.home .hd.is-solid .hd-btns .btn {
+  background: #fff;
+  border-color: #d9dade;
+}
+body.home .hd.is-solid .hd-btns .ghost { color: #181d27; }
+body.home .hd.is-solid .hd-btns .line { color: #0267ff; }
+body.home .hd.is-solid .burger i {
+  background: #181d27;
+}
 .hd-in {
   height: 84px;
   display: flex;
@@ -270,12 +320,37 @@ html.is-menu body {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  gap: 40px;
-  align-items: end;
-  min-height: 532px;
-  padding: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+  padding: 0;
+  box-sizing: border-box;
+}
+.hero-stage {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #1a2230;
+}
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 1;
 }
 .lead, .eyebrow {
   font-size: 28px;
@@ -302,8 +377,35 @@ h2 {
   line-height: 62.4px;
   letter-spacing: -1.92px;
 }
-.hero-copy { width: max-content; }
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  width: max-content;
+  max-width: min(900px, calc(100% - 80px));
+  padding: 48px 40px;
+  text-align: center;
+}
+.hero-stage .lead {
+  color: rgba(240, 243, 255, 0.86);
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -1.6px;
+}
+.hero-stage h1 {
+  color: #fff;
+  font-size: 72px;
+  line-height: 90px;
+  letter-spacing: -2.88px;
+}
 .hero .btn { margin-top: 40px; }
+.hero .btn.solid {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.hero .btn.solid:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
 .sub {
   margin-top: 16px;
   font-size: 24px;
@@ -315,56 +417,12 @@ h2 {
 .eyebrow { margin-bottom: 16px; }
 
 .shot { margin: 0; min-width: 0; }
-.hero .shot { position: relative; }
 .shot img {
   background: var(--wash);
   border-radius: var(--r-shot);
 }
 .shot.lg { width: 511px; }
 .shot.lg img { width: 511px; height: 456px; }
-.hero .shot.lg {
-  width: min(511px, 100%);
-  justify-self: end;
-}
-.hero .shot-pic {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1028 / 900;
-  height: auto;
-}
-.hero .shot-card {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 28%;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 24px;
-  z-index: 0;
-}
-.hero .shot-pic img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border-radius: 0;
-  object-fit: contain;
-  object-position: 50% 100%;
-  z-index: 1;
-}
-.hero .shot figcaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  display: block;
-  text-align: center;
-  margin-top: 16px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 24px;
-}
 .shot.sm { width: 265px; flex: 0 0 265px; }
 .shot.sm img { width: 265px; height: 490px; }
 .shot figcaption {
@@ -1226,43 +1284,25 @@ input, select {
     margin: 0;
   }
   .hero {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    min-height: 0;
-    padding: 16px 0 40px;
-    justify-items: stretch;
-    align-items: start;
+    height: 100dvh;
+    padding: 0;
   }
-  .hero-copy { width: 100%; }
+  .hero-copy {
+    width: 100%;
+    max-width: none;
+    padding: 32px 24px;
+  }
+  .hero-stage .lead {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.96px;
+  }
+  .hero-stage h1 {
+    font-size: 36px;
+    line-height: 46px;
+    letter-spacing: -1.44px;
+  }
   .hero .btn.solid { width: 100%; }
-  .hero .shot {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero .shot.lg {
-    width: 100%;
-    margin: 0;
-    justify-self: stretch;
-  }
-  .hero .shot-card {
-    left: 0;
-    right: 0;
-  }
-  .hero .shot-pic {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1028 / 900;
-  }
-  .hero .shot-pic img {
-    width: 100%;
-    height: 100%;
-  }
-  .hero .shot figcaption {
-    position: static;
-    width: 100%;
-    text-align: center;
-  }
   .statbox {
     flex-direction: column;
     align-items: stretch;

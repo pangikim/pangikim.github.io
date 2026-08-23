@@ -1,6 +1,15 @@
 const burger = document.getElementById("burger");
 const overlay = document.getElementById("overlay");
+const hd = document.getElementById("hd");
+const hero = document.querySelector(".hero");
 let menuY = 0;
+const syncHd = () => {
+  if (!hd || !hero) return;
+  const y = document.documentElement.classList.contains("is-menu") ? menuY : window.scrollY;
+  const past = y >= Math.max(hero.offsetHeight - hd.offsetHeight, 0);
+  const menu = document.documentElement.classList.contains("is-menu");
+  hd.classList.toggle("is-solid", past || menu);
+};
 const setMenu = (open) => {
   overlay.hidden = !open;
   burger.classList.toggle("on", open);
@@ -14,6 +23,7 @@ const setMenu = (open) => {
     document.body.style.top = "";
     window.scrollTo(0, menuY);
   }
+  syncHd();
 };
 burger?.addEventListener("click", () => setMenu(overlay.hidden));
 overlay?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
@@ -51,8 +61,12 @@ const toggleDock = () => {
   const atForm = consult && consult.getBoundingClientRect().top < window.innerHeight - 80;
   dock.hidden = !passedTop || atForm;
 };
-window.addEventListener("scroll", toggleDock, { passive: true });
+window.addEventListener("scroll", () => {
+  toggleDock();
+  syncHd();
+}, { passive: true });
 toggleDock();
+syncHd();
 
 const blogQ = document.getElementById("blog-q");
 if (blogQ) {
