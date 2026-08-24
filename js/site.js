@@ -3,6 +3,8 @@ const overlay = document.getElementById("overlay");
 const hd = document.getElementById("hd");
 const hero = document.querySelector(".hero");
 let menuY = 0;
+let menuOpen = false;
+let menuHide;
 const syncHd = () => {
   if (!hd || !hero) return;
   const y = document.documentElement.classList.contains("is-menu") ? menuY : window.scrollY;
@@ -11,21 +13,29 @@ const syncHd = () => {
   hd.classList.toggle("is-solid", past || menu);
 };
 const setMenu = (open) => {
-  overlay.hidden = !open;
+  menuOpen = open;
   burger.classList.toggle("on", open);
   burger.setAttribute("aria-expanded", String(open));
+  overlay?.setAttribute("aria-hidden", String(!open));
+  clearTimeout(menuHide);
   if (open) {
+    overlay.hidden = false;
+    requestAnimationFrame(() => overlay.classList.add("is-open"));
     menuY = window.scrollY;
     document.documentElement.classList.add("is-menu");
     document.body.style.top = `-${menuY}px`;
   } else {
+    overlay.classList.remove("is-open");
     document.documentElement.classList.remove("is-menu");
     document.body.style.top = "";
     window.scrollTo(0, menuY);
+    menuHide = setTimeout(() => {
+      if (!menuOpen) overlay.hidden = true;
+    }, 200);
   }
   syncHd();
 };
-burger?.addEventListener("click", () => setMenu(overlay.hidden));
+burger?.addEventListener("click", () => setMenu(!menuOpen));
 overlay?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
 const tabs = document.getElementById("sys-tabs");

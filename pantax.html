@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PANTAX.ai | 판기세무회계</title>
-  <meta name="description" content="PANTAX.ai. 매출·매입·세금과 지원금까지 매일 갱신되는 판기세무회계의 세무 시스템입니다.">
+  <meta name="description" content="PANTAX.ai. 김판기 세무사가 상담 전에 장부·세액·리스크를 먼저 읽는 판기세무회계 내부 분석 시스템입니다.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/apple-touch.png">
-  <link rel="stylesheet" href="css/site.css?v=103">
+  <link rel="stylesheet" href="css/site.css?v=118">
 </head>
 <body>
   <header class="hd">
@@ -24,7 +24,7 @@
         </span>
       </a>
       <nav class="nav">
-        <a href="index.html">회사소개</a>
+        <a href="about.html">회사소개</a>
         <div class="drop">
           <button type="button">세무서비스 <span class="chev"></span></button>
           <div class="menu">
@@ -33,12 +33,10 @@
             <a href="refund.html">더낸세금</a>
           </div>
         </div>
-        <a href="pantax.html">PANTAX.ai</a>
+        <a href="pantax.html" aria-current="page">PANTAX.ai</a>
         <a href="blog.html">블로그</a>
       </nav>
       <div class="hd-btns">
-        <a class="btn ghost" href="consult.html">로그인</a>
-        <a class="btn line" href="consult.html">상담 신청하기</a>
         <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
           <i></i><i></i><i></i>
         </button>
@@ -48,7 +46,7 @@
 
   <div class="overlay" id="overlay" hidden>
     <div class="overlay-in">
-      <a href="index.html">회사소개</a>
+      <a href="about.html">회사소개</a>
       <details>
         <summary>세무서비스</summary>
         <a href="gijang.html">세무 기장</a>
@@ -61,28 +59,245 @@
   </div>
 
   <main>
-    <section class="svc wrap">
-      <p class="eyebrow">들어오는 돈, 나가는 돈, 세금까지</p>
-      <h1>PANTAX.ai</h1>
-      <p class="sub">매일 아침 갱신되는 회사 숫자부터 업종에 맞는 지원금 추천까지.<br>기장 고객이 쓰는 판기세무회계의 세무 시스템입니다.</p>
-      <div class="svc-points">
-        <article>
-          <b>대시보드</b>
-          <p>이번 달 매출·매입·예상 세금과 월별 추이를 한 화면에서 봅니다.</p>
-        </article>
-        <article>
-          <b>매출매입관리</b>
-          <p>카드·세금계산서 자료를 모아 분기 손익을 맞춰 둡니다.</p>
-        </article>
-        <article>
-          <b>세액추정 · 리스크관리</b>
-          <p>장부와 고지를 맞춰 보고, 상담 전에 확인할 이슈만 남깁니다.</p>
-        </article>
+    <section class="pantax px-top">
+      <div class="wrap">
+        <div class="pantax-in">
+          <div class="pantax-copy">
+            <p class="pantax-kicker">PANTAX.ai</p>
+            <h1>상담 전에,<br>이미 숫자부터 봅니다.</h1>
+            <p class="px-lead">기장 자료를 매일 읽고, 부가세·법인세 차이와 리스크를 상담 전에 정리합니다. 판기세무회계가 내부에서 쓰는 분석 시스템입니다.</p>
+          </div>
+          <div class="pantax-win">
+            <div class="pantax-bar">
+              <span class="pantax-brand"><i></i><i></i><i></i><b>PANTAX</b> 내부 분석</span>
+              <span class="pantax-live"><i></i>LIVE</span>
+              <em>STAFF ONLY</em>
+            </div>
+            <div class="pantax-shell">
+              <nav class="pantax-menu" id="pantax-menu" aria-label="내부 분석 메뉴">
+                <button type="button" class="on" data-pane="brief">브리프</button>
+                <button type="button" data-pane="tax">세액</button>
+                <button type="button" data-pane="risk">리스크</button>
+                <button type="button" data-pane="talk">상담</button>
+              </nav>
+              <div class="pantax-main" id="pantax-main">
+                <article data-pane="brief" class="on">
+                  <div class="pantax-who">
+                    <span class="pantax-av">김</span>
+                    <div>
+                      <b>김대표 · 도소매</b>
+                      <p>담당 김판기 세무사 · 2026.04.12 검토</p>
+                    </div>
+                    <strong>신뢰도 92%</strong>
+                  </div>
+                  <div class="pantax-kpis">
+                    <div><em>장부 추정</em><b>128만</b></div>
+                    <div><em>예정 고지</em><b>144만</b></div>
+                    <div class="gap"><em>차이</em><b>-16만</b></div>
+                  </div>
+                  <div class="pantax-card">
+                    <p class="pantax-label">AI 브리프</p>
+                    <h3>매입세금계산서 3건이 장부에 안 잡혔을 가능성이 있습니다.</h3>
+                    <p>부가세 차이를 먼저 맞추면, 경정청구 검토까지 이어서 볼 수 있습니다.</p>
+                  </div>
+                </article>
+                <article data-pane="tax">
+                  <div class="pantax-tax">
+                    <div>
+                      <p class="pantax-label">부가세</p>
+                      <b>128만 원</b>
+                      <div class="pantax-bars" aria-hidden="true">
+                        <div><span>장부</span><i style="--w:89%"></i><em>128만</em></div>
+                        <div><span>고지</span><i style="--w:100%"></i><em>144만</em></div>
+                      </div>
+                      <p>예정고지와 16만 원 차이. 매입세금계산서 3건 미반영 가능.</p>
+                    </div>
+                    <div>
+                      <p class="pantax-label">법인세</p>
+                      <b>1,860만 원</b>
+                      <div class="pantax-bars" aria-hidden="true">
+                        <div><span>추정</span><i style="--w:87%"></i><em>1,860만</em></div>
+                        <div><span>예납</span><i style="--w:100%"></i><em>2,140만</em></div>
+                      </div>
+                      <p>중간예납과 280만 원 차이. 접대비·감가상각 한도를 다시 맞춰야 합니다.</p>
+                    </div>
+                  </div>
+                </article>
+                <article data-pane="risk">
+                  <ul class="pantax-issues">
+                    <li><em class="hi">주의</em><div><b>가지급금 잔액 증가</b><span>전월 대비 1,240만 원 상승</span></div></li>
+                    <li><em class="mid">확인</em><div><b>경비 증빙 누락 2건</b><span>접대비 · 차량유지비</span></div></li>
+                    <li><em>관찰</em><div><b>접대비 한도 근접</b><span>연간 한도의 86%</span></div></li>
+                  </ul>
+                </article>
+                <article data-pane="talk">
+                  <div class="pantax-card">
+                    <p class="pantax-label">다음 상담에서</p>
+                    <ul class="pantax-check">
+                      <li>매입 누락분 3건 확인</li>
+                      <li>경정청구 대상 여부</li>
+                      <li>가지급금 정리 일정</li>
+                    </ul>
+                    <p class="pantax-next">다음 미팅 <strong>2026.04.18 14:00</strong></p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="px-stats">
+          <li><b>매일 갱신</b><span>장부를 아침마다 다시 읽습니다.</span></li>
+          <li><b>부가세 · 법인세</b><span>장부와 고지를 한 화면에서 맞춥니다.</span></li>
+          <li><b>우선 이슈</b><span>상담에서 확인할 항목만 남깁니다.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="system">
+    <section class="px-sec">
       <div class="wrap">
+      <p class="eyebrow">상담이 짧아지는 이유</p>
+      <h2>자리에 앉기 전에<br>이미 쟁점을 알고 있습니다.</h2>
+      <p class="sub">자료를 뒤져 현황을 찾는 시간이 줄면, 대표님과 이야기할 시간이 늘어납니다.</p>
+      <div class="px-why">
+        <article>
+          <i>01</i>
+          <b>장부와 고지가 어긋납니다</b>
+          <p>예정고지와 장부 추정 세액이 다르면, 매입 누락인지 한도 초과인지부터 가려야 합니다. PANTAX는 부가세와 법인세를 같은 화면에서 비교합니다.</p>
+        </article>
+        <article>
+          <i>02</i>
+          <b>리스크는 상담 당일에 나옵니다</b>
+          <p>가지급금, 증빙 누락, 접대비 한도는 대화 중에야 발견되는 경우가 많습니다. 미리 우선순위를 적어 두면 상담이 설명에서 결정으로 바뀝니다.</p>
+        </article>
+        <article>
+          <i>03</i>
+          <b>장부는 매일 바뀝니다</b>
+          <p>지난달 엑셀과 오늘 카드 내역이 다르면 조언도 달라집니다. 홈택스·카드·계산서 자료를 모아 아침마다 화면을 갱신합니다.</p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="px-sec wash">
+      <div class="wrap">
+        <p class="eyebrow">작동 방식</p>
+        <h2>기장 계약부터 상담 브리프까지</h2>
+        <ol class="px-flow">
+          <li>
+            <i>01</i>
+            <b>기장 계약</b>
+            <span>별도 앱을 가입하는 상품이 아닙니다. 기장 고객의 장부를 판기세무회계가 내부에서 읽습니다.</span>
+          </li>
+          <li>
+            <i>02</i>
+            <b>자료 취합</b>
+            <span>홈택스 신고 자료, 카드·세금계산서, 급여 원천을 한곳으로 모읍니다.</span>
+          </li>
+          <li>
+            <i>03</i>
+            <b>매일 분석</b>
+            <span>매출·매입·예상 세액과 전월 대비 이상 항목을 다시 계산합니다.</span>
+          </li>
+          <li>
+            <i>04</i>
+            <b>상담 브리프</b>
+            <span>세무사가 확인할 이슈, 추정 차이, 다음 미팅에서 물을 항목만 남깁니다.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="px-sec">
+      <div class="wrap">
+      <p class="eyebrow">읽어 들이는 자료</p>
+      <h2>상담실에 오기 전에<br>이미 장부가 모여 있습니다.</h2>
+      <p class="sub">사람이 폴더를 뒤지지 않아도, 같은 원장에서 세액과 리스크가 같이 나옵니다.</p>
+      <ul class="px-src">
+        <li>
+          <b>홈택스 신고</b>
+          <span>부가세 예정·확정, 원천세, 법인세 중간예납 고지와 신고 이력을 붙입니다.</span>
+        </li>
+        <li>
+          <b>카드 · 계산서</b>
+          <span>승인내역과 세금계산서를 매입·매출에 맞춰, 빠진 건부터 표시합니다.</span>
+        </li>
+        <li>
+          <b>급여 · 원천</b>
+          <span>인건비와 원천징수를 손익에 넣고, 신고 주기와 어긋난 달을 표시합니다.</span>
+        </li>
+        <li>
+          <b>전월 대비</b>
+          <span>매출 급변, 마진 하락, 가지급금 증가처럼 전월과 다른 항목만 위로 올립니다.</span>
+        </li>
+      </ul>
+      </div>
+    </section>
+
+    <section class="px-sec wash">
+      <div class="wrap">
+      <p class="eyebrow">한 화면에서 보는 것</p>
+      <h2>매출, 세액, 리스크를<br>같은 기준으로 읽습니다.</h2>
+      <div class="px-feat">
+        <article>
+          <p class="px-tag">대시보드</p>
+          <h3>이번 달 매출·매입·세금</h3>
+          <p>월별 추이와 손익을 한 장에 둡니다. 대표님께 설명할 때도, 담당자가 내부를 볼 때도 같은 화면을 봅니다. 1월부터 6월까지 매출·매입·세금·순이익이 표와 그래프로 맞춰져 있습니다.</p>
+        </article>
+        <article>
+          <p class="px-tag">매출매입관리</p>
+          <h3>카드와 계산서가 모인 손익</h3>
+          <p>카드 승인, 세금계산서, 현금 자료를 분기 손익에 붙입니다. 마진율이 갑자기 흔들리면 업종 평균이 아니라 그 회사 장부에서 원인을 찾습니다.</p>
+        </article>
+        <article>
+          <p class="px-tag">세액추정</p>
+          <h3>부가세와 법인세</h3>
+          <p>장부 기준 부가세와 예정고지, 법인세 추정과 중간예납을 나란히 봅니다. 차이가 나면 매입 미반영인지, 접대비·감가상각 한도인지 상담 전에 표시합니다.</p>
+        </article>
+        <article>
+          <p class="px-tag">리스크관리</p>
+          <h3>주의 · 확인 · 관찰</h3>
+          <p>가지급금 증가, 증빙 누락, 한도 근접을 등급으로 나눕니다. 모든 이슈를 나열하지 않고, 이번 상담에서 먼저 볼 항목만 위에 올립니다.</p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="px-case">
+      <div class="wrap">
+        <p class="eyebrow">샘플 브리프</p>
+        <h2>상담 전, 이런 메모가 올라옵니다.</h2>
+        <p class="sub">아래는 샘플입니다. 실제 고객 장부가 아니라, 판기세무회계가 매일 보는 화면의 톤입니다.</p>
+        <div class="px-case-card">
+          <header>
+            <div>
+              <b>김대표 · 도소매</b>
+              <span>담당 김판기 세무사 · 2026.04.12</span>
+            </div>
+            <em>우선 3건</em>
+          </header>
+          <ol>
+            <li>
+              <b>부가세 16만 원 차이</b>
+              <p>장부 추정 128만, 예정고지 144만. 매입세금계산서 3건이 장부에 안 잡혔을 가능성이 큽니다. 상담에서 계산서 원본을 먼저 맞춥니다.</p>
+            </li>
+            <li>
+              <b>법인세 중간예납 280만 원 차이</b>
+              <p>추정 1,860만, 예납 2,140만. 접대비와 감가상각 한도를 다시 보면 차이가 줄어드는지 확인합니다.</p>
+            </li>
+            <li>
+              <b>가지급금 전월 대비 1,240만 원 증가</b>
+              <p>주의 등급입니다. 정리 일정과 인정이자 여부를 이번 미팅에서 물어야 합니다.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-sec wash px-demo">
+      <div class="wrap">
+        <p class="eyebrow">실제 화면</p>
+        <h2>판기세무회계가 매일 열어 보는 화면입니다.</h2>
+        <p class="sub">아래는 샘플 장부입니다. 탭을 누르면 대시보드, 매출매입, 세액, 리스크가 갈립니다.</p>
         <ul class="htabs" id="sys-tabs">
           <li><button type="button" class="on" data-pane="home">대시보드</button></li>
           <li><button type="button" data-pane="sales">매출매입관리</button></li>
@@ -187,7 +402,7 @@
               <div class="kpis">
                 <div><em>장부 부가세</em><strong>8,130,000<small>원</small></strong></div>
                 <div><em>예정고지</em><strong>8,860,000<small>원</small></strong></div>
-                <div><em>차이</em><strong>730,000<small>원</small></strong></div>
+                <div><em>법인세 추정</em><strong>18,600,000<small>원</small></strong></div>
               </div>
               <div class="chart">
                 <div class="chart-head">
@@ -260,7 +475,71 @@
             </div>
           </article>
         </div>
-        <a class="demo" href="consult.html?topic=pantax">세무 레포트 데모 체험하기</a>
+      </div>
+    </section>
+
+    <section class="px-sec">
+      <div class="wrap">
+      <p class="eyebrow">상담실에서</p>
+      <h2>세무사가 먼저 읽고,<br>대표님은 결정만 합니다.</h2>
+      <div class="px-pair">
+        <article>
+          <p class="px-tag">세무사가 보는 것</p>
+          <ul>
+            <li>장부 추정 세액과 예정고지 차이</li>
+            <li>부가세·법인세 각각의 원인</li>
+            <li>가지급금, 증빙, 한도 등급</li>
+            <li>다음 미팅에서 확인할 질문</li>
+          </ul>
+        </article>
+        <article>
+          <p class="px-tag">대표님이 얻는 것</p>
+          <ul>
+            <li>상담 시간이 자료 확인이 아니라 판단에 쓰입니다</li>
+            <li>왜 세금이 그렇게 나왔는지 같은 화면으로 설명듣습니다</li>
+            <li>놓친 매입·공제 가능성을 미리 듣습니다</li>
+            <li>기장 안에 포함된 시스템이라 따로 가입하지 않습니다</li>
+          </ul>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="px-sec wash">
+      <div class="wrap">
+      <p class="eyebrow">포함과 범위</p>
+      <h2>기장과 함께 돌아가고,<br>따로 파는 앱이 아닙니다.</h2>
+      <div class="px-scope">
+        <article>
+          <p class="px-tag">포함</p>
+          <ul>
+            <li>판기세무회계 기장 고객의 장부 분석</li>
+            <li>담당 세무사가 상담 전에 여는 화면</li>
+            <li>부가세·법인세 추정과 리스크 등급</li>
+            <li>다음 상담에서 확인할 브리프</li>
+          </ul>
+        </article>
+        <article>
+          <p class="px-tag">해당하지 않음</p>
+          <ul>
+            <li>대표님이 직접 로그인하는 고객 앱이 아닙니다</li>
+            <li>별도 구독이나 계정 가입 상품이 아닙니다</li>
+            <li>타 사무소 장부를 받아 분석하는 서비스가 아닙니다</li>
+            <li>세무 신고를 자동으로 제출하는 프로그램이 아닙니다</li>
+          </ul>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="px-foot">
+      <div class="wrap px-cta">
+        <div>
+          <p class="pantax-kicker">PANTAX.ai</p>
+          <h2>장부는 이미 준비되어 있습니다.</h2>
+          <p>기장 상담을 신청하시면, 담당 세무사가 이 화면으로 장부를 읽고 자리에 앉습니다.</p>
+        </div>
+        <a class="btn solid" href="consult.html?topic=gijang">상담 신청하기</a>
       </div>
     </section>
   </main>
@@ -300,6 +579,7 @@
           </div>
           <div>
             <p>바로가기</p>
+            <a href="about.html">회사소개</a>
             <a href="review.html">고객 후기</a>
             <a href="blog.html">블로그</a>
             <a href="consult.html">상담 신청</a>
@@ -314,6 +594,6 @@
     <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
     <a class="btn solid" href="consult.html">상담 신청하기</a>
   </aside>
-  <script src="js/site.js?v=10"></script>
+  <script src="js/site.js?v=11"></script>
 </body>
 </html>
