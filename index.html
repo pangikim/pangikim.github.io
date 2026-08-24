@@ -8,30 +8,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/apple-touch.png">
-  <link rel="stylesheet" href="css/site.css?v=60">
+  <link rel="stylesheet" href="css/site.css?v=103">
 </head>
 <body class="home">
   <header class="hd" id="hd">
     <div class="wrap hd-in">
       <a class="logo" href="#top" aria-label="판기세무회계">
-        <img src="img/logo.png?v=3" alt="" width="39" height="39">
+        <span class="logo-mark">
+          <img class="logo-ink" src="img/logo-line-black.png" alt="" width="39" height="39">
+          <img class="logo-wash" src="img/logo-line-white.png" alt="" width="39" height="39">
+        </span>
+        <span class="logo-word">
+          <img class="logo-ink" src="img/logo-word-black.png" alt="">
+          <img class="logo-wash" src="img/logo-word-white.png" alt="">
+        </span>
       </a>
       <nav class="nav">
+        <a href="#top">회사소개</a>
         <div class="drop">
-          <button type="button">세무 서비스 <span class="chev"></span></button>
+          <button type="button">세무서비스 <span class="chev"></span></button>
           <div class="menu">
             <a href="gijang.html">세무기장</a>
             <a href="consulting.html">컨설팅</a>
             <a href="refund.html">더낸세금</a>
           </div>
         </div>
-        <a href="review.html">고객 후기</a>
         <a href="pantax.html">PANTAX.ai</a>
         <a href="blog.html">블로그</a>
       </nav>
       <div class="hd-btns">
-        <a class="btn ghost" href="#consult">로그인</a>
-        <a class="btn line" href="#consult">상담 신청하기</a>
+        <a class="btn ghost" href="consult.html">로그인</a>
+        <a class="btn line" href="consult.html">상담 신청하기</a>
         <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
           <i></i><i></i><i></i>
         </button>
@@ -41,13 +48,13 @@
 
   <div class="overlay" id="overlay" hidden>
     <div class="overlay-in">
+      <a href="#top">회사소개</a>
       <details>
-        <summary>세무 서비스</summary>
+        <summary>세무서비스</summary>
         <a href="gijang.html">세무 기장</a>
         <a href="consulting.html">컨설팅</a>
         <a href="refund.html">경정청구(더낸세금)</a>
       </details>
-      <a href="review.html">고객 후기</a>
       <a href="pantax.html">PANTAX.ai</a>
       <a href="blog.html">블로그</a>
     </div>
@@ -60,255 +67,128 @@
           <source src="img/hero-city.mp4?v=3" type="video/mp4">
         </video>
         <div class="hero-copy">
-          <p class="lead">잘 내고 잘 돌려받는</p>
-          <h1>판기세무회계</h1>
-          <a class="btn solid" href="#consult">상담 신청하기</a>
+          <h1>세무는 계산이 아니라<br>전략입니다.</h1>
+          <p class="hero-desc">경험과 분석으로 최적의 답을 제시합니다.</p>
+          <a class="btn solid" href="consult.html">상담 신청하기</a>
         </div>
       </div>
     </section>
 
-    <section class="benefit wrap">
-      <h2>대표님들이 직접 체감한 혜택</h2>
-      <p class="sub">고객의 데이터에서<br>적극적으로 절세, 지원금, 혜택을 찾아내고 있습니다.</p>
-      <div class="hero-stat">
-        <p class="label">누적 고객 수</p>
-        <p class="mega">1,860+</p>
-        <p class="note">※ 2026.7 기준, 누적 수임 수 (해임 포함)</p>
-      </div>
-      <div class="statbox">
-        <article class="card">
-          <p class="plan">누적 세제 혜택</p>
-          <p class="amt">42억 원</p>
-          <p class="hint">※ 2024.7 ~ 2026.7 경정청구 환급 확정액</p>
-        </article>
-        <article>
-          <p class="plan">누적 지원금 수령 금액</p>
-          <p class="amt">2억 1,440<small>만원</small></p>
-          <p class="hint">※ 고객사가 수령한 바우처/지원금 합산</p>
-        </article>
-        <article>
-          <p class="plan">절세 컨설팅 사례</p>
-          <p class="amt">1,320<small>건</small></p>
-          <p class="hint">※ 2024.7 ~ 2026.7 기준</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="quotes wrap">
-      <article>
-        <p><b>압도적으로 자문의 퀄리티가</b> 높았어요. 시스템이 좋아도 결국은 사람이 소통하고, 믿을 수 있는 전문가가 있어야 한다고 생각합니다.</p>
-        <footer>
-          <img src="img/t2.jpg" alt="">
-          <div><b>(주)하린컴퍼니</b><span>이승권 대표님</span></div>
-          <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm2 10V9.5L13.2 4a1.8 1.8 0 0 1 3.3 1.2V8h3.1a2 2 0 0 1 2 2.3l-1.2 8A2 2 0 0 1 18.4 20H10z"/></svg>
-        </footer>
-      </article>
-      <article>
-        <p><b>굉장히 노력을 많이 하는 느낌이 들어요.</b> 그 시간에 자료가 오고, 입금만 하면 되니까. 깔끔하죠.</p>
-        <footer>
-          <img src="img/t5.jpg" alt="">
-          <div><b>(주)스튜디오 봄봄</b><span>이선용 대표님</span></div>
-          <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm2 10V9.5L13.2 4a1.8 1.8 0 0 1 3.3 1.2V8h3.1a2 2 0 0 1 2 2.3l-1.2 8A2 2 0 0 1 18.4 20H10z"/></svg>
-        </footer>
-      </article>
-      <article>
-        <p><b>스타트업을 가장 잘 아는 세무사무소입니다.</b> 실시간 응대와 잦은 소통이 가장 큰 장점이라고 생각합니다.</p>
-        <footer>
-          <img src="img/t1.jpg" alt="">
-          <div><b>(주)이콰리</b><span>정근택 대표님</span></div>
-          <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm2 10V9.5L13.2 4a1.8 1.8 0 0 1 3.3 1.2V8h3.1a2 2 0 0 1 2 2.3l-1.2 8A2 2 0 0 1 18.4 20H10z"/></svg>
-        </footer>
-      </article>
-      <article>
-        <p><b>컨설팅, 지원혜택으로 큰 도움을 받고 있습니다.</b> 성장하려는 의지가 보여 신뢰가 갔습니다.</p>
-        <footer>
-          <img src="img/t4.jpg" alt="">
-          <div><b>(주)넷스트림</b><span>상현태 대표님</span></div>
-          <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm2 10V9.5L13.2 4a1.8 1.8 0 0 1 3.3 1.2V8h3.1a2 2 0 0 1 2 2.3l-1.2 8A2 2 0 0 1 18.4 20H10z"/></svg>
-        </footer>
-      </article>
-      <article>
-        <p><b>정부지원사업에 대한 경험이 풍부해 편합니다.</b> 무엇을 해야 하는지 말이 통하는 게 좋습니다.</p>
-        <footer>
-          <img src="img/t6.jpg" alt="">
-          <div><b>(주)스위브</b><span>최형석 대표님</span></div>
-          <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm2 10V9.5L13.2 4a1.8 1.8 0 0 1 3.3 1.2V8h3.1a2 2 0 0 1 2 2.3l-1.2 8A2 2 0 0 1 18.4 20H10z"/></svg>
-        </footer>
-      </article>
-      <article>
-        <p><b>실시간 응대가 가능하고</b> 자료가 그 시간에 와서, 입금만 하면 됩니다. 깔끔합니다.</p>
-        <footer>
-          <img src="img/t3.jpg" alt="">
-          <div><b>인트버스 주식회사</b><span>박광o님</span></div>
-          <svg class="up" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v10H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm2 10V9.5L13.2 4a1.8 1.8 0 0 1 3.3 1.2V8h3.1a2 2 0 0 1 2 2.3l-1.2 8A2 2 0 0 1 18.4 20H10z"/></svg>
-        </footer>
-      </article>
-    </section>
-
-    <section class="clients">
+    <section class="benefit" id="benefit">
       <div class="wrap">
-        <h2>누적된 다양한 업종의 1,860+ 고객</h2>
-        <p class="sub">업종별로 전문 세무사들이<br>고객들의 세무를 지원하고 있습니다.</p>
-      </div>
-      <div class="marquee">
-        <ul class="mrow" id="logo-a">
-          <li><img src="img/logos/harin.svg?v=2" alt="하린"></li>
-          <li><img src="img/logos/bombom.svg?v=2" alt="봄봄"></li>
-          <li><img src="img/logos/equari.svg?v=2" alt="이콰리"></li>
-          <li><img src="img/logos/netstream.svg?v=2" alt="넷스트림"></li>
-          <li><img src="img/logos/swive.svg?v=2" alt="스위브"></li>
-          <li><img src="img/logos/langcode.svg?v=2" alt="랭코드"></li>
-          <li><img src="img/logos/ace.svg?v=2" alt="에이스"></li>
-          <li><img src="img/logos/dewey.svg?v=2" alt="듀이랩스"></li>
-        </ul>
-        <ul class="mrow rev" id="logo-b">
-          <li><img src="img/logos/manhole.svg?v=2" alt="맨홀"></li>
-          <li><img src="img/logos/intverse.svg?v=2" alt="인트버스"></li>
-          <li><img src="img/logos/ace.svg?v=2" alt="에이스"></li>
-          <li><img src="img/logos/bombom.svg?v=2" alt="봄봄"></li>
-          <li><img src="img/logos/harin.svg?v=2" alt="하린"></li>
-          <li><img src="img/logos/equari.svg?v=2" alt="이콰리"></li>
-          <li><img src="img/logos/swive.svg?v=2" alt="스위브"></li>
-          <li><img src="img/logos/dewey.svg?v=2" alt="듀이랩스"></li>
-        </ul>
+        <h2>대표님들이 직접 체감한 혜택</h2>
+        <p class="sub">고객의 데이터에서<br>적극적으로 절세, 지원금, 혜택을 찾아내고 있습니다.</p>
+        <div class="proof">
+          <div class="proof-main">
+            <p class="mega" data-count="1860" data-suffix="+">1,860+</p>
+            <p class="label">누적 고객 수</p>
+            <p class="note">※ 2026.7 기준, 누적 수임 수 (해임 포함)</p>
+          </div>
+          <div class="proof-grid">
+            <article>
+              <p class="amt" data-count="42" data-suffix="억 원">42억 원</p>
+              <p class="plan">누적 세제 혜택</p>
+              <p class="hint">※ 2024.7 ~ 2026.7 경정청구 환급 확정액</p>
+            </article>
+            <article>
+              <p class="amt" data-count="21440" data-format="eokman">2억 1,440<small>만원</small></p>
+              <p class="plan">누적 지원금 수령 금액</p>
+              <p class="hint">※ 고객사가 수령한 바우처/지원금 합산</p>
+            </article>
+            <article>
+              <p class="amt" data-count="1320" data-suffix="<small>건</small>">1,320<small>건</small></p>
+              <p class="plan">절세 컨설팅 사례</p>
+              <p class="hint">※ 2024.7 ~ 2026.7 기준</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="system" id="report">
-      <div class="wrap">
-      <p class="eyebrow">들어오는 돈, 나가는 돈, 세금까지</p>
-      <h2>PANTAX.ai</h2>
-      <p class="sub">매일 아침 갱신되는 회사 숫자부터 업종에 맞는 지원금 추천까지.<br>고객 피드백으로 꾸준히 업그레이드하고 있습니다.</p>
-      <ul class="htabs" id="sys-tabs">
-        <li><button type="button" class="on" data-pane="home">홈 대시보드</button></li>
-        <li><button type="button" data-pane="sales">매출·매입 관리</button></li>
-        <li><button type="button" data-pane="fund">지원금 추천</button></li>
-        <li><button type="button" data-pane="ai">AI 비서</button></li>
-      </ul>
-      <div class="board" id="sys-dash">
-        <article data-pane="home" class="on">
-          <div class="alfred">
-            <header>
-              <b>판기세무회계</b>
-              <span>2026.3 기준</span>
-            </header>
-            <div class="kpis">
-              <div><em>이번 달 매출</em><strong>12,180,000</strong></div>
-              <div><em>이번 달 매입</em><strong>4,450,000</strong></div>
-              <div><em>예상 세금</em><strong>1,280,000</strong></div>
-            </div>
-            <div class="chart">
-              <div class="chart-head">
-                <p>월별 추이</p>
-                <ul class="legend">
-                  <li><i class="a"></i>매출</li>
-                  <li><i class="b"></i>매입</li>
-                  <li><i class="c"></i>세금</li>
+    <section class="pantax" id="report">
+      <div class="wrap pantax-in">
+        <div class="pantax-copy">
+          <p class="pantax-kicker">PANTAX.ai</p>
+          <h2>상담 전에,<br>이미 숫자부터 봅니다.</h2>
+          <a class="btn solid" href="consult.html?topic=pantax">상담 신청하기</a>
+        </div>
+        <div class="pantax-win">
+          <div class="pantax-bar">
+            <span class="pantax-brand"><i></i><i></i><i></i><b>PANTAX</b> 내부 분석</span>
+            <span class="pantax-live"><i></i>LIVE</span>
+            <em>STAFF ONLY</em>
+          </div>
+          <div class="pantax-shell">
+            <nav class="pantax-menu" id="pantax-menu" aria-label="내부 분석 메뉴">
+              <button type="button" class="on" data-pane="brief">브리프</button>
+              <button type="button" data-pane="tax">세액</button>
+              <button type="button" data-pane="risk">리스크</button>
+              <button type="button" data-pane="talk">상담</button>
+            </nav>
+            <div class="pantax-main" id="pantax-main">
+              <article data-pane="brief" class="on">
+                <div class="pantax-who">
+                  <span class="pantax-av">김</span>
+                  <div>
+                    <b>김대표 · 도소매</b>
+                    <p>담당 김판기 세무사 · 2026.04.12 검토</p>
+                  </div>
+                  <strong>신뢰도 92%</strong>
+                </div>
+                <div class="pantax-kpis">
+                  <div><em>장부 추정</em><b>128만</b></div>
+                  <div><em>예정 고지</em><b>144만</b></div>
+                  <div class="gap"><em>차이</em><b>-16만</b></div>
+                </div>
+                <div class="pantax-card">
+                  <p class="pantax-label">AI 브리프</p>
+                  <h3>매입세금계산서 3건이 장부에 안 잡혔을 가능성이 있습니다.</h3>
+                  <p>부가세 차이를 먼저 맞추면, 경정청구 검토까지 이어서 볼 수 있습니다.</p>
+                </div>
+              </article>
+              <article data-pane="tax">
+                <div class="pantax-tax">
+                  <div>
+                    <p class="pantax-label">부가세</p>
+                    <b>128만 원</b>
+                    <div class="pantax-bars" aria-hidden="true">
+                      <div><span>장부</span><i style="--w:89%"></i><em>128만</em></div>
+                      <div><span>고지</span><i style="--w:100%"></i><em>144만</em></div>
+                    </div>
+                    <p>예정고지와 16만 원 차이. 매입세금계산서 3건 미반영 가능.</p>
+                  </div>
+                  <div>
+                    <p class="pantax-label">법인세</p>
+                    <b>1,860만 원</b>
+                    <div class="pantax-bars" aria-hidden="true">
+                      <div><span>추정</span><i style="--w:87%"></i><em>1,860만</em></div>
+                      <div><span>예납</span><i style="--w:100%"></i><em>2,140만</em></div>
+                    </div>
+                    <p>중간예납과 280만 원 차이. 접대비·감가상각 한도를 다시 맞춰야 합니다.</p>
+                  </div>
+                </div>
+              </article>
+              <article data-pane="risk">
+                <ul class="pantax-issues">
+                  <li><em class="hi">주의</em><div><b>가지급금 잔액 증가</b><span>전월 대비 1,240만 원 상승</span></div></li>
+                  <li><em class="mid">확인</em><div><b>경비 증빙 누락 2건</b><span>접대비 · 차량유지비</span></div></li>
+                  <li><em>관찰</em><div><b>접대비 한도 근접</b><span>연간 한도의 86%</span></div></li>
                 </ul>
-              </div>
-              <div class="bars">
-                <div><span class="a" style="--h:72%"></span><span class="b" style="--h:38%"></span><span class="c" style="--h:18%"></span><em>1월</em></div>
-                <div><span class="a" style="--h:86%"></span><span class="b" style="--h:44%"></span><span class="c" style="--h:22%"></span><em>2월</em></div>
-                <div><span class="a" style="--h:78%"></span><span class="b" style="--h:40%"></span><span class="c" style="--h:20%"></span><em>3월</em></div>
-                <div><span class="a" style="--h:90%"></span><span class="b" style="--h:42%"></span><span class="c" style="--h:24%"></span><em>4월</em></div>
-              </div>
-            </div>
-            <div class="sheet">
-              <p>손익계산서</p>
-              <div class="sheet-scroll">
-                <table>
-                  <thead><tr><th>항목</th><th>1월</th><th>2월</th><th>3월</th></tr></thead>
-                  <tbody>
-                    <tr><td>매출</td><td>11,972,130</td><td>13,420,000</td><td>12,180,000</td></tr>
-                    <tr><td>매출원가</td><td>4,210,000</td><td>4,880,000</td><td>4,450,000</td></tr>
-                    <tr><td>순이익</td><td>7,762,130</td><td>8,540,000</td><td>7,730,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
+              </article>
+              <article data-pane="talk">
+                <div class="pantax-card">
+                  <p class="pantax-label">다음 상담에서</p>
+                  <ul class="pantax-check">
+                    <li>매입 누락분 3건 확인</li>
+                    <li>경정청구 대상 여부</li>
+                    <li>가지급금 정리 일정</li>
+                  </ul>
+                  <p class="pantax-next">다음 미팅 <strong>2026.04.18 14:00</strong></p>
+                </div>
+              </article>
             </div>
           </div>
-        </article>
-        <article data-pane="sales">
-          <div class="alfred">
-            <header>
-              <b>매출·매입</b>
-              <span>1분기</span>
-            </header>
-            <div class="kpis">
-              <div><em>분기 매출</em><strong>37,572,130</strong></div>
-              <div><em>분기 매입</em><strong>13,540,000</strong></div>
-              <div><em>마진율</em><strong>64%</strong></div>
-            </div>
-            <div class="chart">
-              <div class="chart-head">
-                <p>월별 매출·매입</p>
-                <ul class="legend">
-                  <li><i class="a"></i>매출</li>
-                  <li><i class="b"></i>매입</li>
-                </ul>
-              </div>
-              <div class="bars">
-                <div><span class="a" style="--h:74%"></span><span class="b" style="--h:34%"></span><em>1월</em></div>
-                <div><span class="a" style="--h:88%"></span><span class="b" style="--h:40%"></span><em>2월</em></div>
-                <div><span class="a" style="--h:80%"></span><span class="b" style="--h:36%"></span><em>3월</em></div>
-                <div><span class="a" style="--h:92%"></span><span class="b" style="--h:38%"></span><em>4월</em></div>
-              </div>
-            </div>
-            <div class="sheet">
-              <p>월별 매출·매입</p>
-              <div class="sheet-scroll">
-                <table>
-                  <thead><tr><th>구분</th><th>1월</th><th>2월</th><th>3월</th></tr></thead>
-                  <tbody>
-                    <tr><td>매출</td><td>11,972,130</td><td>13,420,000</td><td>12,180,000</td></tr>
-                    <tr><td>매입</td><td>4,210,000</td><td>4,880,000</td><td>4,450,000</td></tr>
-                    <tr><td>잔액</td><td>7,762,130</td><td>8,540,000</td><td>7,730,000</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article data-pane="fund">
-          <div class="alfred">
-            <header>
-              <b>지원금</b>
-              <span>추천 4건</span>
-            </header>
-            <div class="kpis">
-              <div><em>추천 공고</em><strong>4건</strong></div>
-              <div><em>마감 임박</em><strong>1건</strong></div>
-              <div><em>진행 중</em><strong>2건</strong></div>
-            </div>
-            <ul class="glist">
-              <li><b>스마트상점 기술보급</b><span class="tag warn">마감 D-6</span></li>
-              <li><b>수출바우처 1차</b><span class="tag on">접수 중</span></li>
-              <li><b>일자리안정자금</b><span class="tag on">진행 중</span></li>
-              <li><b>디지털바우처 2차</b><span class="tag">검토 중</span></li>
-            </ul>
-          </div>
-        </article>
-        <article data-pane="ai">
-          <div class="alfred">
-            <header>
-              <b>AI 비서</b>
-              <span>이번 주</span>
-            </header>
-            <div class="kpis">
-              <div><em>이번 주 할 일</em><strong>3</strong></div>
-              <div><em>자료 요청</em><strong>5</strong></div>
-              <div><em>답변 대기</em><strong>0</strong></div>
-            </div>
-            <ul class="glist">
-              <li><b>부가세 예정고지 확인</b><span class="tag warn">오늘</span></li>
-              <li><b>3월 매입세금계산서 취합</b><span class="tag">내일</span></li>
-              <li><b>원천세 신고 자료 요청</b><span class="tag">수요일</span></li>
-              <li><b>지원금 공고 3건 요약</b><span class="tag on">완료</span></li>
-            </ul>
-          </div>
-        </article>
-      </div>
-      <a class="demo" href="#consult">세무 레포트 데모 체험하기</a>
+        </div>
       </div>
     </section>
 
@@ -419,7 +299,7 @@
             <li>급여, 원천세, 4대 보험</li>
             <li>결산 및 세무조정 (연 1회 별도)</li>
           </ul>
-          <a class="btn solid" href="#consult">상담 신청하기</a>
+          <a class="btn solid" href="consult.html?topic=gijang">상담 신청하기</a>
         </article>
         <article>
           <p class="plan">컨설팅</p>
@@ -433,7 +313,7 @@
             <li>양도 컨설팅</li>
             <li>세액 산출</li>
           </ul>
-          <a class="btn line" href="#consult">상담 신청하기</a>
+          <a class="btn line" href="consult.html?topic=consulting">상담 신청하기</a>
         </article>
         <article id="refund">
           <p class="plan">환급</p>
@@ -445,89 +325,18 @@
             <li>놓친 공제·감면 확인</li>
             <li>환급 진행 대행</li>
           </ul>
-          <a class="btn line" href="#consult">환급금 무료 조회하기</a>
+          <a class="btn line" href="consult.html?topic=refund">환급금 무료 조회하기</a>
         </article>
       </div>
     </section>
 
-    <section class="press" id="blog">
-      <div class="wrap">
-        <h2>언론에서도 관심 갖는 판기세무회계의 기술혁신</h2>
-      <div class="press-view">
-        <div class="press-track" id="press-track">
-          <article>
-            <div>
-              <p class="ttl">부천 세무사가 IT로 기장 업무를 바꾼 이유</p>
-              <p>카카오톡 상담과 리포트로 소규모 사업장 세무를 단순화한 판기세무회계의 시도를 다뤘습니다.</p>
-            </div>
-            <span class="plogo hk" aria-label="한국경제"><i>한경</i>한국경제</span>
-          </article>
-          <article>
-            <div>
-              <p class="ttl">카카오톡으로 끝나는 세무, 소규모 사업장에서 먼저 퍼지다</p>
-              <p>일상 세무를 메신저로 처리하는 방식이 자영업·스타트업 대표들 사이에서 빠르게 퍼지고 있습니다.</p>
-            </div>
-            <span class="plogo mk" aria-label="매일경제"><i>MK</i>매일경제</span>
-          </article>
-          <article>
-            <div>
-              <p class="ttl">경정청구·지원금까지 한 화면에서 보는 세무 리포트</p>
-              <p>더낸세금 환급과 지원금 추천을 한 리포트에서 확인하는 판기세무회계의 시스템을 소개했습니다.</p>
-            </div>
-            <span class="plogo cb" aria-label="조선비즈"><i>조선</i>BIZ</span>
-          </article>
-          <article>
-            <div>
-              <p class="ttl">가상비서로 세무업무를 단순화한 부천 세무사무소</p>
-              <p>반복 기장과 자료 요청을 자동화해 대표가 본업에 집중하도록 돕는 사례를 조명했습니다.</p>
-            </div>
-            <span class="plogo se" aria-label="서울경제"><i>서울</i>서울경제</span>
-          </article>
-          <article>
-            <div>
-              <p class="ttl">절세와 지원금을 함께 챙기는 세무 서비스</p>
-              <p>기장 대행을 넘어 세제혜택과 정부지원 공고까지 안내하는 운영 방식을 전했습니다.</p>
-            </div>
-            <span class="plogo ae" aria-label="아시아경제"><i>ASIA</i>아시아경제</span>
-          </article>
-          <article>
-            <div>
-              <p class="ttl">IT 기반으로 기장 품질을 맞추는 세무회계</p>
-              <p>사람만으로 버티던 기장 업무를 시스템과 상담이 같이 받쳐 주는 구조로 바꾼 점을 평가했습니다.</p>
-            </div>
-            <span class="plogo hl" aria-label="헤럴드경제"><i>HERALD</i>헤럴드경제</span>
-          </article>
-        </div>
-      </div>
-      <p class="press-quote">사업가를 돌본다는 사명감으로 판기세무회계 세무팀이<br>절세, 혜택, 지원금, 변화하는 세법을 함께 챙깁니다.</p>
-      </div>
-    </section>
-
-    <section class="consult wrap" id="consult">
-      <h2>상담 신청하기</h2>
-      <p class="sub">이름과 연락처만 남겨 주시면 확인 후 연락드립니다.</p>
-      <form id="form">
-        <input name="name" placeholder="이름" required>
-        <input name="phone" type="tel" placeholder="연락처" required>
-        <select name="topic" required>
-          <option value="" disabled selected>상담 항목</option>
-          <option>세무기장</option>
-          <option>경정청구</option>
-          <option>컨설팅</option>
-          <option>기타</option>
-        </select>
-        <label class="agree"><input type="checkbox" required> 개인정보 수집 및 이용에 동의합니다.</label>
-        <button class="btn solid" type="submit">상담 신청하기</button>
-        <p class="ok" hidden>접수했습니다.</p>
-      </form>
-    </section>
   </main>
 
   <footer class="ft">
     <div class="wrap">
       <div class="ft-body">
         <div class="ft-info">
-          <a class="ft-word" href="#top"><img src="img/logo-white.png?v=4" alt=""><span>판기세무회계</span></a>
+          <a class="ft-word" href="#top" aria-label="판기세무회계"><img src="img/logo-line-white.png" alt=""><img src="img/logo-word-white.png" alt=""></a>
           <p class="ft-tel">문의전화: <a href="tel:0323230268">032-323-0268</a></p>
           <div>
             <p>대표 김판기</p>
@@ -560,7 +369,7 @@
             <p>바로가기</p>
             <a href="review.html">고객 후기</a>
             <a href="blog.html">블로그</a>
-            <a href="#consult">상담 신청</a>
+            <a href="consult.html">상담 신청</a>
           </div>
         </div>
       </div>
@@ -570,9 +379,9 @@
 
   <aside class="dock" id="dock" hidden>
     <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
-    <a class="btn solid" href="#consult">상담 신청하기</a>
+    <a class="btn solid" href="consult.html">상담 신청하기</a>
   </aside>
 
-  <script src="js/site.js?v=3"></script>
+  <script src="js/site.js?v=10"></script>
 </body>
 </html>

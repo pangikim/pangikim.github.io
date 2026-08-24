@@ -8,30 +8,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/apple-touch.png">
-  <link rel="stylesheet" href="css/site.css?v=28">
+  <link rel="stylesheet" href="css/site.css?v=103">
 </head>
 <body>
   <header class="hd">
     <div class="wrap hd-in">
       <a class="logo" href="index.html" aria-label="판기세무회계">
-        <img src="img/logo.png?v=3" alt="" width="39" height="39">
+        <span class="logo-mark">
+          <img class="logo-ink" src="img/logo-line-black.png" alt="" width="39" height="39">
+          <img class="logo-wash" src="img/logo-line-white.png" alt="" width="39" height="39">
+        </span>
+        <span class="logo-word">
+          <img class="logo-ink" src="img/logo-word-black.png" alt="">
+          <img class="logo-wash" src="img/logo-word-white.png" alt="">
+        </span>
       </a>
       <nav class="nav">
+        <a href="index.html">회사소개</a>
         <div class="drop">
-          <button type="button">세무 서비스 <span class="chev"></span></button>
+          <button type="button">세무서비스 <span class="chev"></span></button>
           <div class="menu">
             <a href="gijang.html">세무기장</a>
             <a href="consulting.html">컨설팅</a>
             <a href="refund.html">더낸세금</a>
           </div>
         </div>
-        <a href="review.html">고객 후기</a>
         <a href="pantax.html">PANTAX.ai</a>
         <a href="blog.html">블로그</a>
       </nav>
       <div class="hd-btns">
-        <a class="btn ghost" href="index.html#consult">로그인</a>
-        <a class="btn line" href="index.html#consult">상담 신청하기</a>
+        <a class="btn ghost" href="consult.html">로그인</a>
+        <a class="btn line" href="consult.html">상담 신청하기</a>
         <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
           <i></i><i></i><i></i>
         </button>
@@ -41,13 +48,13 @@
 
   <div class="overlay" id="overlay" hidden>
     <div class="overlay-in">
+      <a href="index.html">회사소개</a>
       <details open>
-        <summary>세무 서비스</summary>
+        <summary>세무서비스</summary>
         <a href="gijang.html">세무 기장</a>
         <a href="consulting.html">컨설팅</a>
         <a href="refund.html">경정청구(더낸세금)</a>
       </details>
-      <a href="review.html">고객 후기</a>
       <a href="pantax.html">PANTAX.ai</a>
       <a href="blog.html">블로그</a>
     </div>
@@ -101,7 +108,7 @@
       </ol>
       <div class="svc-cta">
         <p>과거 5년 · 가능 여부 검토는 무료입니다.</p>
-        <a class="btn solid" href="index.html#consult">환급금 무료 조회하기</a>
+        <a class="btn solid" href="consult.html?topic=refund">환급금 무료 조회하기</a>
       </div>
     </section>
   </main>
@@ -110,7 +117,7 @@
     <div class="wrap">
       <div class="ft-body">
         <div class="ft-info">
-          <a class="ft-word" href="index.html"><img src="img/logo-white.png?v=4" alt=""><span>판기세무회계</span></a>
+          <a class="ft-word" href="index.html" aria-label="판기세무회계"><img src="img/logo-line-white.png" alt=""><img src="img/logo-word-white.png" alt=""></a>
           <p class="ft-tel">문의전화: <a href="tel:0323230268">032-323-0268</a></p>
           <div>
             <p>대표 김판기</p>
@@ -143,7 +150,7 @@
             <p>바로가기</p>
             <a href="review.html">고객 후기</a>
             <a href="blog.html">블로그</a>
-            <a href="index.html#consult">상담 신청</a>
+            <a href="consult.html">상담 신청</a>
           </div>
         </div>
       </div>
@@ -153,8 +160,8 @@
 
   <aside class="dock" id="dock" hidden>
     <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
-    <a class="btn solid" href="index.html#consult">상담 신청하기</a>
+    <a class="btn solid" href="consult.html">상담 신청하기</a>
   </aside>
-  <script src="js/site.js?v=3"></script>
+  <script src="js/site.js?v=10"></script>
 </body>
 </html>

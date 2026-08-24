@@ -8,30 +8,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/apple-touch.png">
-  <link rel="stylesheet" href="css/site.css?v=28">
+  <link rel="stylesheet" href="css/site.css?v=103">
 </head>
 <body class="is-blog">
   <header class="hd">
     <div class="wrap hd-in">
       <a class="logo" href="index.html" aria-label="판기세무회계">
-        <img src="img/logo.png?v=3" alt="" width="39" height="39">
+        <span class="logo-mark">
+          <img class="logo-ink" src="img/logo-line-black.png" alt="" width="39" height="39">
+          <img class="logo-wash" src="img/logo-line-white.png" alt="" width="39" height="39">
+        </span>
+        <span class="logo-word">
+          <img class="logo-ink" src="img/logo-word-black.png" alt="">
+          <img class="logo-wash" src="img/logo-word-white.png" alt="">
+        </span>
       </a>
       <nav class="nav">
+        <a href="index.html">회사소개</a>
         <div class="drop">
-          <button type="button">세무 서비스 <span class="chev"></span></button>
+          <button type="button">세무서비스 <span class="chev"></span></button>
           <div class="menu">
             <a href="gijang.html">세무기장</a>
             <a href="consulting.html">컨설팅</a>
             <a href="refund.html">더낸세금</a>
           </div>
         </div>
-        <a href="review.html">고객 후기</a>
         <a href="pantax.html">PANTAX.ai</a>
         <a href="blog.html">블로그</a>
       </nav>
       <div class="hd-btns">
-        <a class="btn ghost" href="index.html#consult">로그인</a>
-        <a class="btn line" href="index.html#consult">상담 신청하기</a>
+        <a class="btn ghost" href="consult.html">로그인</a>
+        <a class="btn line" href="consult.html">상담 신청하기</a>
         <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
           <i></i><i></i><i></i>
         </button>
@@ -41,13 +48,13 @@
 
   <div class="overlay" id="overlay" hidden>
     <div class="overlay-in">
+      <a href="index.html">회사소개</a>
       <details>
-        <summary>세무 서비스</summary>
+        <summary>세무서비스</summary>
         <a href="gijang.html">세무 기장</a>
         <a href="consulting.html">컨설팅</a>
         <a href="refund.html">경정청구(더낸세금)</a>
       </details>
-      <a href="review.html">고객 후기</a>
       <a href="pantax.html">PANTAX.ai</a>
       <a href="blog.html">블로그</a>
     </div>
@@ -68,15 +75,15 @@
         <a class="blog-more" href="#hot">더 보기</a>
       </div>
       <div class="blog-mosaic" id="hot">
-        <a class="bcard lg" href="index.html#consult" data-q="가족 간 증여세 면제 한도 2026">
+        <a class="bcard lg" href="consult.html" data-q="가족 간 증여세 면제 한도 2026">
           <img src="img/blog/blog-01.png" alt="">
           <h3>가족 간 증여세 면제 한도, 2026년 기준 총정리</h3>
         </a>
-        <a class="bcard wide" href="index.html#consult" data-q="현금 입금 계좌이체 세무조사">
+        <a class="bcard wide" href="consult.html" data-q="현금 입금 계좌이체 세무조사">
           <img src="img/blog/blog-02.png" alt="">
           <h3>현금 입금·계좌이체 세무조사, 2026년 실제 사례와 대처법</h3>
         </a>
-        <a class="bcard wide" href="index.html#consult" data-q="소상공인 정부 지원">
+        <a class="bcard wide" href="consult.html" data-q="소상공인 정부 지원">
           <img src="img/blog/blog-03.png" alt="">
           <h3>2026 소상공인을 위한 3대 정부 지원</h3>
         </a>
@@ -88,7 +95,7 @@
           <img src="img/blog/blog-05.png" alt="">
           <h3>경리대행, 세무기장, 신고대리 차이는? 업무 범위와 선택 기준</h3>
         </a>
-        <a class="bcard" href="index.html#consult" data-q="Interview 김판기 세무사">
+        <a class="bcard" href="consult.html" data-q="Interview 김판기 세무사">
           <img src="img/blog/blog-06.png" alt="">
           <h3>Interview | 김판기 세무사</h3>
         </a>
@@ -130,7 +137,7 @@
           <img src="img/blog/blog-02.png" alt="">
           <h3>종합소득세 기한 후 신고, 가산세 감면 어떻게 받나요?</h3>
         </a>
-        <a class="bcard extra" href="index.html#consult" data-q="부가세 신고 전 확인할 세 가지" hidden>
+        <a class="bcard extra" href="consult.html" data-q="부가세 신고 전 확인할 세 가지" hidden>
           <img src="img/blog/blog-01.png" alt="">
           <h3>부가세 신고 전에 대표가 확인할 세 가지</h3>
         </a>
@@ -160,7 +167,7 @@
           <img src="img/blog/blog-08.png" alt="">
           <h3>가상비서로 세무업무를 단순화한 부천 세무사무소</h3>
         </a>
-        <a class="bcard" href="index.html#consult" data-q="Interview 김판기 대표 세무사">
+        <a class="bcard" href="consult.html" data-q="Interview 김판기 대표 세무사">
           <img src="img/blog/blog-06.png" alt="">
           <h3>Interview | 김판기 대표 세무사</h3>
         </a>
@@ -176,7 +183,7 @@
     <div class="wrap">
       <div class="ft-body">
         <div class="ft-info">
-          <a class="ft-word" href="index.html"><img src="img/logo-white.png?v=4" alt=""><span>판기세무회계</span></a>
+          <a class="ft-word" href="index.html" aria-label="판기세무회계"><img src="img/logo-line-white.png" alt=""><img src="img/logo-word-white.png" alt=""></a>
           <p class="ft-tel">문의전화: <a href="tel:0323230268">032-323-0268</a></p>
           <div>
             <p>대표 김판기</p>
@@ -209,7 +216,7 @@
             <p>바로가기</p>
             <a href="review.html">고객 후기</a>
             <a href="blog.html">블로그</a>
-            <a href="index.html#consult">상담 신청</a>
+            <a href="consult.html">상담 신청</a>
           </div>
         </div>
       </div>
@@ -219,8 +226,8 @@
 
   <aside class="dock" id="dock" hidden>
     <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
-    <a class="btn solid" href="index.html#consult">상담 신청하기</a>
+    <a class="btn solid" href="consult.html">상담 신청하기</a>
   </aside>
-  <script src="js/site.js?v=3"></script>
+  <script src="js/site.js?v=10"></script>
 </body>
 </html>
