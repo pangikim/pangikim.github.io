@@ -2862,9 +2862,11 @@ body.px .px-sec {
   color: #fff;
 }
 body.px .px-sec.wash,
-body.px .px-demo,
-body.px .px-foot {
+body.px .px-demo {
   background: #0e1116;
+}
+body.px .px-foot {
+  background: #171b22;
 }
 body.px .px-sec h2,
 body.px .px-case h2,
@@ -2907,7 +2909,7 @@ body.px .px-pair li::before,
 body.px .px-scope li::before { background: #7aa2ff; }
 body.px .px-case { background: #171b22; }
 body.px .px-cta {
-  background: #171b22;
+  background: #222833;
   border: 1px solid rgba(255, 255, 255, .08);
 }
 body.px .htabs { border-bottom-color: rgba(255, 255, 255, .08); }
