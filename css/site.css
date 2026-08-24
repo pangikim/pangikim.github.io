@@ -271,36 +271,58 @@ body.home .hd:not(.is-solid) .logo-wash { opacity: 1; }
 .burger.on i:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
 .overlay {
   position: fixed;
-  top: 84px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 38;
-  height: calc(100dvh - 84px);
+  inset: 0;
+  z-index: 50;
+  height: 100dvh;
   background: #fff;
   overflow: auto;
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
 }
+.overlay-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  padding: 0 20px;
+  background: inherit;
+}
+.overlay-bar .logo-ink { opacity: 1; }
+.overlay-bar .logo-wash { opacity: 0; }
 html.is-menu,
 html.is-menu body {
   overflow: hidden;
-  height: 100%;
+  overscroll-behavior: none;
 }
-html.is-menu body {
-  position: fixed;
-  left: 0;
-  right: 0;
-  width: 100%;
+html.is-menu body.home .hd {
+  background: #fff;
+  transition: none;
 }
-html.is-menu .hd {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-}
+html.is-menu body.home .logo-ink { opacity: 1; }
+html.is-menu body.home .logo-wash { opacity: 0; }
+html.is-menu body.home .burger i { background: #181d27; }
+html.is-menu body.home .hd,
+html.is-menu body.home .logo .logo-ink,
+html.is-menu body.home .logo .logo-wash,
+html.is-menu body.home .burger i { transition: none; }
 .overlay[hidden] { display: none; }
+html.is-menu .hd {
+  visibility: hidden;
+  pointer-events: none;
+}
+html.is-menu .dock { display: none !important; }
+@media (min-width: 770px) {
+  .overlay { display: none !important; }
+  html.is-menu .hd {
+    visibility: visible;
+    pointer-events: auto;
+  }
+  html.is-menu,
+  html.is-menu body { overflow: visible; overscroll-behavior: auto; }
+}
 @media (prefers-reduced-motion: reduce) {
   .logo .logo-ink,
   .logo .logo-wash { transition: none; }
@@ -1824,9 +1846,12 @@ input, select {
   .press-track .ttl { font-size: 16px; line-height: 22.4px; }
   .press-quote { width: 100%; font-size: 18px; line-height: 28.8px; }
   .hd, .hd-in { height: 68px; }
-  .overlay {
-    top: 68px;
-    height: calc(100dvh - 68px);
+  .overlay-bar { height: 68px; }
+  body.home .hd,
+  body.home .logo .logo-ink,
+  body.home .logo .logo-wash { transition: none; }
+  body.home .burger i {
+    transition: transform .2s, opacity .2s, visibility .2s;
   }
   .clients h2 { font-size: 24px; line-height: 33.6px; letter-spacing: -0.96px; }
   .clients .sub { margin-top: 24px; }
@@ -2819,6 +2844,8 @@ body.px .burger i { background: #fff; }
 body.px .overlay {
   background: #171b22;
 }
+body.px .overlay-bar .logo-ink { opacity: 0; }
+body.px .overlay-bar .logo-wash { opacity: 1; }
 body.px .overlay-in > a,
 body.px .overlay-in summary {
   color: #fff;
