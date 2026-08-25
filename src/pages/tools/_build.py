@@ -43,7 +43,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
-  <link rel="stylesheet" href="/src/css/site.css?v=162">
+  <link rel="stylesheet" href="/src/css/site.css?v=163">
 </head>
 <body class="tools-page">
   <header class="hd">
