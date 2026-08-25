@@ -433,9 +433,13 @@ html.is-menu .dock { display: none !important; }
   object-position: center;
   background: #1a2230;
   opacity: 0;
+  transition: opacity 1.2s ease;
   z-index: 0;
 }
-.hero-bg.is-on { opacity: 1; }
+.hero-bg.is-on {
+  opacity: 1;
+  z-index: 1;
+}
 .hero-stage::after {
   content: "";
   position: absolute;
@@ -538,6 +542,7 @@ h2 {
   .hero-stage h1 { font-size: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero-bg,
   .hero-slide {
     transition: none;
   }

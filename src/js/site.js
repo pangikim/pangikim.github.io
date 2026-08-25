@@ -244,19 +244,31 @@ form?.addEventListener("submit", (e) => {
 
 const heroMedia = [...document.querySelectorAll(".hero-bg")];
 const heroSlides = [...document.querySelectorAll(".hero-slide")];
-if ((heroMedia.length > 1 || heroSlides.length > 1) && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+const heroReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if ((heroMedia.length > 1 || heroSlides.length > 1) && !heroReduce) {
+  const fadeMs = 1200;
   let mediaI = Math.max(0, heroMedia.findIndex((el) => el.classList.contains("is-on")));
   let slideI = Math.max(0, heroSlides.findIndex((el) => el.classList.contains("is-on")));
   let switching = false;
   let armTimer = 0;
 
-  const playClip = (el, reset) => {
+  const playClip = (el) => {
     if (el.tagName !== "VIDEO") return;
+    const play = () => el.play().catch(() => {});
     const start = () => {
-      if (reset) {
-        try { el.currentTime = 0; } catch {}
+      if (el.currentTime === 0 && !el.ended) {
+        play();
+        return;
       }
-      el.play().catch(() => {});
+      const onSeeked = () => {
+        el.removeEventListener("seeked", onSeeked);
+        play();
+      };
+      el.addEventListener("seeked", onSeeked);
+      try { el.currentTime = 0; } catch {
+        el.removeEventListener("seeked", onSeeked);
+        play();
+      }
     };
     if (el.readyState >= 1) start();
     else el.addEventListener("loadedmetadata", start, { once: true });
@@ -269,8 +281,12 @@ if ((heroMedia.length > 1 || heroSlides.length > 1) && !window.matchMedia("(pref
         const on = n === mediaI;
         el.classList.toggle("is-on", on);
         if (el.tagName !== "VIDEO") return;
-        if (on) playClip(el, true);
-        else el.pause();
+        if (on) playClip(el);
+        else {
+          window.setTimeout(() => {
+            if (!el.classList.contains("is-on")) el.pause();
+          }, fadeMs);
+        }
       });
     }
     if (heroSlides.length) {
@@ -281,18 +297,20 @@ if ((heroMedia.length > 1 || heroSlides.length > 1) && !window.matchMedia("(pref
 
   const nextHero = () => {
     if (switching) return;
+    if (heroMedia.length < 2 && heroSlides.length < 2) return;
     switching = true;
     showHero(
       heroMedia.length ? (mediaI + 1) % heroMedia.length : 0,
       heroSlides.length ? (slideI + 1) % heroSlides.length : 0
     );
-    window.setTimeout(() => { switching = false; }, 200);
+    window.setTimeout(() => { switching = false; }, fadeMs);
   };
 
   const armVideo = (el) => {
     window.clearTimeout(armTimer);
-    const remain = el.duration - el.currentTime;
-    const wait = Number.isFinite(remain) && remain > 0.2 ? remain * 1000 : 8000;
+    const lead = fadeMs / 1000;
+    const remain = el.duration - el.currentTime - lead;
+    const wait = Number.isFinite(remain) && remain > 0.4 ? remain * 1000 : 6800;
     armTimer = window.setTimeout(nextHero, wait);
   };
 
@@ -309,7 +327,7 @@ if ((heroMedia.length > 1 || heroSlides.length > 1) && !window.matchMedia("(pref
 
   const first = heroMedia[mediaI];
   if (first && first.tagName === "VIDEO") {
-    if (first.paused) playClip(first, false);
+    if (first.paused) playClip(first);
     if (first.readyState >= 1) armVideo(first);
   } else {
     armTimer = window.setTimeout(nextHero, 6500);
