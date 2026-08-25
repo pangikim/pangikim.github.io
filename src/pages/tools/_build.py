@@ -37,7 +37,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
-  <link rel="stylesheet" href="/src/css/site.css?v=144">
+  <link rel="stylesheet" href="/src/css/site.css?v=149">
 </head>
 <body class="tools-page">
   <header class="hd">
@@ -75,6 +75,7 @@ HEAD = """<!DOCTYPE html>
         <a href="/blog/">블로그</a>
       </nav>
       <div class="hd-btns">
+        <a class="btn line" href="/consult/">상담 신청하기</a>
         <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
           <i></i><i></i><i></i>
         </button>
@@ -173,10 +174,6 @@ FOOT = """  </main>
     </div>
   </footer>
 
-  <aside class="dock" id="dock" hidden>
-    <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
-    <a class="btn solid" href="/consult/">상담 신청하기</a>
-  </aside>
   <script src="/src/js/site.js?v=20"></script>
   {extra}
 </body>

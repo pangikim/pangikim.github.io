@@ -106,9 +106,9 @@ body.home .hd.is-solid .burger i {
 }
 .hd-in {
   height: 84px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
 }
 .logo {
   display: flex;
@@ -147,9 +147,9 @@ body.home .hd:not(.is-solid) .logo-wash { opacity: 1; }
 .nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0;
-  margin-left: auto;
+  margin-left: 0;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0;
@@ -171,11 +171,7 @@ body.home .hd:not(.is-solid) .logo-wash { opacity: 1; }
 .nav > a,
 .nav .drop > a,
 .nav .drop > button {
-  padding: 0 clamp(12px, 2.2vw, 28px);
-}
-.nav > :last-child,
-.nav > :last-child > button {
-  padding-right: 0;
+  padding: 0 16px;
 }
 .chev {
   display: inline-block;
@@ -224,7 +220,7 @@ body.home .hd:not(.is-solid) .logo-wash { opacity: 1; }
 .drop:hover .menu,
 .drop:focus-within .menu { display: block; }
 .hd-btns {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
@@ -1850,11 +1846,6 @@ input, select {
 .dock .btn { width: 200px; flex: 0 0 200px; }
 
 @media (max-width: 1199px) {
-  .hd-in { grid-template-columns: unset; }
-  .nav { margin-left: auto; gap: 0; }
-  .nav > a,
-  .nav .drop > a,
-  .nav .drop > button { padding: 0 16px; }
   .clients h2 { font-size: 40px; line-height: 52px; }
   .htabs button { font-size: 17px; }
   .pantax-in { gap: 40px; }
@@ -1875,16 +1866,13 @@ input, select {
 }
 
 @media (max-width: 1024px) {
-  .nav > a,
-  .nav .drop > a,
-  .nav .drop > button { padding: 0 10px; }
-  .hd-btns .ghost { display: none; }
+  .hd-in { grid-template-columns: 1fr auto; }
+  .nav { display: none; }
+  .burger { display: block; }
 }
 
 @media (max-width: 769px) {
   :root { --sec: 80px; }
-  .nav { display: none; }
-  .burger { display: block; }
   .hd-btns { display: flex; }
   .hd-btns .ghost { display: none; }
   .hd-btns .line { display: inline-flex; }
@@ -2954,6 +2942,13 @@ body.px .menu {
 }
 body.px .menu a { color: #fff; }
 body.px .burger i { background: #fff; }
+body.px .hd-btns .btn {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+body.px .hd-btns .ghost,
+body.px .hd-btns .line { color: #fff; }
 body.px .overlay {
   background: #171b22;
 }
