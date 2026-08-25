@@ -1967,8 +1967,25 @@ input, select {
     height: 520px;
     min-height: 520px;
   }
-  .pantax-tax { grid-template-columns: 1fr; }
-  .pantax-tax b { font-size: 24px; }
+  .pantax-tax {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .pantax-tax > div { padding: 12px 14px 12px; }
+  .pantax-tax .pantax-label { margin-bottom: 4px; font-size: 12px; }
+  .pantax-tax b {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .pantax-tax p { font-size: 13px; line-height: 1.45; }
+  .pantax-bars { gap: 7px; margin-bottom: 8px; }
+  .pantax-bars div {
+    grid-template-columns: 32px 1fr 50px;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .pantax-bars i { height: 6px; }
+  .pantax-bars em { font-size: 12px; }
   .pantax-menu {
     flex-direction: row;
     padding: 10px;
