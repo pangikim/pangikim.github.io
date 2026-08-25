@@ -2141,7 +2141,13 @@ input, select {
   border-radius: 20px;
   overflow: hidden;
 }
-.svc-shot img { height: 420px; object-fit: cover; }
+.svc-shot img,
+.svc-shot video {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
 .svc-cta {
   display: flex;
   align-items: center;
@@ -2312,7 +2318,8 @@ input, select {
   .bcard.wide { min-height: 140px; }
   .bcard { min-height: 140px; }
   .bcard h3 { font-size: 18px; line-height: 26px; padding: 16px; }
-  .svc-shot img { height: 240px; }
+  .svc-shot img,
+  .svc-shot video { height: 240px; }
   .svc-cta { flex-direction: column; align-items: stretch; padding: 24px; }
   .svc-cta .btn { width: 100%; }
 }
@@ -3113,9 +3120,13 @@ body.px .dock {
   line-height: 1.55;
 }
 .about-hero-shot { margin: 0; }
-.about-hero-shot img {
+.about-hero-shot img,
+.about-hero-shot video {
+  display: block;
+  width: 100%;
   height: 420px;
   border-radius: 20px;
+  object-fit: cover;
   background: #e8eaee;
 }
 .about-rep {
@@ -3308,7 +3319,8 @@ body.px .dock {
   .about-hero h1 { font-size: 30px; }
   .about-lead,
   .about-bio { font-size: 16px; }
-  .about-hero-shot img { height: 240px; border-radius: 16px; }
+  .about-hero-shot img,
+  .about-hero-shot video { height: 240px; border-radius: 16px; }
   .about-rep-shot { border-radius: 16px; }
   .about-rep-shot img { height: auto; }
   .about-name { font-size: 36px; }
