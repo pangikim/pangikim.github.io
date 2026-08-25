@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4대보험 계산기 | 판기세무회계</title>
-  <meta name="description" content="2026년 요율로 근로자와 사업주 4대보험 부담액을 계산합니다. 판기세무회계 무료서비스.">
+  <title>세무서비스 | 판기세무회계</title>
+  <meta name="description" content="판기세무회계 세무서비스. 세무기장, 1:1 컨설팅, 더낸세금 환급을 상담으로 맞춰 드립니다.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
@@ -26,7 +26,7 @@
       <nav class="nav">
         <a href="/about/">회사소개</a>
         <div class="drop">
-          <a href="/services/">세무서비스 <span class="chev"></span></a>
+          <a href="/services/" aria-current="page">세무서비스 <span class="chev"></span></a>
           <div class="menu">
             <a href="/gijang/">세무기장</a>
             <a href="/consulting/">컨설팅</a>
@@ -71,14 +71,14 @@
     </div>
     <div class="overlay-in">
       <a href="/about/">회사소개</a>
-      <details>
+      <details open>
         <summary>세무서비스</summary>
         <a href="/services/">전체 보기</a>
         <a href="/gijang/">세무 기장</a>
         <a href="/consulting/">컨설팅</a>
         <a href="/refund/">경정청구(더낸세금)</a>
       </details>
-      <details open>
+      <details>
         <summary>무료서비스</summary>
         <a href="/tools/">전체 보기</a>
         <a href="/tools/vat/">부가세 계산기</a>
@@ -93,66 +93,33 @@
 
   <main>
     <section class="svc tools wrap">
-      <p class="eyebrow">무료서비스</p>
-      <h1>4대보험 계산기</h1>
-      <p class="sub">비과세를 제외한 월 보수와 사업장 규모, 산재보험료율을 입력해 2026년 예상 부담액을 확인하세요.</p>
-      <p class="tools-meta">기준일 2026-08-01 · 국민연금 4.75% · 건강보험 3.595% · 입력값을 저장·전송하지 않음</p>
-      <nav class="svc-tabs">
-        <a href="/tools/vat/">부가세</a>
-        <a class="on" href="/tools/insurance/">4대보험</a>
-        <a href="/tools/salary/">실수령액</a>
-        <a href="/tools/severance/">퇴직금</a>
-      </nav>
-
-      <div class="tools-work" data-tool="insurance">
-        <form class="tools-box" onsubmit="return false">
-          <h2>입력</h2>
-          <div class="tools-fields">
-            <div class="tools-field">
-              <label for="ins-pay">월 보수</label>
-              <input id="ins-pay" name="pay" data-money inputmode="numeric" placeholder="3,000,000">
-              <small>식대 등 4대보험 산정에서 제외할 금액을 뺀 월 보수입니다.</small>
-            </div>
-            <div class="tools-field">
-              <label for="ins-size">사업장 규모</label>
-              <select id="ins-size" name="size">
-                <option value="small">150인 미만</option>
-                <option value="pref">150인 이상 우선지원 대상기업</option>
-                <option value="mid">150인 이상 1,000인 미만</option>
-                <option value="large">1,000인 이상</option>
-              </select>
-              <small>사업주 고용안정·직업능력개발 보험료에 반영됩니다.</small>
-            </div>
-            <div class="tools-field">
-              <label for="ins-acc">산재보험료율 (‰)</label>
-              <input id="ins-acc" name="accident" inputmode="decimal" placeholder="7">
-              <small>근로복지공단 사업종류별 요율을 ‰로 입력하세요. 비워 두면 산재는 0원입니다.</small>
-            </div>
-          </div>
-        </form>
-        <div class="tools-box tools-result" data-result>
-          <h2>근로자 부담</h2>
-          <dl>
-            <div><dt>국민연금</dt><dd data-out="np">—</dd></div>
-            <div><dt>건강보험</dt><dd data-out="hi">—</dd></div>
-            <div><dt>장기요양보험</dt><dd data-out="lt">—</dd></div>
-            <div><dt>고용보험</dt><dd data-out="ei">—</dd></div>
-            <div class="sum"><dt>근로자 합계</dt><dd data-out="worker">—</dd></div>
-          </dl>
-          <h2>사업주 부담</h2>
-          <dl>
-            <div><dt>국민연금</dt><dd data-out="npEmp">—</dd></div>
-            <div><dt>건강보험</dt><dd data-out="hiEmp">—</dd></div>
-            <div><dt>장기요양보험</dt><dd data-out="ltEmp">—</dd></div>
-            <div><dt>고용보험</dt><dd data-out="eiEmp">—</dd></div>
-            <div><dt>산재보험</dt><dd data-out="accident">—</dd></div>
-            <div class="sum"><dt>사업주 합계</dt><dd data-out="employer">—</dd></div>
-          </dl>
-        </div>
+      <p class="eyebrow">세무서비스</p>
+      <h1>기장부터 환급까지,<br>필요한 서비스를 고르세요.</h1>
+      <p class="sub">세무기장, 1:1 컨설팅, 더낸세금 환급을 운영합니다. 범위와 견적은 상담에서 맞춰 드립니다.</p>
+      <div class="tools-grid three">
+        <a href="/gijang/">
+          <b>세무기장</b>
+          <p>장부 작성부터 세금신고까지. 대표님은 자료만 보내시면 됩니다.</p>
+          <span>자세히 보기 →</span>
+        </a>
+        <a href="/consulting/">
+          <b>1:1 컨설팅</b>
+          <p>계약·세금·인사 이슈를 대표님 자리에서 같이 정리합니다.</p>
+          <span>자세히 보기 →</span>
+        </a>
+        <a href="/refund/">
+          <b>더낸세금 환급</b>
+          <p>과거 5년 신고분을 다시 보고, 놓친 공제·감면이 있으면 경정청구로 환급을 진행합니다.</p>
+          <span>자세히 보기 →</span>
+        </a>
       </div>
-      <p class="tools-note"><b>2026년 요율입니다.</b> 국민연금 기준소득월액은 41만~659만 원입니다. 연령, 단시간 근로, 두루누리 지원, 중도 입·퇴사는 반영하지 않습니다.</p>
+      <ul class="tools-points">
+        <li><b>카카오톡 상담</b><span>부가세, 원천세, 증빙 질문을 메신저로 바로 남기면 담당자가 확인합니다.</span></li>
+        <li><b>상담 후 견적</b><span>컨설팅 범위와 견적은 상담 후 안내에 드립니다.</span></li>
+        <li><b>환급 검토</b><span>경정청구 가능 여부 검토는 무료입니다.</span></li>
+      </ul>
       <div class="svc-cta">
-        <p>계산 결과는 참고용입니다. 실제 신고·지급은 상담으로 확인하세요.</p>
+        <p>어느 서비스가 맞는지 모르셔도 됩니다. 상담에서 범위를 정합니다.</p>
         <a class="btn solid" href="/consult/">상담 신청하기</a>
       </div>
     </section>
@@ -211,6 +178,5 @@
     <a class="btn solid" href="/consult/">상담 신청하기</a>
   </aside>
   <script src="/src/js/site.js?v=20"></script>
-  <script src="/src/js/tools.js?v=1"></script>
 </body>
 </html>

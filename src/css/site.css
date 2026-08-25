@@ -169,6 +169,7 @@ body.home .hd:not(.is-solid) .logo-wash { opacity: 1; }
   line-height: 1;
 }
 .nav > a,
+.nav .drop > a,
 .nav .drop > button {
   padding: 0 clamp(12px, 2.2vw, 28px);
 }
@@ -1852,6 +1853,7 @@ input, select {
   .hd-in { grid-template-columns: unset; }
   .nav { margin-left: auto; gap: 0; }
   .nav > a,
+  .nav .drop > a,
   .nav .drop > button { padding: 0 16px; }
   .clients h2 { font-size: 40px; line-height: 52px; }
   .htabs button { font-size: 17px; }
@@ -1874,6 +1876,7 @@ input, select {
 
 @media (max-width: 1024px) {
   .nav > a,
+  .nav .drop > a,
   .nav .drop > button { padding: 0 10px; }
   .hd-btns .ghost { display: none; }
 }
@@ -3341,6 +3344,7 @@ body.px .dock {
   gap: 16px;
   margin-top: 60px;
 }
+.tools-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .tools-grid a {
   display: flex;
   flex-direction: column;
@@ -3513,6 +3517,7 @@ body.px .dock {
 .tools-note b { color: var(--ink); font-weight: 700; }
 @media (max-width: 1199px) {
   .tools-points { grid-template-columns: 1fr 1fr; }
+  .tools-grid.three { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 769px) {
   .tools-grid,

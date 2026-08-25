@@ -91,6 +91,10 @@ def assemble(dest: Path = DIST) -> None:
     if tools.is_dir():
         shutil.copytree(tools, dest / "tools", ignore=shutil.ignore_patterns("_build.py"))
 
+    services = PAGES / "services"
+    if services.is_dir():
+        shutil.copytree(services, dest / "services")
+
     shutil.copytree(ROOT / "assets", dest / "assets")
     (dest / "src").mkdir()
     shutil.copytree(ROOT / "src" / "css", dest / "src" / "css")

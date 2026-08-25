@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PAGES = ROOT / "pages"
 
 NAV = """        <div class="drop">
-          <button type="button">무료서비스 <span class="chev"></span></button>
+          <a href="/tools/">무료서비스 <span class="chev"></span></a>
           <div class="menu">
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
@@ -19,6 +19,7 @@ NAV = """        <div class="drop">
 
 OVERLAY = """      <details>
         <summary>무료서비스</summary>
+        <a href="/tools/">전체 보기</a>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
@@ -36,7 +37,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
-  <link rel="stylesheet" href="/src/css/site.css?v=142">
+  <link rel="stylesheet" href="/src/css/site.css?v=144">
 </head>
 <body class="tools-page">
   <header class="hd">
@@ -54,7 +55,7 @@ HEAD = """<!DOCTYPE html>
       <nav class="nav">
         <a href="/about/">회사소개</a>
         <div class="drop">
-          <button type="button">세무서비스 <span class="chev"></span></button>
+          <a href="/services/">세무서비스 <span class="chev"></span></a>
           <div class="menu">
             <a href="/gijang/">세무기장</a>
             <a href="/consulting/">컨설팅</a>
@@ -62,7 +63,7 @@ HEAD = """<!DOCTYPE html>
           </div>
         </div>
         <div class="drop">
-          <button type="button">무료서비스 <span class="chev"></span></button>
+          <a href="/tools/">무료서비스 <span class="chev"></span></a>
           <div class="menu">
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
@@ -101,12 +102,14 @@ HEAD = """<!DOCTYPE html>
       <a href="/about/">회사소개</a>
       <details>
         <summary>세무서비스</summary>
+        <a href="/services/">전체 보기</a>
         <a href="/gijang/">세무 기장</a>
         <a href="/consulting/">컨설팅</a>
         <a href="/refund/">경정청구(더낸세금)</a>
       </details>
       <details open>
         <summary>무료서비스</summary>
+        <a href="/tools/">전체 보기</a>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
@@ -150,6 +153,7 @@ FOOT = """  </main>
         <div class="ft-links">
           <div>
             <p>서비스</p>
+            <a href="/services/">세무서비스</a>
             <a href="/gijang/">세무기장</a>
             <a href="/consulting/">컨설팅</a>
             <a href="/refund/">더낸세금</a>
