@@ -241,11 +241,110 @@
     run();
   };
 
+  const estateTax = (base) => {
+    const steps = [
+      [100000000, 0.1, 0],
+      [500000000, 0.2, 10000000],
+      [1000000000, 0.3, 60000000],
+      [3000000000, 0.4, 160000000],
+      [Infinity, 0.5, 460000000],
+    ];
+    for (const [limit, rate, cut] of steps) {
+      if (base <= limit) return base * rate - cut;
+    }
+    return 0;
+  };
+
+  const longHold = (years) => (years < 3 ? 0 : Math.min(0.3, years * 0.02));
+
+  const transfer = (root) => {
+    const sale = root.querySelector("[name=sale]");
+    const buy = root.querySelector("[name=buy]");
+    const cost = root.querySelector("[name=cost]");
+    const years = root.querySelector("[name=years]");
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const s = digits(sale.value);
+      if (!s) return fill(out, {});
+      const gain = s - digits(buy.value) - digits(cost.value);
+      if (gain <= 0) {
+        fill(out, { gain, special: 0, std: 0, tax: 0, local: 0, total: 0 });
+        return;
+      }
+      const y = Number(years.value);
+      const house = root.querySelector("[name=asset]:checked")?.value !== "other";
+      const special = y >= 2 ? floor(gain * longHold(y)) : 0;
+      const std = Math.max(0, gain - special - 2500000);
+      let tax = 0;
+      if (y < 1) tax = std * (house ? 0.7 : 0.5);
+      else if (y < 2) tax = std * (house ? 0.6 : 0.4);
+      else tax = progressive(std);
+      tax = floor(tax);
+      const local = floor(tax * 0.1);
+      fill(out, { gain, special, std, tax, local, total: tax + local });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
+  const GIFT_DED = {
+    spouse: 600000000,
+    parent: 50000000,
+    minor: 20000000,
+    child: 50000000,
+    kin: 10000000,
+    other: 0,
+  };
+
+  const gift = (root) => {
+    const amount = root.querySelector("[name=amount]");
+    const rel = root.querySelector("[name=rel]");
+    const file = root.querySelector("[name=file]");
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const n = digits(amount.value);
+      if (!n) return fill(out, {});
+      const ded = GIFT_DED[rel.value] || 0;
+      const std = Math.max(0, n - ded);
+      const raw = floor(estateTax(std));
+      const credit = file.checked ? floor(raw * 0.03) : 0;
+      fill(out, { ded, std, raw, credit, pay: raw - credit });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
+  const inheritance = (root) => {
+    const amount = root.querySelector("[name=amount]");
+    const lump = root.querySelector("[name=lump]");
+    const file = root.querySelector("[name=file]");
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const n = digits(amount.value);
+      if (!n) return fill(out, {});
+      const spouse = root.querySelector("[name=spouse]:checked")?.value === "yes";
+      let ded = lump.checked ? 500000000 : 200000000;
+      if (spouse) ded += 500000000;
+      const std = Math.max(0, n - ded);
+      const raw = floor(estateTax(std));
+      const credit = file.checked ? floor(raw * 0.03) : 0;
+      fill(out, { ded, std, raw, credit, pay: raw - credit });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
   const boot = {
     vat,
     insurance,
     salary,
     severance,
+    transfer,
+    gift,
+    inheritance,
   };
 
   document.querySelectorAll("[data-tool]").forEach((root) => {

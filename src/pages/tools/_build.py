@@ -13,6 +13,9 @@ NAV = """        <div class="drop">
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
+            <a href="/tools/transfer/">부동산 양도세</a>
+            <a href="/tools/gift/">증여세 계산기</a>
+            <a href="/tools/inheritance/">상속세 계산기</a>
           </div>
         </div>
 """
@@ -24,6 +27,9 @@ OVERLAY = """      <details>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
         <a href="/tools/severance/">퇴직금 계산기</a>
+        <a href="/tools/transfer/">부동산 양도세</a>
+        <a href="/tools/gift/">증여세 계산기</a>
+        <a href="/tools/inheritance/">상속세 계산기</a>
       </details>
 """
 
@@ -37,7 +43,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
-  <link rel="stylesheet" href="/src/css/site.css?v=151">
+  <link rel="stylesheet" href="/src/css/site.css?v=155">
 </head>
 <body class="tools-page">
   <header class="hd">
@@ -59,7 +65,7 @@ HEAD = """<!DOCTYPE html>
           <div class="menu">
             <a href="/gijang/">세무기장</a>
             <a href="/consulting/">컨설팅</a>
-            <a href="/refund/">더낸세금</a>
+            <a href="/refund/">경정청구(더낸세금)</a>
           </div>
         </div>
         <div class="drop">
@@ -69,6 +75,9 @@ HEAD = """<!DOCTYPE html>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
+            <a href="/tools/transfer/">부동산 양도세</a>
+            <a href="/tools/gift/">증여세 계산기</a>
+            <a href="/tools/inheritance/">상속세 계산기</a>
           </div>
         </div>
         <a href="/pantax/">PANTAX.ai</a>
@@ -115,6 +124,9 @@ HEAD = """<!DOCTYPE html>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
         <a href="/tools/severance/">퇴직금 계산기</a>
+        <a href="/tools/transfer/">부동산 양도세</a>
+        <a href="/tools/gift/">증여세 계산기</a>
+        <a href="/tools/inheritance/">상속세 계산기</a>
       </details>
       <a href="/pantax/">PANTAX.ai</a>
       <a href="/blog/">블로그</a>
@@ -185,12 +197,15 @@ TABS = """      <nav class="svc-tabs">
         <a{ins} href="/tools/insurance/">4대보험</a>
         <a{sal} href="/tools/salary/">실수령액</a>
         <a{sev} href="/tools/severance/">퇴직금</a>
+        <a{tr} href="/tools/transfer/">양도세</a>
+        <a{gift} href="/tools/gift/">증여세</a>
+        <a{inh} href="/tools/inheritance/">상속세</a>
       </nav>
 """
 
 
 def tabs(on):
-    mark = {k: ' class="on"' if k == on else "" for k in ("vat", "ins", "sal", "sev")}
+    mark = {k: ' class="on"' if k == on else "" for k in ("vat", "ins", "sal", "sev", "tr", "gift", "inh")}
     return TABS.format(**mark)
 
 
@@ -215,7 +230,7 @@ def write(path: Path, title: str, desc: str, body: str, extra: str = ""):
 HUB = """    <section class="svc tools wrap">
       <p class="eyebrow">무료서비스</p>
       <h1>사업과 급여에 필요한 계산을<br>빠르게 확인하세요.</h1>
-      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여 실수령액, 퇴직금을 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
+      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여 실수령액, 퇴직금, 양도세, 증여세, 상속세를 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
       <div class="tools-grid">
         <a href="/tools/vat/">
           <b>부가세 계산기</b>
@@ -235,6 +250,21 @@ HUB = """    <section class="svc tools wrap">
         <a href="/tools/severance/">
           <b>퇴직금 계산기</b>
           <p>직전 3개월 평균임금과 재직일수로 예상 퇴직금을 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
+        <a href="/tools/transfer/">
+          <b>부동산 양도세 계산기</b>
+          <p>양도가액, 취득가액, 필요경비, 보유기간으로 예상 양도세를 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
+        <a href="/tools/gift/">
+          <b>증여세 계산기</b>
+          <p>증여재산과 관계별 공제로 예상 증여세를 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
+        <a href="/tools/inheritance/">
+          <b>상속세 계산기</b>
+          <p>상속재산과 일괄·배우자 공제로 예상 상속세를 계산합니다.</p>
           <span>계산하기 →</span>
         </a>
       </div>
@@ -454,7 +484,153 @@ SEV = f"""    <section class="svc tools wrap">
 """ + CTA + """    </section>
 """
 
-SCRIPT = '<script src="/src/js/tools.js?v=1"></script>'
+YEAR_OPTS = "\n".join(
+    ["""                <option value="0">1년 미만</option>""",
+     """                <option value="1">1년 이상 2년 미만</option>"""]
+    + [f"""                <option value="{n}">{n}년 이상 {n + 1}년 미만</option>""" for n in range(2, 15)]
+    + ["""                <option value="15">15년 이상</option>"""]
+)
+
+TR = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>부동산 양도세 계산기</h1>
+      <p class="sub">양도가액, 취득가액, 필요경비, 보유기간을 입력해 예상 양도소득세와 지방소득세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-25 · 소득세법 제104조 · 기본공제 250만 원 · 입력값을 저장·전송하지 않음</p>
+{tabs("tr")}
+      <div class="tools-work" data-tool="transfer">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label>자산 구분</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="asset" value="house" checked><span>주택·입주권·분양권</span></label>
+                <label><input type="radio" name="asset" value="other"><span>그 외 부동산</span></label>
+              </div>
+            </div>
+            <div class="tools-field">
+              <label for="tr-sale">양도가액 (매도)</label>
+              <input id="tr-sale" name="sale" data-money inputmode="numeric" placeholder="500,000,000">
+            </div>
+            <div class="tools-field">
+              <label for="tr-buy">취득가액 (매수)</label>
+              <input id="tr-buy" name="buy" data-money inputmode="numeric" placeholder="300,000,000">
+            </div>
+            <div class="tools-field">
+              <label for="tr-cost">필요경비</label>
+              <input id="tr-cost" name="cost" data-money inputmode="numeric" placeholder="10,000,000">
+              <small>중개수수료, 취득세, 자본적 지출 등 필요경비 예상액입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="tr-years">보유기간</label>
+              <select id="tr-years" name="years">
+{YEAR_OPTS}
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>양도차익</dt><dd data-out="gain">—</dd></div>
+            <div><dt>장기보유특별공제</dt><dd data-out="special">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>양도소득세</dt><dd data-out="tax">—</dd></div>
+            <div><dt>지방소득세</dt><dd data-out="local">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="total">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 일반자산 장기보유특별공제(3년 6%~15년 30%)와 기본공제 250만 원을 반영합니다. 1세대1주택 비과세, 고가주택 장특공, 다주택 중과, 비사업용 토지 중과는 지원하지 않습니다.</p>
+""" + CTA + """    </section>
+"""
+
+GIFT = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>증여세 계산기</h1>
+      <p class="sub">증여재산과 관계를 입력해 증여재산공제와 예상 증여세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-25 · 상속세 및 증여세법 제53조·제56조 · 입력값을 저장·전송하지 않음</p>
+{tabs("gift")}
+      <div class="tools-work" data-tool="gift">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label for="gift-amount">증여재산</label>
+              <input id="gift-amount" name="amount" data-money inputmode="numeric" placeholder="100,000,000">
+            </div>
+            <div class="tools-field">
+              <label for="gift-rel">증여자와의 관계</label>
+              <select id="gift-rel" name="rel">
+                <option value="parent">직계존속 (성년, 10년 5천만 원)</option>
+                <option value="minor">직계존속 (미성년, 10년 2천만 원)</option>
+                <option value="child">직계비속 (10년 5천만 원)</option>
+                <option value="spouse">배우자 (10년 6억 원)</option>
+                <option value="kin">기타 친족 (10년 1천만 원)</option>
+                <option value="other">그 외</option>
+              </select>
+              <small>10년 이내 동일인 증여는 합산합니다. 이 계산기는 이번 건만 봅니다.</small>
+            </div>
+            <label class="tools-check"><input type="checkbox" name="file" checked><span>기한 내 자진신고 세액공제 3%를 적용합니다.</span></label>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>증여재산공제</dt><dd data-out="ded">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>산출세액</dt><dd data-out="raw">—</dd></div>
+            <div><dt>신고세액공제</dt><dd data-out="credit">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="pay">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 세율은 1억 10%, 5억 20%, 10억 30%, 30억 40%, 초과 50%입니다. 혼인·출산 증여공제, 감정평가, 채무 인수, 10년 합산은 반영하지 않습니다.</p>
+""" + CTA + """    </section>
+"""
+
+INH = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>상속세 계산기</h1>
+      <p class="sub">상속재산, 배우자 여부, 일괄공제로 예상 상속세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-25 · 상속세 및 증여세법 제18조·제19조·제21조·제26조 · 입력값을 저장·전송하지 않음</p>
+{tabs("inh")}
+      <div class="tools-work" data-tool="inheritance">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label for="inh-amount">상속재산</label>
+              <input id="inh-amount" name="amount" data-money inputmode="numeric" placeholder="1,000,000,000">
+            </div>
+            <div class="tools-field">
+              <label>배우자</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="spouse" value="yes" checked><span>있음</span></label>
+                <label><input type="radio" name="spouse" value="no"><span>없음</span></label>
+              </div>
+              <small>배우자가 있으면 배우자 최소공제 5억 원을 더합니다.</small>
+            </div>
+            <label class="tools-check"><input type="checkbox" name="lump" checked><span>일괄공제 5억 원을 적용합니다. (끄면 기초공제 2억 원)</span></label>
+            <label class="tools-check"><input type="checkbox" name="file" checked><span>기한 내 자진신고 세액공제 3%를 적용합니다.</span></label>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>공제 합계</dt><dd data-out="ded">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>산출세액</dt><dd data-out="raw">—</dd></div>
+            <div><dt>신고세액공제</dt><dd data-out="credit">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="pay">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 일괄공제 5억 원 또는 기초공제 2억 원, 배우자 최소공제 5억 원만 반영합니다. 금융재산공제, 동거주택 공제, 사전증여 합산, 감정평가는 지원하지 않습니다.</p>
+""" + CTA + """    </section>
+"""
+
+SCRIPT = '<script src="/src/js/tools.js?v=3"></script>'
 
 
 def inject_existing():
@@ -492,11 +668,14 @@ def inject_existing():
 
 
 def main():
-    write(PAGES / "tools" / "index.html", "무료서비스", "판기세무회계 무료 계산기. 부가세, 4대보험, 급여 실수령액, 퇴직금을 로그인 없이 계산합니다.", HUB)
+    write(PAGES / "tools" / "index.html", "무료서비스", "판기세무회계 무료 계산기. 부가세, 4대보험, 급여 실수령액, 퇴직금, 양도세, 증여세, 상속세를 로그인 없이 계산합니다.", HUB)
     write(PAGES / "tools" / "vat" / "index.html", "부가세 계산기", "공급가액이나 합계금액으로 부가세를 계산합니다. 판기세무회계 무료서비스.", VAT, SCRIPT)
     write(PAGES / "tools" / "insurance" / "index.html", "4대보험 계산기", "2026년 요율로 근로자와 사업주 4대보험 부담액을 계산합니다. 판기세무회계 무료서비스.", INS, SCRIPT)
     write(PAGES / "tools" / "salary" / "index.html", "급여 실수령액 계산기", "4대보험과 간이세액 기준으로 월 예상 실수령액을 계산합니다. 판기세무회계 무료서비스.", SAL, SCRIPT)
     write(PAGES / "tools" / "severance" / "index.html", "퇴직금 계산기", "직전 3개월 평균임금과 재직일수로 예상 퇴직금을 계산합니다. 판기세무회계 무료서비스.", SEV, SCRIPT)
+    write(PAGES / "tools" / "transfer" / "index.html", "부동산 양도세 계산기", "양도가액, 취득가액, 필요경비, 보유기간으로 예상 양도세를 계산합니다. 판기세무회계 무료서비스.", TR, SCRIPT)
+    write(PAGES / "tools" / "gift" / "index.html", "증여세 계산기", "증여재산과 관계별 공제로 예상 증여세를 계산합니다. 판기세무회계 무료서비스.", GIFT, SCRIPT)
+    write(PAGES / "tools" / "inheritance" / "index.html", "상속세 계산기", "상속재산과 일괄·배우자 공제로 예상 상속세를 계산합니다. 판기세무회계 무료서비스.", INH, SCRIPT)
     inject_existing()
 
 

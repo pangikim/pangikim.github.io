@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>퇴직금 계산기 | 판기세무회계</title>
-  <meta name="description" content="직전 3개월 평균임금과 재직일수로 예상 퇴직금을 계산합니다. 판기세무회계 무료서비스.">
+  <title>상속세 계산기 | 판기세무회계</title>
+  <meta name="description" content="상속재산과 일괄·배우자 공제로 예상 상속세를 계산합니다. 판기세무회계 무료서비스.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
@@ -101,58 +101,51 @@
   <main>
     <section class="svc tools wrap">
       <p class="eyebrow">무료서비스</p>
-      <h1>퇴직금 계산기</h1>
-      <p class="sub">입·퇴사일과 직전 3개월 임금으로 평균임금과 예상 퇴직금을 계산합니다.</p>
-      <p class="tools-meta">기준일 2026-08-01 · 근로자퇴직급여 보장법 · 입력값을 저장·전송하지 않음</p>
+      <h1>상속세 계산기</h1>
+      <p class="sub">상속재산, 배우자 여부, 일괄공제로 예상 상속세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-25 · 상속세 및 증여세법 제18조·제19조·제21조·제26조 · 입력값을 저장·전송하지 않음</p>
       <nav class="svc-tabs">
         <a href="/tools/vat/">부가세</a>
         <a href="/tools/insurance/">4대보험</a>
         <a href="/tools/salary/">실수령액</a>
-        <a class="on" href="/tools/severance/">퇴직금</a>
+        <a href="/tools/severance/">퇴직금</a>
         <a href="/tools/transfer/">양도세</a>
         <a href="/tools/gift/">증여세</a>
-        <a href="/tools/inheritance/">상속세</a>
+        <a class="on" href="/tools/inheritance/">상속세</a>
       </nav>
 
-      <div class="tools-work" data-tool="severance">
+      <div class="tools-work" data-tool="inheritance">
         <form class="tools-box" onsubmit="return false">
           <h2>입력</h2>
           <div class="tools-fields">
             <div class="tools-field">
-              <label for="sev-start">입사일</label>
-              <input id="sev-start" name="start" type="date">
+              <label for="inh-amount">상속재산</label>
+              <input id="inh-amount" name="amount" data-money inputmode="numeric" placeholder="1,000,000,000">
             </div>
             <div class="tools-field">
-              <label for="sev-end">퇴사일</label>
-              <input id="sev-end" name="end" type="date">
+              <label>배우자</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="spouse" value="yes" checked><span>있음</span></label>
+                <label><input type="radio" name="spouse" value="no"><span>없음</span></label>
+              </div>
+              <small>배우자가 있으면 배우자 최소공제 5억 원을 더합니다.</small>
             </div>
-            <div class="tools-field">
-              <label for="sev-wage">직전 3개월 임금 합계</label>
-              <input id="sev-wage" name="wage" data-money inputmode="numeric" placeholder="9,000,000">
-              <small>기본급·수당 등 퇴직 전 3개월에 지급한 임금 총액입니다.</small>
-            </div>
-            <div class="tools-field">
-              <label for="sev-bonus">연간 상여금</label>
-              <input id="sev-bonus" name="bonus" data-money inputmode="numeric" placeholder="0">
-            </div>
-            <div class="tools-field">
-              <label for="sev-leave">연차수당</label>
-              <input id="sev-leave" name="leave" data-money inputmode="numeric" placeholder="0">
-              <small>연간 상여와 연차수당은 평균임금에 비례해 더합니다.</small>
-            </div>
+            <label class="tools-check"><input type="checkbox" name="lump" checked><span>일괄공제 5억 원을 적용합니다. (끄면 기초공제 2억 원)</span></label>
+            <label class="tools-check"><input type="checkbox" name="file" checked><span>기한 내 자진신고 세액공제 3%를 적용합니다.</span></label>
           </div>
         </form>
         <div class="tools-box tools-result" data-result>
           <h2>계산 결과</h2>
           <dl>
-            <div><dt>재직일수</dt><dd data-out="days" data-unit="일">—</dd></div>
-            <div><dt>1일 평균임금</dt><dd data-out="daily">—</dd></div>
-            <div><dt>30일분 평균임금</dt><dd data-out="avg">—</dd></div>
-            <div class="sum"><dt>예상 퇴직금</dt><dd data-out="pay">—</dd></div>
+            <div><dt>공제 합계</dt><dd data-out="ded">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>산출세액</dt><dd data-out="raw">—</dd></div>
+            <div><dt>신고세액공제</dt><dd data-out="credit">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="pay">—</dd></div>
           </dl>
         </div>
       </div>
-      <p class="tools-note"><b>법정 퇴직금은 1년 이상 재직한 경우</b> 발생합니다. 평균임금 = 퇴직 전 3개월 임금 총액 ÷ 그 기간 일수, 퇴직금 = 평균임금 × 30일 × (재직일수 ÷ 365)입니다.</p>
+      <p class="tools-note"><b>참고용입니다.</b> 일괄공제 5억 원 또는 기초공제 2억 원, 배우자 최소공제 5억 원만 반영합니다. 금융재산공제, 동거주택 공제, 사전증여 합산, 감정평가는 지원하지 않습니다.</p>
       <div class="svc-cta">
         <p>계산 결과는 참고용입니다. 실제 신고·지급은 상담으로 확인하세요.</p>
         <a class="btn solid" href="/consult/">상담 신청하기</a>

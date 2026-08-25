@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>퇴직금 계산기 | 판기세무회계</title>
-  <meta name="description" content="직전 3개월 평균임금과 재직일수로 예상 퇴직금을 계산합니다. 판기세무회계 무료서비스.">
+  <title>부동산 양도세 계산기 | 판기세무회계</title>
+  <meta name="description" content="양도가액, 취득가액, 필요경비, 보유기간으로 예상 양도세를 계산합니다. 판기세무회계 무료서비스.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
@@ -101,58 +101,79 @@
   <main>
     <section class="svc tools wrap">
       <p class="eyebrow">무료서비스</p>
-      <h1>퇴직금 계산기</h1>
-      <p class="sub">입·퇴사일과 직전 3개월 임금으로 평균임금과 예상 퇴직금을 계산합니다.</p>
-      <p class="tools-meta">기준일 2026-08-01 · 근로자퇴직급여 보장법 · 입력값을 저장·전송하지 않음</p>
+      <h1>부동산 양도세 계산기</h1>
+      <p class="sub">양도가액, 취득가액, 필요경비, 보유기간을 입력해 예상 양도소득세와 지방소득세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-25 · 소득세법 제104조 · 기본공제 250만 원 · 입력값을 저장·전송하지 않음</p>
       <nav class="svc-tabs">
         <a href="/tools/vat/">부가세</a>
         <a href="/tools/insurance/">4대보험</a>
         <a href="/tools/salary/">실수령액</a>
-        <a class="on" href="/tools/severance/">퇴직금</a>
-        <a href="/tools/transfer/">양도세</a>
+        <a href="/tools/severance/">퇴직금</a>
+        <a class="on" href="/tools/transfer/">양도세</a>
         <a href="/tools/gift/">증여세</a>
         <a href="/tools/inheritance/">상속세</a>
       </nav>
 
-      <div class="tools-work" data-tool="severance">
+      <div class="tools-work" data-tool="transfer">
         <form class="tools-box" onsubmit="return false">
           <h2>입력</h2>
           <div class="tools-fields">
             <div class="tools-field">
-              <label for="sev-start">입사일</label>
-              <input id="sev-start" name="start" type="date">
+              <label>자산 구분</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="asset" value="house" checked><span>주택·입주권·분양권</span></label>
+                <label><input type="radio" name="asset" value="other"><span>그 외 부동산</span></label>
+              </div>
             </div>
             <div class="tools-field">
-              <label for="sev-end">퇴사일</label>
-              <input id="sev-end" name="end" type="date">
+              <label for="tr-sale">양도가액 (매도)</label>
+              <input id="tr-sale" name="sale" data-money inputmode="numeric" placeholder="500,000,000">
             </div>
             <div class="tools-field">
-              <label for="sev-wage">직전 3개월 임금 합계</label>
-              <input id="sev-wage" name="wage" data-money inputmode="numeric" placeholder="9,000,000">
-              <small>기본급·수당 등 퇴직 전 3개월에 지급한 임금 총액입니다.</small>
+              <label for="tr-buy">취득가액 (매수)</label>
+              <input id="tr-buy" name="buy" data-money inputmode="numeric" placeholder="300,000,000">
             </div>
             <div class="tools-field">
-              <label for="sev-bonus">연간 상여금</label>
-              <input id="sev-bonus" name="bonus" data-money inputmode="numeric" placeholder="0">
+              <label for="tr-cost">필요경비</label>
+              <input id="tr-cost" name="cost" data-money inputmode="numeric" placeholder="10,000,000">
+              <small>중개수수료, 취득세, 자본적 지출 등 필요경비 예상액입니다.</small>
             </div>
             <div class="tools-field">
-              <label for="sev-leave">연차수당</label>
-              <input id="sev-leave" name="leave" data-money inputmode="numeric" placeholder="0">
-              <small>연간 상여와 연차수당은 평균임금에 비례해 더합니다.</small>
+              <label for="tr-years">보유기간</label>
+              <select id="tr-years" name="years">
+                <option value="0">1년 미만</option>
+                <option value="1">1년 이상 2년 미만</option>
+                <option value="2">2년 이상 3년 미만</option>
+                <option value="3">3년 이상 4년 미만</option>
+                <option value="4">4년 이상 5년 미만</option>
+                <option value="5">5년 이상 6년 미만</option>
+                <option value="6">6년 이상 7년 미만</option>
+                <option value="7">7년 이상 8년 미만</option>
+                <option value="8">8년 이상 9년 미만</option>
+                <option value="9">9년 이상 10년 미만</option>
+                <option value="10">10년 이상 11년 미만</option>
+                <option value="11">11년 이상 12년 미만</option>
+                <option value="12">12년 이상 13년 미만</option>
+                <option value="13">13년 이상 14년 미만</option>
+                <option value="14">14년 이상 15년 미만</option>
+                <option value="15">15년 이상</option>
+              </select>
             </div>
           </div>
         </form>
         <div class="tools-box tools-result" data-result>
           <h2>계산 결과</h2>
           <dl>
-            <div><dt>재직일수</dt><dd data-out="days" data-unit="일">—</dd></div>
-            <div><dt>1일 평균임금</dt><dd data-out="daily">—</dd></div>
-            <div><dt>30일분 평균임금</dt><dd data-out="avg">—</dd></div>
-            <div class="sum"><dt>예상 퇴직금</dt><dd data-out="pay">—</dd></div>
+            <div><dt>양도차익</dt><dd data-out="gain">—</dd></div>
+            <div><dt>장기보유특별공제</dt><dd data-out="special">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>양도소득세</dt><dd data-out="tax">—</dd></div>
+            <div><dt>지방소득세</dt><dd data-out="local">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="total">—</dd></div>
           </dl>
         </div>
       </div>
-      <p class="tools-note"><b>법정 퇴직금은 1년 이상 재직한 경우</b> 발생합니다. 평균임금 = 퇴직 전 3개월 임금 총액 ÷ 그 기간 일수, 퇴직금 = 평균임금 × 30일 × (재직일수 ÷ 365)입니다.</p>
+      <p class="tools-note"><b>참고용입니다.</b> 일반자산 장기보유특별공제(3년 6%~15년 30%)와 기본공제 250만 원을 반영합니다. 1세대1주택 비과세, 고가주택 장특공, 다주택 중과, 비사업용 토지 중과는 지원하지 않습니다.</p>
       <div class="svc-cta">
         <p>계산 결과는 참고용입니다. 실제 신고·지급은 상담으로 확인하세요.</p>
         <a class="btn solid" href="/consult/">상담 신청하기</a>
