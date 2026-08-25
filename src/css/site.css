@@ -427,7 +427,11 @@ html.is-menu .dock { display: none !important; }
   object-fit: cover;
   object-position: center;
   background: #1a2230;
+  opacity: 0;
+  transition: opacity .9s ease;
+  z-index: 0;
 }
+.hero-bg.is-on { opacity: 1; }
 .hero-stage::after {
   content: "";
   position: absolute;
@@ -470,6 +474,28 @@ h2 {
   padding: clamp(24px, 3.3vw, 48px) clamp(16px, 2.8vw, 40px);
   text-align: center;
 }
+.hero-lines {
+  position: relative;
+  width: 100%;
+  min-height: calc(clamp(36px, 4.8vw, 64px) * 2.5 + 16px + clamp(18px, 1.6vw, 24px) * 1.5);
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .7s ease, transform .7s ease, visibility .7s;
+  pointer-events: none;
+}
+.hero-slide.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
 .hero-stage .lead {
   color: rgba(240, 243, 255, 0.86);
   font-size: clamp(32px, 3.4vw, 40px);
@@ -503,6 +529,12 @@ h2 {
 }
 .hero .btn.solid:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg,
+  .hero-slide {
+    transition: none;
+  }
 }
 .benefit {
   padding: var(--sec) 0;

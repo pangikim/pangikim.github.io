@@ -6,35 +6,35 @@
   <title>판기세무회계</title>
   <meta name="description" content="판기세무회계. 김판기 세무사가 세무기장, 세금신고, 환급, 절세 컨설팅을 담당합니다.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="icon" href="img/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="img/apple-touch.png">
-  <link rel="stylesheet" href="css/site.css?v=130">
+  <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
+  <link rel="stylesheet" href="/src/css/site.css?v=132">
 </head>
 <body class="home">
   <header class="hd" id="hd">
     <div class="wrap hd-in">
-      <a class="logo" href="#top" aria-label="판기세무회계">
+      <a class="logo" href="/" aria-label="판기세무회계">
         <span class="logo-mark">
-          <img class="logo-ink" src="img/logo-line-black.png" alt="" width="39" height="39">
-          <img class="logo-wash" src="img/logo-line-white.png" alt="" width="39" height="39">
+          <img class="logo-ink" src="/assets/brand/logo-line-black.png" alt="" width="39" height="39">
+          <img class="logo-wash" src="/assets/brand/logo-line-white.png" alt="" width="39" height="39">
         </span>
         <span class="logo-word">
-          <img class="logo-ink" src="img/logo-word-black.png" alt="">
-          <img class="logo-wash" src="img/logo-word-white.png" alt="">
+          <img class="logo-ink" src="/assets/brand/logo-word-black.png" alt="">
+          <img class="logo-wash" src="/assets/brand/logo-word-white.png" alt="">
         </span>
       </a>
       <nav class="nav">
-        <a href="about.html">회사소개</a>
+        <a href="/about/">회사소개</a>
         <div class="drop">
           <button type="button">세무서비스 <span class="chev"></span></button>
           <div class="menu">
-            <a href="gijang.html">세무기장</a>
-            <a href="consulting.html">컨설팅</a>
-            <a href="refund.html">더낸세금</a>
+            <a href="/gijang/">세무기장</a>
+            <a href="/consulting/">컨설팅</a>
+            <a href="/refund/">더낸세금</a>
           </div>
         </div>
-        <a href="pantax.html">PANTAX.ai</a>
-        <a href="blog.html">블로그</a>
+        <a href="/pantax/">PANTAX.ai</a>
+        <a href="/blog/">블로그</a>
       </nav>
       <div class="hd-btns">
         <button class="burger" id="burger" type="button" aria-label="메뉴" aria-expanded="false">
@@ -46,14 +46,14 @@
 
   <div class="overlay" id="overlay" hidden>
     <div class="overlay-bar">
-      <a class="logo" href="index.html" aria-label="판기세무회계">
+      <a class="logo" href="/" aria-label="판기세무회계">
         <span class="logo-mark">
-          <img class="logo-ink" src="img/logo-line-black.png" alt="" width="39" height="39">
-          <img class="logo-wash" src="img/logo-line-white.png" alt="" width="39" height="39">
+          <img class="logo-ink" src="/assets/brand/logo-line-black.png" alt="" width="39" height="39">
+          <img class="logo-wash" src="/assets/brand/logo-line-white.png" alt="" width="39" height="39">
         </span>
         <span class="logo-word">
-          <img class="logo-ink" src="img/logo-word-black.png" alt="">
-          <img class="logo-wash" src="img/logo-word-white.png" alt="">
+          <img class="logo-ink" src="/assets/brand/logo-word-black.png" alt="">
+          <img class="logo-wash" src="/assets/brand/logo-word-white.png" alt="">
         </span>
       </a>
       <button class="burger" type="button" aria-label="닫기" aria-expanded="false">
@@ -61,28 +61,39 @@
       </button>
     </div>
     <div class="overlay-in">
-      <a href="about.html">회사소개</a>
+      <a href="/about/">회사소개</a>
       <details>
         <summary>세무서비스</summary>
-        <a href="gijang.html">세무 기장</a>
-        <a href="consulting.html">컨설팅</a>
-        <a href="refund.html">경정청구(더낸세금)</a>
+        <a href="/gijang/">세무 기장</a>
+        <a href="/consulting/">컨설팅</a>
+        <a href="/refund/">경정청구(더낸세금)</a>
       </details>
-      <a href="pantax.html">PANTAX.ai</a>
-      <a href="blog.html">블로그</a>
+      <a href="/pantax/">PANTAX.ai</a>
+      <a href="/blog/">블로그</a>
     </div>
   </div>
 
-  <main id="top">
+  <main>
     <section class="hero">
       <div class="hero-stage">
-        <video class="hero-bg" autoplay muted loop playsinline poster="img/hero-city.jpg?v=3" aria-hidden="true">
-          <source src="img/hero-city.mp4?v=3" type="video/mp4">
+        <video class="hero-bg is-on" autoplay muted loop playsinline poster="/assets/hero/city.jpg?v=3" aria-hidden="true">
+          <source src="/assets/hero/city.mp4?v=3" type="video/mp4">
+        </video>
+        <video class="hero-bg" muted loop playsinline aria-hidden="true">
+          <source src="/assets/hero/city2.mp4" type="video/mp4">
         </video>
         <div class="hero-copy">
-          <h1>세무는 계산이 아니라<br>전략입니다.</h1>
-          <p class="hero-desc">경험과 분석으로 최적의 답을 제시합니다.</p>
-          <a class="btn solid" href="consult.html">상담 신청하기</a>
+          <div class="hero-lines">
+            <div class="hero-slide is-on">
+              <h1>세무는 계산이 아니라<br>전략입니다.</h1>
+              <p class="hero-desc">경험과 분석으로 최적의 답을 제시합니다.</p>
+            </div>
+            <div class="hero-slide">
+              <h1>상담 전에, 이미<br>숫자부터 봅니다.</h1>
+              <p class="hero-desc">기장 자료를 먼저 읽고 상담에 들어갑니다.</p>
+            </div>
+          </div>
+          <a class="btn solid" href="/consult/">상담 신청하기</a>
         </div>
       </div>
     </section>
@@ -123,7 +134,7 @@
         <div class="pantax-copy">
           <p class="pantax-kicker">PANTAX.ai</p>
           <h2>상담 전에,<br>이미 숫자부터 봅니다.</h2>
-          <a class="btn solid" href="pantax.html">자세히 보기</a>
+          <a class="btn solid" href="/pantax/">자세히 보기</a>
         </div>
         <div class="pantax-win">
           <div class="pantax-bar">
@@ -210,7 +221,7 @@
       <h2>1:1 컨설팅</h2>
       <p class="sub">계약·세금·인사 이슈를 대표님 자리에서 같이 정리합니다.<br>세무·법무·노무 전문가가 상황에 맞춰 점검합니다.</p>
       <figure class="consult-shot">
-        <img src="img/consult.png?v=18" alt="1:1 컨설팅">
+        <img src="/assets/consulting/consult.png?v=18" alt="1:1 컨설팅">
       </figure>
       <ul class="clist">
         <li>
@@ -245,7 +256,7 @@
       <p class="mega sm">284건</p>
       <p class="sub tight">업계 평점 대비 높은 만족도</p>
       <div class="rev-head">
-        <a href="review.html">전체 보기</a>
+        <a href="/review/">전체 보기</a>
       </div>
       <div class="rev-view">
         <div class="rev-track" id="rev-track">
@@ -312,7 +323,7 @@
             <li>급여, 원천세, 4대 보험</li>
             <li>결산 및 세무조정 (연 1회 별도)</li>
           </ul>
-          <a class="btn solid" href="consult.html?topic=gijang">문의하기</a>
+          <a class="btn solid" href="/consult/?topic=gijang">문의하기</a>
         </article>
         <article>
           <p class="plan">컨설팅</p>
@@ -326,7 +337,7 @@
             <li>양도 컨설팅</li>
             <li>세액 산출</li>
           </ul>
-          <a class="btn line" href="consult.html?topic=consulting">문의하기</a>
+          <a class="btn line" href="/consult/?topic=consulting">문의하기</a>
         </article>
         <article id="refund">
           <p class="plan">환급</p>
@@ -338,7 +349,7 @@
             <li>놓친 공제·감면 확인</li>
             <li>환급 진행 대행</li>
           </ul>
-          <a class="btn line" href="consult.html?topic=refund">환급금 무료 조회하기</a>
+          <a class="btn line" href="/consult/?topic=refund">환급금 무료 조회하기</a>
         </article>
       </div>
     </section>
@@ -349,23 +360,23 @@
     <div class="wrap">
       <div class="ft-body">
         <div class="ft-info">
-          <a class="ft-word" href="#top" aria-label="판기세무회계"><img src="img/logo-line-white.png" alt=""><img src="img/logo-word-white.png" alt=""></a>
+          <a class="ft-word" href="/" aria-label="판기세무회계"><img src="/assets/brand/logo-line-white.png" alt=""><img src="/assets/brand/logo-word-white.png" alt=""></a>
           <p class="ft-tel">문의전화: <a href="tel:0323230268">032-323-0268</a></p>
           <div>
             <p>대표 김판기</p>
             <p>경기도 부천시 신흥로 268 (중동)</p>
           </div>
           <div class="sns">
-            <a href="blog.html" aria-label="인스타그램">
+            <a href="/blog/" aria-label="인스타그램">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
             </a>
-            <a href="blog.html" aria-label="페이스북">
+            <a href="/blog/" aria-label="페이스북">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z" fill="currentColor"/></svg>
             </a>
-            <a href="blog.html" aria-label="블로그">
+            <a href="/blog/" aria-label="블로그">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.6"/></svg>
             </a>
-            <a href="blog.html" aria-label="유튜브">
+            <a href="/blog/" aria-label="유튜브">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 10l5 2-5 2z" fill="currentColor"/></svg>
             </a>
           </div>
@@ -373,17 +384,17 @@
         <div class="ft-links">
           <div>
             <p>서비스</p>
-            <a href="gijang.html">세무기장</a>
-            <a href="consulting.html">컨설팅</a>
-            <a href="refund.html">더낸세금</a>
-            <a href="pantax.html">PANTAX.ai</a>
+            <a href="/gijang/">세무기장</a>
+            <a href="/consulting/">컨설팅</a>
+            <a href="/refund/">더낸세금</a>
+            <a href="/pantax/">PANTAX.ai</a>
           </div>
           <div>
             <p>바로가기</p>
-            <a href="about.html">회사소개</a>
-            <a href="review.html">고객 후기</a>
-            <a href="blog.html">블로그</a>
-            <a href="consult.html">상담 신청</a>
+            <a href="/about/">회사소개</a>
+            <a href="/review/">고객 후기</a>
+            <a href="/blog/">블로그</a>
+            <a href="/consult/">상담 신청</a>
           </div>
         </div>
       </div>
@@ -393,9 +404,9 @@
 
   <aside class="dock" id="dock" hidden>
     <p>시스템도, 전문성도 갖춘 <b>판기세무회계</b></p>
-    <a class="btn solid" href="consult.html">상담 신청하기</a>
+    <a class="btn solid" href="/consult/">상담 신청하기</a>
   </aside>
 
-  <script src="js/site.js?v=15"></script>
+  <script src="/src/js/site.js?v=17"></script>
 </body>
 </html>

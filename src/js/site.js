@@ -220,14 +220,25 @@ form?.addEventListener("submit", (e) => {
   if (document.getElementById("ok-modal")) setModal("ok-modal", true);
 });
 
+const heroMedia = [...document.querySelectorAll(".hero-bg")];
 const heroSlides = [...document.querySelectorAll(".hero-slide")];
-if (heroSlides.length > 1) {
+const heroCount = Math.min(heroMedia.length, heroSlides.length);
+if (heroCount > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   let heroI = 0;
+  const showHero = (i) => {
+    heroMedia.forEach((el, n) => {
+      const on = n === i;
+      el.classList.toggle("is-on", on);
+      if (el.tagName !== "VIDEO") return;
+      if (on) el.play().catch(() => {});
+      else el.pause();
+    });
+    heroSlides.forEach((el, n) => el.classList.toggle("is-on", n === i));
+  };
   setInterval(() => {
-    heroSlides[heroI].classList.remove("is-on");
-    heroI = (heroI + 1) % heroSlides.length;
-    heroSlides[heroI].classList.add("is-on");
-  }, 5200);
+    heroI = (heroI + 1) % heroCount;
+    showHero(heroI);
+  }, 6500);
 }
 
 const track = document.getElementById("rev-track");
