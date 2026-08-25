@@ -95,12 +95,12 @@ body.home .hd.is-solid .chev {
   border-bottom-color: #111;
 }
 body.home .hd.is-solid .hd-btns .btn {
-  background: transparent;
-  border-color: #181d27;
-  color: #181d27;
+  background: #fff;
+  border-color: #d9dade;
+  color: #0267ff;
 }
-body.home .hd.is-solid .hd-btns .ghost,
-body.home .hd.is-solid .hd-btns .line { color: #181d27; }
+body.home .hd.is-solid .hd-btns .ghost { color: #181d27; }
+body.home .hd.is-solid .hd-btns .line { color: #0267ff; }
 body.home .hd.is-solid .burger i {
   background: #181d27;
 }
