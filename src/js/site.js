@@ -107,13 +107,28 @@ const playProofNum = (el, delay) => {
   if (delay) setTimeout(run, delay);
   else run();
 };
-const pxMenu = document.getElementById("pantax-menu");
-const pxMain = document.getElementById("pantax-main");
-pxMenu?.addEventListener("click", (e) => {
-  const btn = e.target.closest("button");
-  if (!btn) return;
-  pxMenu.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b === btn));
-  pxMain?.querySelectorAll("article").forEach((p) => p.classList.toggle("on", p.dataset.pane === btn.dataset.pane));
+document.querySelectorAll(".pantax-menu").forEach((menu) => {
+  const main = menu.parentElement?.querySelector(".pantax-main");
+  const btns = [...menu.querySelectorAll("button")];
+  if (!btns.length) return;
+  const show = (i) => {
+    btns.forEach((b, n) => b.classList.toggle("on", n === i));
+    main?.querySelectorAll("article").forEach((p) => {
+      p.classList.toggle("on", p.dataset.pane === btns[i].dataset.pane);
+    });
+  };
+  let i = Math.max(0, btns.findIndex((b) => b.classList.contains("on")));
+  menu.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    i = btns.indexOf(btn);
+    show(i);
+  });
+  if (btns.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  setInterval(() => {
+    i = (i + 1) % btns.length;
+    show(i);
+  }, 2000);
 });
 
 const proof = document.querySelector(".proof");
