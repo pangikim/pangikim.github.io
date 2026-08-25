@@ -244,29 +244,76 @@ form?.addEventListener("submit", (e) => {
 
 const heroMedia = [...document.querySelectorAll(".hero-bg")];
 const heroSlides = [...document.querySelectorAll(".hero-slide")];
-const heroCount = Math.max(heroMedia.length, heroSlides.length);
-if (heroCount > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let heroI = 0;
-  const showHero = (i) => {
+if ((heroMedia.length > 1 || heroSlides.length > 1) && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let mediaI = Math.max(0, heroMedia.findIndex((el) => el.classList.contains("is-on")));
+  let slideI = Math.max(0, heroSlides.findIndex((el) => el.classList.contains("is-on")));
+  let switching = false;
+  let armTimer = 0;
+
+  const playClip = (el, reset) => {
+    if (el.tagName !== "VIDEO") return;
+    const start = () => {
+      if (reset) {
+        try { el.currentTime = 0; } catch {}
+      }
+      el.play().catch(() => {});
+    };
+    if (el.readyState >= 1) start();
+    else el.addEventListener("loadedmetadata", start, { once: true });
+  };
+
+  const showHero = (nextMedia, nextSlide) => {
     if (heroMedia.length) {
-      const mediaI = i % heroMedia.length;
+      mediaI = nextMedia;
       heroMedia.forEach((el, n) => {
         const on = n === mediaI;
         el.classList.toggle("is-on", on);
         if (el.tagName !== "VIDEO") return;
-        if (on) el.play().catch(() => {});
+        if (on) playClip(el, true);
         else el.pause();
       });
     }
     if (heroSlides.length) {
-      const slideI = i % heroSlides.length;
+      slideI = nextSlide;
       heroSlides.forEach((el, n) => el.classList.toggle("is-on", n === slideI));
     }
   };
-  setInterval(() => {
-    heroI = (heroI + 1) % heroCount;
-    showHero(heroI);
-  }, 6500);
+
+  const nextHero = () => {
+    if (switching) return;
+    switching = true;
+    showHero(
+      heroMedia.length ? (mediaI + 1) % heroMedia.length : 0,
+      heroSlides.length ? (slideI + 1) % heroSlides.length : 0
+    );
+    window.setTimeout(() => { switching = false; }, 200);
+  };
+
+  const armVideo = (el) => {
+    window.clearTimeout(armTimer);
+    const remain = el.duration - el.currentTime;
+    const wait = Number.isFinite(remain) && remain > 0.2 ? remain * 1000 : 8000;
+    armTimer = window.setTimeout(nextHero, wait);
+  };
+
+  heroMedia.forEach((el) => {
+    if (el.tagName !== "VIDEO") return;
+    el.loop = false;
+    el.addEventListener("playing", () => {
+      if (el.classList.contains("is-on")) armVideo(el);
+    });
+    el.addEventListener("ended", () => {
+      if (el.classList.contains("is-on")) nextHero();
+    });
+  });
+
+  const first = heroMedia[mediaI];
+  if (first && first.tagName === "VIDEO") {
+    if (first.paused) playClip(first, false);
+    if (first.readyState >= 1) armVideo(first);
+  } else {
+    armTimer = window.setTimeout(nextHero, 6500);
+  }
 }
 
 const track = document.getElementById("rev-track");

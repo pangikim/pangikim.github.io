@@ -43,7 +43,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
-  <link rel="stylesheet" href="/src/css/site.css?v=157">
+  <link rel="stylesheet" href="/src/css/site.css?v=159">
 </head>
 <body class="tools-page">
   <header class="hd">
@@ -186,7 +186,7 @@ FOOT = """  </main>
     </div>
   </footer>
 
-  <script src="/src/js/site.js?v=21"></script>
+  <script src="/src/js/site.js?v=23"></script>
   {extra}
 </body>
 </html>
