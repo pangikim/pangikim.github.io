@@ -1806,7 +1806,7 @@ input, select {
 .sns a:hover { border-color: #fff; }
 .ft-links {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
 }
 .ft-links p {
@@ -2006,7 +2006,14 @@ input, select {
   .consult-shot img { height: 280px; }
   .ft { padding: 48px 0 88px; }
   .ft-body { grid-template-columns: 1fr; gap: 28px; }
-  .ft-links { grid-template-columns: 1fr 1fr; }
+  .ft-links {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px 12px;
+  }
+  .ft-links a {
+    white-space: nowrap;
+    font-size: 13px;
+  }
   .review .eyebrow { margin-top: 48px; }
   .htabs { margin: 32px 0 16px; }
   .htabs button {
