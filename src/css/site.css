@@ -2943,12 +2943,12 @@ body.px .menu {
 body.px .menu a { color: #fff; }
 body.px .burger i { background: #fff; }
 body.px .hd-btns .btn {
-  background: transparent;
-  border-color: #fff;
-  color: #fff;
+  background: #fff;
+  border-color: #d9dade;
+  color: #0267ff;
 }
-body.px .hd-btns .ghost,
-body.px .hd-btns .line { color: #fff; }
+body.px .hd-btns .ghost { color: #181d27; }
+body.px .hd-btns .line { color: #0267ff; }
 body.px .overlay {
   background: #171b22;
 }
