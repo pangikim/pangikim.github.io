@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>블로그 | 판기세무회계</title>
-  <meta name="description" content="판기세무회계 블로그. 기장, 절세, 지원금, 경정청구 소식과 언론 보도를 모았습니다.">
+  <title>부가세 계산기 | 판기세무회계</title>
+  <meta name="description" content="공급가액이나 합계금액으로 부가세를 계산합니다. 판기세무회계 무료서비스.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
   <link rel="stylesheet" href="/src/css/site.css?v=142">
 </head>
-<body class="is-blog">
+<body class="tools-page">
   <header class="hd">
     <div class="wrap hd-in">
       <a class="logo" href="/" aria-label="판기세무회계">
@@ -77,7 +77,7 @@
         <a href="/consulting/">컨설팅</a>
         <a href="/refund/">경정청구(더낸세금)</a>
       </details>
-      <details>
+      <details open>
         <summary>무료서비스</summary>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
@@ -89,121 +89,50 @@
     </div>
   </div>
 
-  <main class="blog-main">
-    <div class="wrap">
-      <label class="blog-search">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l4.2 4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-        <input id="blog-q" type="search" placeholder="검색" autocomplete="off">
-      </label>
-    </div>
+  <main>
+    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>부가세 계산기</h1>
+      <p class="sub">공급가액 또는 합계금액을 입력해 공급가액, 부가세, 합계금액을 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-01 · 일반세율 10% · 입력값을 저장·전송하지 않음</p>
+      <nav class="svc-tabs">
+        <a class="on" href="/tools/vat/">부가세</a>
+        <a href="/tools/insurance/">4대보험</a>
+        <a href="/tools/salary/">실수령액</a>
+        <a href="/tools/severance/">퇴직금</a>
+      </nav>
 
-    <section class="blog-sec wrap" data-sec>
-      <p class="blog-kicker">알아두면 돈이 되는 필수 정보들</p>
-      <div class="blog-head">
-        <h2>실시간 인기 콘텐츠</h2>
-        <a class="blog-more" href="#hot">더 보기</a>
+      <div class="tools-work" data-tool="vat">
+        <form class="tools-box" onsubmit="return false">
+          <h2>계산 기준</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label>입력 기준</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="vatMode" value="supply" checked><span>공급가액</span></label>
+                <label><input type="radio" name="vatMode" value="total"><span>합계금액</span></label>
+              </div>
+            </div>
+            <div class="tools-field">
+              <label for="vat-amount">금액</label>
+              <input id="vat-amount" name="amount" data-money inputmode="numeric" placeholder="1,000,000">
+              <small>공급가액의 10%를 부가세로 계산합니다. 합계금액은 10/110을 적용하고 1원 미만을 버립니다.</small>
+            </div>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>공급가액</dt><dd data-out="supply">—</dd></div>
+            <div><dt>부가세</dt><dd data-out="vat">—</dd></div>
+            <div class="sum"><dt>합계금액</dt><dd data-out="total">—</dd></div>
+          </dl>
+        </div>
       </div>
-      <div class="blog-mosaic" id="hot">
-        <a class="bcard lg" href="/consult/" data-q="가족 간 증여세 면제 한도 2026">
-          <img src="/assets/blog/blog-01.png" alt="">
-          <h3>가족 간 증여세 면제 한도, 2026년 기준 총정리</h3>
-        </a>
-        <a class="bcard wide" href="/consult/" data-q="현금 입금 계좌이체 세무조사">
-          <img src="/assets/blog/blog-02.png" alt="">
-          <h3>현금 입금·계좌이체 세무조사, 2026년 실제 사례와 대처법</h3>
-        </a>
-        <a class="bcard wide" href="/consult/" data-q="소상공인 정부 지원">
-          <img src="/assets/blog/blog-03.png" alt="">
-          <h3>2026 소상공인을 위한 3대 정부 지원</h3>
-        </a>
-        <a class="bcard lg" href="/gijang/" data-q="기장 맡기기 전 세무사 질문">
-          <img src="/assets/blog/blog-04.png" alt="">
-          <h3>기장 맡기기 전 세무사에게 꼭 해야하는 질문</h3>
-        </a>
-        <a class="bcard" href="/gijang/" data-q="경리대행 세무기장 신고대리 차이">
-          <img src="/assets/blog/blog-05.png" alt="">
-          <h3>경리대행, 세무기장, 신고대리 차이는? 업무 범위와 선택 기준</h3>
-        </a>
-        <a class="bcard" href="/consult/" data-q="Interview 김판기 세무사">
-          <img src="/assets/blog/blog-06.png" alt="">
-          <h3>Interview | 김판기 세무사</h3>
-        </a>
-        <a class="bcard extra" href="/refund/" data-q="경정청구 언제 다시 보면 될까" hidden>
-          <img src="/assets/blog/blog-08.png" alt="">
-          <h3>경정청구, 언제 다시 보면 될까</h3>
-        </a>
-        <a class="bcard extra" href="/gijang/" data-q="스타트업 첫 기장 사무소" hidden>
-          <img src="/assets/blog/blog-04.png" alt="">
-          <h3>스타트업이 첫 기장 사무소를 고를 때</h3>
-        </a>
-      </div>
-    </section>
-
-    <section class="blog-sec wrap" data-sec>
-      <p class="blog-kicker">세무에 관한 모든 정보와 노하우</p>
-      <div class="blog-head">
-        <h2>세무 이야기</h2>
-        <a class="blog-more" href="#tax">더 보기</a>
-      </div>
-      <div class="blog-mosaic" id="tax">
-        <a class="bcard lg" href="/consulting/" data-q="아파트 증여세 취득세 절세">
-          <img src="/assets/blog/blog-07.png" alt="">
-          <h3>아파트 증여세 완벽 정리 2026 | 취득세·절세법·조정대상지역까지</h3>
-        </a>
-        <a class="bcard wide" href="/refund/" data-q="중소기업 취업자 소득세 감면">
-          <img src="/assets/blog/blog-08.png" alt="">
-          <h3>중소기업 취업자 소득세 감면, 얼마나 받을 수 있나요?</h3>
-        </a>
-        <a class="bcard wide" href="/gijang/" data-q="육하원칙 세무 생애 첫 세무기장">
-          <img src="/assets/blog/blog-05.png" alt="">
-          <h3>육하원칙 세무: 생애 첫 세무기장의 시작</h3>
-        </a>
-        <a class="bcard" href="/gijang/" data-q="세무조정료 왜 내야 할까">
-          <img src="/assets/blog/blog-03.png" alt="">
-          <h3>세무조정료, 왜 내야 할까?</h3>
-        </a>
-        <a class="bcard" href="/refund/" data-q="종합소득세 기한 후 신고 가산세">
-          <img src="/assets/blog/blog-02.png" alt="">
-          <h3>종합소득세 기한 후 신고, 가산세 감면 어떻게 받나요?</h3>
-        </a>
-        <a class="bcard extra" href="/consult/" data-q="부가세 신고 전 확인할 세 가지" hidden>
-          <img src="/assets/blog/blog-01.png" alt="">
-          <h3>부가세 신고 전에 대표가 확인할 세 가지</h3>
-        </a>
-      </div>
-    </section>
-
-    <section class="blog-sec wrap" data-sec>
-      <p class="blog-kicker">판기세무회계의 소식과 유용한 사업 팁</p>
-      <div class="blog-head">
-        <h2>판기세무회계 이야기</h2>
-        <a class="blog-more" href="#story">더 보기</a>
-      </div>
-      <div class="blog-mosaic" id="story">
-        <a class="bcard lg" href="/" data-q="부천 세무사 IT 기장">
-          <img src="/assets/blog/blog-04.png" alt="">
-          <h3>부천 세무사가 IT로 기장 업무를 바꾼 이유</h3>
-        </a>
-        <a class="bcard wide" href="/" data-q="카카오톡으로 끝나는 세무">
-          <img src="/assets/blog/blog-06.png" alt="">
-          <h3>카카오톡으로 끝나는 세무, 소규모 사업장에서 먼저 퍼지다</h3>
-        </a>
-        <a class="bcard wide" href="/pantax/" data-q="경정청구 지원금 세무 리포트">
-          <img src="/assets/blog/blog-05.png" alt="">
-          <h3>경정청구·지원금까지 한 화면에서 보는 세무 리포트</h3>
-        </a>
-        <a class="bcard" href="/pantax/" data-q="가상비서 세무업무">
-          <img src="/assets/blog/blog-08.png" alt="">
-          <h3>가상비서로 세무업무를 단순화한 부천 세무사무소</h3>
-        </a>
-        <a class="bcard" href="/consult/" data-q="Interview 김판기 대표 세무사">
-          <img src="/assets/blog/blog-06.png" alt="">
-          <h3>Interview | 김판기 대표 세무사</h3>
-        </a>
-        <a class="bcard extra" href="/" data-q="절세와 지원금을 함께 챙기는 세무" hidden>
-          <img src="/assets/blog/blog-03.png" alt="">
-          <h3>절세와 지원금을 함께 챙기는 세무 서비스</h3>
-        </a>
+      <p class="tools-note"><b>참고용입니다.</b> 영세율·면세와 복수 세율은 지원하지 않습니다. 실제 신고와 세금계산서 발행 전에는 거래 조건을 다시 확인하세요.</p>
+      <div class="svc-cta">
+        <p>계산 결과는 참고용입니다. 실제 신고·지급은 상담으로 확인하세요.</p>
+        <a class="btn solid" href="/consult/">상담 신청하기</a>
       </div>
     </section>
   </main>
@@ -260,5 +189,6 @@
     <a class="btn solid" href="/consult/">상담 신청하기</a>
   </aside>
   <script src="/src/js/site.js?v=20"></script>
+  <script src="/src/js/tools.js?v=1"></script>
 </body>
 </html>
