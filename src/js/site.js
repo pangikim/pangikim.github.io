@@ -110,11 +110,18 @@ const playProofNum = (el, delay) => {
 document.querySelectorAll(".pantax-menu").forEach((menu) => {
   const main = menu.parentElement?.querySelector(".pantax-main");
   const btns = [...menu.querySelectorAll("button")];
+  const panes = [...(main?.querySelectorAll("article") || [])];
   if (!btns.length) return;
   const show = (i) => {
+    const next = btns[i].dataset.pane;
     btns.forEach((b, n) => b.classList.toggle("on", n === i));
-    main?.querySelectorAll("article").forEach((p) => {
-      p.classList.toggle("on", p.dataset.pane === btns[i].dataset.pane);
+    panes.forEach((p) => {
+      const on = p.dataset.pane === next;
+      if (on === p.classList.contains("on")) return;
+      p.classList.remove("in", "out");
+      void p.offsetWidth;
+      p.classList.toggle("on", on);
+      p.classList.add(on ? "in" : "out");
     });
   };
   let i = Math.max(0, btns.findIndex((b) => b.classList.contains("on")));

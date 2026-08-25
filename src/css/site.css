@@ -1134,7 +1134,8 @@ h2 {
 .pantax-shell {
   display: grid;
   grid-template-columns: 120px 1fr;
-  min-height: 520px;
+  height: 520px;
+  overflow: hidden;
 }
 .pantax-menu {
   display: flex;
@@ -1155,16 +1156,63 @@ h2 {
   font-weight: 650;
   letter-spacing: -0.02em;
   cursor: pointer;
+  transition: background .4s ease, color .4s ease;
 }
 .pantax-menu .on {
   background: rgba(2, 103, 255, .16);
   color: #cfe0ff;
 }
-.pantax-main { min-width: 0; padding: 22px; }
-.pantax-main article { display: none; }
-.pantax-main article.on {
+.pantax-main {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  padding: 22px;
+  overflow: hidden;
+}
+.pantax-main article {
+  position: absolute;
+  inset: 22px;
   display: grid;
   gap: 16px;
+  align-content: start;
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.pantax-main article.on {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1;
+}
+.pantax-main article.in {
+  animation: pantax-pane-in .46s ease both;
+}
+.pantax-main article.out {
+  visibility: visible;
+  animation: pantax-pane-out .46s ease both;
+}
+@keyframes pantax-pane-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pantax-pane-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
 }
 .pantax-who {
   display: flex;
@@ -1365,6 +1413,9 @@ h2 {
 .pantax-next strong { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .pantax-live i { animation: none; }
+  .pantax-menu button { transition: none; }
+  .pantax-main article.in,
+  .pantax-main article.out { animation: none; }
 }
 
 .consulting { padding: var(--sec) 0; }
@@ -1910,7 +1961,12 @@ input, select {
   .pantax h2 { font-size: 28px; }
   .pantax .btn.solid { margin-top: 28px; }
   .pantax-kicker { font-size: 32px; }
-  .pantax-shell { grid-template-columns: 1fr; min-height: 0; }
+  .pantax-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 520px;
+    min-height: 520px;
+  }
   .pantax-tax { grid-template-columns: 1fr; }
   .pantax-tax b { font-size: 24px; }
   .pantax-menu {
