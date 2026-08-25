@@ -244,18 +244,24 @@ form?.addEventListener("submit", (e) => {
 
 const heroMedia = [...document.querySelectorAll(".hero-bg")];
 const heroSlides = [...document.querySelectorAll(".hero-slide")];
-const heroCount = Math.min(heroMedia.length, heroSlides.length);
+const heroCount = Math.max(heroMedia.length, heroSlides.length);
 if (heroCount > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   let heroI = 0;
   const showHero = (i) => {
-    heroMedia.forEach((el, n) => {
-      const on = n === i;
-      el.classList.toggle("is-on", on);
-      if (el.tagName !== "VIDEO") return;
-      if (on) el.play().catch(() => {});
-      else el.pause();
-    });
-    heroSlides.forEach((el, n) => el.classList.toggle("is-on", n === i));
+    if (heroMedia.length) {
+      const mediaI = i % heroMedia.length;
+      heroMedia.forEach((el, n) => {
+        const on = n === mediaI;
+        el.classList.toggle("is-on", on);
+        if (el.tagName !== "VIDEO") return;
+        if (on) el.play().catch(() => {});
+        else el.pause();
+      });
+    }
+    if (heroSlides.length) {
+      const slideI = i % heroSlides.length;
+      heroSlides.forEach((el, n) => el.classList.toggle("is-on", n === slideI));
+    }
   };
   setInterval(() => {
     heroI = (heroI + 1) % heroCount;

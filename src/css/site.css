@@ -482,7 +482,7 @@ h2 {
 .hero-lines {
   position: relative;
   width: 100%;
-  min-height: calc(clamp(36px, 4.8vw, 64px) * 2.5 + 16px + clamp(18px, 1.6vw, 24px) * 1.5);
+  min-height: calc(clamp(36px, 4.8vw, 64px) * 2.5 + 16px + clamp(18px, 1.6vw, 24px));
 }
 .hero-slide {
   position: absolute;
@@ -534,6 +534,9 @@ h2 {
 }
 .hero .btn.solid:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+@media (max-width: 430px) {
+  .hero-stage h1 { font-size: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-bg,
