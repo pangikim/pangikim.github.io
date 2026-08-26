@@ -92,7 +92,7 @@ HEAD = """<!DOCTYPE html>
           </div>
         </div>
         <a href="/pantax/">PANTAX.ai</a>
-        <a href="/blog/">블로그</a>
+        <a href="https://blog.naver.com/pantax_official">블로그</a>
       </nav>
       <div class="hd-btns">
         <a class="btn line" href="/consult/">상담 신청하기</a>
@@ -142,7 +142,7 @@ HEAD = """<!DOCTYPE html>
         <a href="/tools/inheritance/">상속세 계산기</a>
       </details>
       <a href="/pantax/">PANTAX.ai</a>
-      <a href="/blog/">블로그</a>
+      <a href="https://blog.naver.com/pantax_official">블로그</a>
     </div>
   </div>
 
@@ -202,7 +202,7 @@ FOOT = """  </main>
             <a href="/about/">회사소개</a>
             <a href="/pantax/">PANTAX.ai</a>
             <a href="/review/">고객 후기</a>
-            <a href="/blog/">블로그</a>
+            <a href="https://blog.naver.com/pantax_official">블로그</a>
             <a href="/consult/">상담 신청</a>
           </div>
         </div>
