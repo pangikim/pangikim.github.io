@@ -391,3 +391,10 @@ if (blogQ) {
     });
   });
 }
+
+document.querySelectorAll(".sns a").forEach((a) => {
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("준비중입니다.");
+  });
+});
