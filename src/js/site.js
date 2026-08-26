@@ -237,9 +237,35 @@ document.querySelectorAll("[data-close]").forEach((btn) => {
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!form.reportValidity()) return;
-  const ok = form.querySelector(".ok");
-  if (ok) ok.hidden = false;
-  if (document.getElementById("ok-modal")) setModal("ok-modal", true);
+  const userType = form.querySelector("[name=userType]:checked")?.value;
+  const consultType = form.querySelector("[name=consultType]:checked")?.value;
+  const payload = new FormData();
+  payload.set("entry.637316073", { indiv: "개인사업자", corp: "법인사업자", none: "비사업자" }[userType] || "");
+  payload.set("entry.1417826131", form.elements.name.value.trim());
+  payload.set("entry.48488819", form.elements.phone.value.trim());
+  payload.set("entry.1968126497", form.elements.bizName?.value.trim() || "");
+  payload.set("entry.405036097", form.elements.bizId?.value.trim() || "");
+  payload.set("entry.485325075", form.elements.email.value.trim());
+  payload.set("entry.1324740854", {
+    gijang: "세무기장",
+    consulting: "컨설팅",
+    refund: "경정청구",
+    transfer: "양도",
+    income: "소득",
+    gift: "증여",
+    etc: "기타",
+  }[consultType] || "");
+  payload.set("entry.1084011200", form.elements.message.value.trim());
+  if (form.elements.agree.checked) payload.set("entry.1148998599", "동의합니다.");
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSc94EpgxaasCcVKi_2nm_OqeRH7jatFdBpleiAaBD3jGuHWPg/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: payload,
+  }).finally(() => {
+    const ok = form.querySelector(".ok");
+    if (ok) ok.hidden = false;
+    if (document.getElementById("ok-modal")) setModal("ok-modal", true);
+  });
 });
 
 const heroMedia = [...document.querySelectorAll(".hero-bg")];
