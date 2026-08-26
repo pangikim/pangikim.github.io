@@ -3169,12 +3169,13 @@ body.px .dock {
   vertical-align: 4px;
 }
 .about-bio {
-  margin: 24px 0 0;
-  max-width: 28em;
+  margin: 20px 0 0;
+  max-width: 34em;
   color: var(--muted);
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.7;
 }
+.about-bio:first-of-type { margin-top: 24px; }
 .about-rep-shot {
   margin: 0;
   overflow: hidden;

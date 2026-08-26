@@ -259,7 +259,7 @@ def write(path: Path, title: str, desc: str, body: str, extra: str = ""):
 HUB = """    <section class="svc tools wrap">
       <p class="eyebrow">무료서비스</p>
       <h1>사업과 급여에 필요한 계산을<br>빠르게 확인하세요.</h1>
-      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여, 최저시급, 주휴수당, 종합소득세, 퇴직금, 양도세, 취득세, 증여세, 상속세를 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
+      <p class="sub">2026년 공식 요율을 기준으로 계산합니다.<br>로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
       <div class="tools-grid">
         <a href="/tools/vat/">
           <b>부가세 계산기</b>
