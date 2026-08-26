@@ -250,9 +250,10 @@ form?.addEventListener("submit", (e) => {
     gijang: "세무기장",
     consulting: "컨설팅",
     refund: "경정청구",
-    transfer: "양도",
-    income: "소득",
-    gift: "증여",
+    transfer: "양도세",
+    income: "소득세",
+    gift: "증여세",
+    inheritance: "상속세",
     etc: "기타",
   }[consultType] || "");
   payload.set("entry.1084011200", form.elements.message.value.trim());
