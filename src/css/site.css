@@ -3302,29 +3302,14 @@ body.px .dock {
   text-underline-offset: 3px;
 }
 .about-map {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 420px;
-  padding: 32px 24px;
+  overflow: hidden;
   border-radius: 20px;
-  background: #e8eaee;
-  color: inherit;
-  text-align: center;
 }
-.about-map-cta b {
+.about-map iframe {
   display: block;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-.about-map-cta em {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
+  width: 100%;
+  height: 420px;
+  border: 0;
 }
 
 @media (max-width: 1024px) {
@@ -3372,7 +3357,8 @@ body.px .dock {
   }
   .about-nums li + li { border-top: 1px solid var(--line); }
   .about-loc dd { font-size: 17px; }
-  .about-map { min-height: 260px; }
+  .about-map { border-radius: 16px; }
+  .about-map iframe { height: 260px; }
 }
 
 .tools form { max-width: none; margin-top: 0; min-width: 0; }

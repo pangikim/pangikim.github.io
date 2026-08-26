@@ -398,3 +398,22 @@ document.querySelectorAll(".sns a").forEach((a) => {
     alert("준비중입니다.");
   });
 });
+
+const aboutMap = document.querySelector(".about-map iframe");
+if (aboutMap) {
+  const box = aboutMap.parentElement;
+  let last = "";
+  const fit = () => {
+    const w = Math.round(box.clientWidth);
+    const h = Math.round(box.clientHeight);
+    const key = `${w}x${h}`;
+    if (w < 80 || h < 80 || key === last) return;
+    last = key;
+    const url = new URL(aboutMap.src);
+    url.searchParams.set("sh_width", String(w));
+    url.searchParams.set("sh_height", String(h));
+    aboutMap.src = url.href;
+  };
+  fit();
+  new ResizeObserver(fit).observe(box);
+}
