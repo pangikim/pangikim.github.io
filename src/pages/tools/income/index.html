@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>세무기장 | 판기세무회계</title>
-  <meta name="description" content="판기세무회계 세무기장. 장부 작성부터 세금신고, 급여·원천까지 카카오톡으로 처리합니다.">
+  <title>종합소득세 계산기 | 판기세무회계</title>
+  <meta name="description" content="종합소득과 필요경비, 소득공제·세액공제로 예상 종합소득세를 계산합니다. 판기세무회계 무료서비스.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="icon" href="/assets/brand/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
   <link rel="stylesheet" href="/src/css/site.css?v=164">
 </head>
-<body>
+<body class="tools-page">
   <header class="hd">
     <div class="wrap hd-in">
       <a class="logo" href="/" aria-label="판기세무회계">
@@ -76,13 +76,13 @@
     </div>
     <div class="overlay-in">
       <a href="/about/">회사소개</a>
-      <details open>
+      <details>
         <summary>세무서비스</summary>
         <a href="/gijang/">세무 기장</a>
         <a href="/consulting/">컨설팅</a>
         <a href="/refund/">경정청구(더낸세금)</a>
       </details>
-      <details>
+      <details open>
         <summary>무료서비스</summary>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
@@ -99,59 +99,91 @@
   </div>
 
   <main>
-    <section class="svc wrap">
-      <p class="eyebrow">빈틈없는 세무 관리</p>
-      <h1>세무기장</h1>
-      <p class="sub">장부 작성부터 세금신고까지.<br>대표님은 자료만 보내시면 됩니다.</p>
+    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>종합소득세 계산기</h1>
+      <p class="sub">종합소득과 필요경비, 인적공제·연금 공제로 예상 종합소득세와 지방소득세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-26 · 2025·2026년 기본세율 · 신고기한은 다음 해 5월 31일 · 입력값을 저장·전송하지 않음</p>
       <nav class="svc-tabs">
-        <a class="on" href="/gijang/">세무기장</a>
-        <a href="/consulting/">컨설팅</a>
-        <a href="/refund/">더낸세금</a>
+        <a href="/tools/vat/">부가세</a>
+        <a href="/tools/insurance/">4대보험</a>
+        <a href="/tools/salary/">실수령액</a>
+        <a class="on" href="/tools/income/">종소세</a>
+        <a href="/tools/severance/">퇴직금</a>
+        <a href="/tools/transfer/">양도세</a>
+        <a href="/tools/gift/">증여세</a>
+        <a href="/tools/inheritance/">상속세</a>
       </nav>
-      <figure class="svc-shot">
-        <video autoplay muted loop playsinline aria-hidden="true">
-          <source src="/assets/gijang/docs.mp4" type="video/mp4">
-        </video>
-      </figure>
-      <div class="svc-points">
-        <article>
-          <b>실시간 카카오톡 상담</b>
-          <p>부가세, 원천세, 증빙 질문을 메신저로 바로 남기면 담당자가 확인합니다.</p>
-        </article>
-        <article>
-          <b>장부 작성과 신고 대행</b>
-          <p>매출·매입 자료를 취합해 장부를 만들고, 부가세·종합소득세 신고를 대신합니다.</p>
-        </article>
-        <article>
-          <b>급여·4대보험</b>
-          <p>급여 대장, 원천세, 4대 보험 취득·상실까지 기장 범위에서 같이 봅니다.</p>
-        </article>
+
+      <div class="tools-work" data-tool="income">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label>귀속연도</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="year" value="2025"><span>2025년</span></label>
+                <label><input type="radio" name="year" value="2026" checked><span>2026년</span></label>
+              </div>
+              <small>2025년과 2026년 기본세율·누진공제는 같습니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-income">종합소득</label>
+              <input id="inc-income" name="income" data-money inputmode="numeric" placeholder="80,000,000">
+              <small>사업소득, 임대소득 등 종합소득 합계입니다. 근로·이자·배당 합산은 반영하지 않습니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-rate">필요경비율</label>
+              <input id="inc-rate" name="rate" inputmode="decimal" placeholder="60" value="60">
+              <small>종합소득 중 경비 비율입니다. 상품 구입, 임차료, 인건비, 차량유지비 등을 포함합니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-person">인적공제 합계</label>
+              <input id="inc-person" name="person" data-money inputmode="numeric" placeholder="1,500,000" value="1,500,000">
+              <small>본인 포함 1인당 150만 원입니다. 경로우대 100만 원, 장애인 200만 원, 부녀자 50만 원, 한부모 100만 원을 더해 입력하세요.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-pension">국민연금 등 합계</label>
+              <input id="inc-pension" name="pension" data-money inputmode="numeric" placeholder="0">
+              <small>해당 연도 국민연금·노란우산공제 납입액입니다. 노란우산 한도는 소득금액에 따라 200만~600만 원입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-old">개인연금저축 (2000.12.31 이전)</label>
+              <input id="inc-old" name="old" data-money inputmode="numeric" placeholder="0">
+              <small>불입액의 40%, 최대 72만 원을 소득공제합니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-kids">자녀세액공제 인원</label>
+              <input id="inc-kids" name="kids" type="number" min="0" max="20" value="0">
+              <small>소득금액 100만 원 이하인 만 8세 이상 20세 이하 자녀 수입니다. 1명 25만 원, 2명 55만 원, 이후 1명당 40만 원입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-saving">연금저축 불입액 (2001.1.1 이후)</label>
+              <input id="inc-saving" name="saving" data-money inputmode="numeric" placeholder="0">
+              <small>연금저축 연간 한도 600만 원입니다. 종합소득금액 4,500만 원 이하는 15%, 초과는 12%를 세액공제합니다.</small>
+            </div>
+            <label class="tools-check"><input type="checkbox" name="standard" checked><span>표준세액공제 7만 원을 적용합니다.</span></label>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>필요경비</dt><dd data-out="cost">—</dd></div>
+            <div><dt>소득금액</dt><dd data-out="amt">—</dd></div>
+            <div><dt>소득공제</dt><dd data-out="ded">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>산출세액</dt><dd data-out="raw">—</dd></div>
+            <div><dt>세액공제</dt><dd data-out="credit">—</dd></div>
+            <div><dt>결정세액</dt><dd data-out="final">—</dd></div>
+            <div><dt>지방소득세</dt><dd data-out="local">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="pay">—</dd></div>
+          </dl>
+        </div>
       </div>
-      <ol class="svc-steps">
-        <li>
-          <i>01</i>
-          <b>상담</b>
-          <span>업종과 규모를 듣고 기장 범위를 정합니다.</span>
-        </li>
-        <li>
-          <i>02</i>
-          <b>수임</b>
-          <span>계약 후 홈택스·카드·통장 연동을 안내합니다.</span>
-        </li>
-        <li>
-          <i>03</i>
-          <b>자료</b>
-          <span>매달 필요한 자료만 카카오톡으로 요청합니다.</span>
-        </li>
-        <li>
-          <i>04</i>
-          <b>신고</b>
-          <span>기한에 맞춰 신고하고 결과만 공유합니다.</span>
-        </li>
-      </ol>
+      <p class="tools-note"><b>참고용입니다.</b> 기본세율과 표준세액공제, 자녀·연금저축 세액공제만 반영합니다. 근로·이자·배당 합산, 중간예납, 기장세액공제, 가산세는 지원하지 않습니다.</p>
       <div class="svc-cta">
-        <p>기장 월 8만원~ · 부가세 별도</p>
-        <a class="btn solid" href="/consult/?topic=gijang">상담 신청하기</a>
+        <p>계산 결과는 참고용입니다. 실제 신고·지급은 상담으로 확인하세요.</p>
+        <a class="btn solid" href="/consult/">상담 신청하기</a>
       </div>
     </section>
   </main>
@@ -214,5 +246,6 @@
   </footer>
 
   <script src="/src/js/site.js?v=26"></script>
+  <script src="/src/js/tools.js?v=4"></script>
 </body>
 </html>

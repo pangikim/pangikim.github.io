@@ -12,6 +12,7 @@ NAV = """        <div class="drop">
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
+            <a href="/tools/income/">종합소득세 계산기</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
             <a href="/tools/transfer/">부동산 양도세</a>
             <a href="/tools/gift/">증여세 계산기</a>
@@ -25,6 +26,7 @@ OVERLAY = """      <details>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
+        <a href="/tools/income/">종합소득세 계산기</a>
         <a href="/tools/severance/">퇴직금 계산기</a>
         <a href="/tools/transfer/">부동산 양도세</a>
         <a href="/tools/gift/">증여세 계산기</a>
@@ -73,6 +75,7 @@ HEAD = """<!DOCTYPE html>
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
+            <a href="/tools/income/">종합소득세 계산기</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
             <a href="/tools/transfer/">부동산 양도세</a>
             <a href="/tools/gift/">증여세 계산기</a>
@@ -120,6 +123,7 @@ HEAD = """<!DOCTYPE html>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
+        <a href="/tools/income/">종합소득세 계산기</a>
         <a href="/tools/severance/">퇴직금 계산기</a>
         <a href="/tools/transfer/">부동산 양도세</a>
         <a href="/tools/gift/">증여세 계산기</a>
@@ -172,6 +176,7 @@ FOOT = """  </main>
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
+            <a href="/tools/income/">종합소득세 계산기</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
             <a href="/tools/transfer/">부동산 양도세</a>
             <a href="/tools/gift/">증여세 계산기</a>
@@ -201,6 +206,7 @@ TABS = """      <nav class="svc-tabs">
         <a{vat} href="/tools/vat/">부가세</a>
         <a{ins} href="/tools/insurance/">4대보험</a>
         <a{sal} href="/tools/salary/">실수령액</a>
+        <a{inc} href="/tools/income/">종소세</a>
         <a{sev} href="/tools/severance/">퇴직금</a>
         <a{tr} href="/tools/transfer/">양도세</a>
         <a{gift} href="/tools/gift/">증여세</a>
@@ -210,7 +216,7 @@ TABS = """      <nav class="svc-tabs">
 
 
 def tabs(on):
-    mark = {k: ' class="on"' if k == on else "" for k in ("vat", "ins", "sal", "sev", "tr", "gift", "inh")}
+    mark = {k: ' class="on"' if k == on else "" for k in ("vat", "ins", "sal", "inc", "sev", "tr", "gift", "inh")}
     return TABS.format(**mark)
 
 
@@ -235,7 +241,7 @@ def write(path: Path, title: str, desc: str, body: str, extra: str = ""):
 HUB = """    <section class="svc tools wrap">
       <p class="eyebrow">무료서비스</p>
       <h1>사업과 급여에 필요한 계산을<br>빠르게 확인하세요.</h1>
-      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여 실수령액, 퇴직금, 양도세, 증여세, 상속세를 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
+      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여 실수령액, 종합소득세, 퇴직금, 양도세, 증여세, 상속세를 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
       <div class="tools-grid">
         <a href="/tools/vat/">
           <b>부가세 계산기</b>
@@ -250,6 +256,11 @@ HUB = """    <section class="svc tools wrap">
         <a href="/tools/salary/">
           <b>급여 실수령액 계산기</b>
           <p>4대보험과 간이세액 기준으로 월 예상 실수령액을 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
+        <a href="/tools/income/">
+          <b>종합소득세 계산기</b>
+          <p>종합소득과 필요경비, 소득공제·세액공제로 예상 종합소득세를 계산합니다.</p>
           <span>계산하기 →</span>
         </a>
         <a href="/tools/severance/">
@@ -438,6 +449,81 @@ SAL = f"""    <section class="svc tools wrap">
         </div>
       </div>
       <p class="tools-note"><b>예상액입니다.</b> 상여금 별도 원천징수, 각종 지원금, 추가 공제와 연말정산은 반영하지 않습니다. 실제 급여명세서와 다를 수 있습니다.</p>
+""" + CTA + """    </section>
+"""
+
+INC = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>종합소득세 계산기</h1>
+      <p class="sub">종합소득과 필요경비, 인적공제·연금 공제로 예상 종합소득세와 지방소득세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-26 · 2025·2026년 기본세율 · 신고기한은 다음 해 5월 31일 · 입력값을 저장·전송하지 않음</p>
+{tabs("inc")}
+      <div class="tools-work" data-tool="income">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label>귀속연도</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="year" value="2025"><span>2025년</span></label>
+                <label><input type="radio" name="year" value="2026" checked><span>2026년</span></label>
+              </div>
+              <small>2025년과 2026년 기본세율·누진공제는 같습니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-income">종합소득</label>
+              <input id="inc-income" name="income" data-money inputmode="numeric" placeholder="80,000,000">
+              <small>사업소득, 임대소득 등 종합소득 합계입니다. 근로·이자·배당 합산은 반영하지 않습니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-rate">필요경비율</label>
+              <input id="inc-rate" name="rate" inputmode="decimal" placeholder="60" value="60">
+              <small>종합소득 중 경비 비율입니다. 상품 구입, 임차료, 인건비, 차량유지비 등을 포함합니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-person">인적공제 합계</label>
+              <input id="inc-person" name="person" data-money inputmode="numeric" placeholder="1,500,000" value="1,500,000">
+              <small>본인 포함 1인당 150만 원입니다. 경로우대 100만 원, 장애인 200만 원, 부녀자 50만 원, 한부모 100만 원을 더해 입력하세요.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-pension">국민연금 등 합계</label>
+              <input id="inc-pension" name="pension" data-money inputmode="numeric" placeholder="0">
+              <small>해당 연도 국민연금·노란우산공제 납입액입니다. 노란우산 한도는 소득금액에 따라 200만~600만 원입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-old">개인연금저축 (2000.12.31 이전)</label>
+              <input id="inc-old" name="old" data-money inputmode="numeric" placeholder="0">
+              <small>불입액의 40%, 최대 72만 원을 소득공제합니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-kids">자녀세액공제 인원</label>
+              <input id="inc-kids" name="kids" type="number" min="0" max="20" value="0">
+              <small>소득금액 100만 원 이하인 만 8세 이상 20세 이하 자녀 수입니다. 1명 25만 원, 2명 55만 원, 이후 1명당 40만 원입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="inc-saving">연금저축 불입액 (2001.1.1 이후)</label>
+              <input id="inc-saving" name="saving" data-money inputmode="numeric" placeholder="0">
+              <small>연금저축 연간 한도 600만 원입니다. 종합소득금액 4,500만 원 이하는 15%, 초과는 12%를 세액공제합니다.</small>
+            </div>
+            <label class="tools-check"><input type="checkbox" name="standard" checked><span>표준세액공제 7만 원을 적용합니다.</span></label>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>필요경비</dt><dd data-out="cost">—</dd></div>
+            <div><dt>소득금액</dt><dd data-out="amt">—</dd></div>
+            <div><dt>소득공제</dt><dd data-out="ded">—</dd></div>
+            <div><dt>과세표준</dt><dd data-out="std">—</dd></div>
+            <div><dt>산출세액</dt><dd data-out="raw">—</dd></div>
+            <div><dt>세액공제</dt><dd data-out="credit">—</dd></div>
+            <div><dt>결정세액</dt><dd data-out="final">—</dd></div>
+            <div><dt>지방소득세</dt><dd data-out="local">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="pay">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 기본세율과 표준세액공제, 자녀·연금저축 세액공제만 반영합니다. 근로·이자·배당 합산, 중간예납, 기장세액공제, 가산세는 지원하지 않습니다.</p>
 """ + CTA + """    </section>
 """
 
@@ -635,7 +721,7 @@ INH = f"""    <section class="svc tools wrap">
 """ + CTA + """    </section>
 """
 
-SCRIPT = '<script src="/src/js/tools.js?v=3"></script>'
+SCRIPT = '<script src="/src/js/tools.js?v=4"></script>'
 
 
 def inject_existing():
@@ -673,10 +759,11 @@ def inject_existing():
 
 
 def main():
-    write(PAGES / "tools" / "index.html", "무료서비스", "판기세무회계 무료 계산기. 부가세, 4대보험, 급여 실수령액, 퇴직금, 양도세, 증여세, 상속세를 로그인 없이 계산합니다.", HUB)
+    write(PAGES / "tools" / "index.html", "무료서비스", "판기세무회계 무료 계산기. 부가세, 4대보험, 급여 실수령액, 종합소득세, 퇴직금, 양도세, 증여세, 상속세를 로그인 없이 계산합니다.", HUB)
     write(PAGES / "tools" / "vat" / "index.html", "부가세 계산기", "공급가액이나 합계금액으로 부가세를 계산합니다. 판기세무회계 무료서비스.", VAT, SCRIPT)
     write(PAGES / "tools" / "insurance" / "index.html", "4대보험 계산기", "2026년 요율로 근로자와 사업주 4대보험 부담액을 계산합니다. 판기세무회계 무료서비스.", INS, SCRIPT)
     write(PAGES / "tools" / "salary" / "index.html", "급여 실수령액 계산기", "4대보험과 간이세액 기준으로 월 예상 실수령액을 계산합니다. 판기세무회계 무료서비스.", SAL, SCRIPT)
+    write(PAGES / "tools" / "income" / "index.html", "종합소득세 계산기", "종합소득과 필요경비, 소득공제·세액공제로 예상 종합소득세를 계산합니다. 판기세무회계 무료서비스.", INC, SCRIPT)
     write(PAGES / "tools" / "severance" / "index.html", "퇴직금 계산기", "직전 3개월 평균임금과 재직일수로 예상 퇴직금을 계산합니다. 판기세무회계 무료서비스.", SEV, SCRIPT)
     write(PAGES / "tools" / "transfer" / "index.html", "부동산 양도세 계산기", "양도가액, 취득가액, 필요경비, 보유기간으로 예상 양도세를 계산합니다. 판기세무회계 무료서비스.", TR, SCRIPT)
     write(PAGES / "tools" / "gift" / "index.html", "증여세 계산기", "증여재산과 관계별 공제로 예상 증여세를 계산합니다. 판기세무회계 무료서비스.", GIFT, SCRIPT)

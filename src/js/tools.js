@@ -316,6 +316,61 @@
     run();
   };
 
+  const incomeTaxTable = (std) => {
+    if (std <= 0) return 0;
+    const rows = [
+      [14000000, 0.06, 0],
+      [50000000, 0.15, 1260000],
+      [88000000, 0.24, 5760000],
+      [150000000, 0.35, 15440000],
+      [300000000, 0.38, 19940000],
+      [500000000, 0.4, 25940000],
+      [1000000000, 0.42, 35940000],
+      [Infinity, 0.45, 65940000],
+    ];
+    for (const [limit, rate, cut] of rows) {
+      if (std <= limit) return std * rate - cut;
+    }
+    return 0;
+  };
+
+  const incomeChildCredit = (n) => {
+    if (n <= 0) return 0;
+    if (n === 1) return 250000;
+    if (n === 2) return 550000;
+    return 550000 + (n - 2) * 400000;
+  };
+
+  const income = (root) => {
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const n = digits(root.querySelector("[name=income]").value);
+      if (!n) return fill(out, {});
+      const rate = Math.min(100, Math.max(0, Number(root.querySelector("[name=rate]").value) || 0));
+      const cost = floor(n * rate / 100);
+      const amt = Math.max(0, n - cost);
+      const person = digits(root.querySelector("[name=person]").value);
+      const pension = digits(root.querySelector("[name=pension]").value);
+      const old = Math.min(floor(digits(root.querySelector("[name=old]").value) * 0.4), 720000);
+      const ded = person + pension + old;
+      const std = Math.max(0, amt - ded);
+      const raw = floor(incomeTaxTable(std));
+      const kids = Math.max(0, Number(root.querySelector("[name=kids]").value) || 0);
+      const child = incomeChildCredit(kids);
+      const saving = Math.min(digits(root.querySelector("[name=saving]").value), 6000000);
+      const saveRate = amt <= 45000000 ? 0.15 : 0.12;
+      const saveCredit = floor(saving * saveRate);
+      const standard = root.querySelector("[name=standard]")?.checked ? 70000 : 0;
+      const credit = child + saveCredit + standard;
+      const final = Math.max(0, raw - credit);
+      const local = floor(final * 0.1);
+      fill(out, { cost, amt, ded, std, raw, credit, final, local, pay: final + local });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
   const inheritance = (root) => {
     const amount = root.querySelector("[name=amount]");
     const lump = root.querySelector("[name=lump]");
@@ -345,6 +400,7 @@
     transfer,
     gift,
     inheritance,
+    income,
   };
 
   document.querySelectorAll("[data-tool]").forEach((root) => {
