@@ -274,6 +274,11 @@ if ((heroMedia.length > 1 || heroSlides.length > 1) && !heroReduce) {
     else el.addEventListener("loadedmetadata", start, { once: true });
   };
 
+  const warm = (i) => {
+    const el = heroMedia[i];
+    if (el && el.tagName === "VIDEO") el.preload = "auto";
+  };
+
   const showHero = (nextMedia, nextSlide) => {
     if (heroMedia.length) {
       mediaI = nextMedia;
@@ -288,6 +293,7 @@ if ((heroMedia.length > 1 || heroSlides.length > 1) && !heroReduce) {
           }, fadeMs);
         }
       });
+      warm((mediaI + 1) % heroMedia.length);
     }
     if (heroSlides.length) {
       slideI = nextSlide;
@@ -326,6 +332,7 @@ if ((heroMedia.length > 1 || heroSlides.length > 1) && !heroReduce) {
   });
 
   const first = heroMedia[mediaI];
+  if (heroMedia.length > 1) warm((mediaI + 1) % heroMedia.length);
   if (first && first.tagName === "VIDEO") {
     if (first.paused) playClip(first);
     if (first.readyState >= 1) armVideo(first);
