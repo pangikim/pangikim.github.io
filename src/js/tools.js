@@ -22,6 +22,16 @@
         el.textContent = `${floor(rows[key]).toLocaleString("ko-KR")}일`;
         return;
       }
+      if (el.dataset.unit === "시간") {
+        const n = Number(rows[key]);
+        const shown = Number.isInteger(n) ? n : Math.round(n * 10) / 10;
+        el.textContent = `${shown.toLocaleString("ko-KR")}시간`;
+        return;
+      }
+      if (el.dataset.unit === "%") {
+        el.textContent = `${(Math.round(Number(rows[key]) * 100) / 100).toLocaleString("ko-KR")}%`;
+        return;
+      }
       el.textContent = won(rows[key]);
     });
   };
@@ -392,12 +402,105 @@
     run();
   };
 
+  const MIN_WAGE = { 2026: 10320, 2025: 10030, 2024: 9860 };
+
+  const wage = (root) => {
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const hourly = MIN_WAGE[root.querySelector("[name=year]:checked")?.value] || MIN_WAGE[2026];
+      const week = Math.max(0, Number(root.querySelector("[name=hours]").value) || 0);
+      if (!week) return fill(out, {});
+      const restH = week >= 15 ? Math.min(8, week / 40 * 8) : 0;
+      const monthH = Math.ceil((week + restH) * 4.345);
+      const month = floor(monthH * hourly);
+      fill(out, { hourly, restH, monthH, month, yearPay: month * 12 });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
+  const holiday = (root) => {
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const pay = digits(root.querySelector("[name=wage]").value);
+      const daily = Number(root.querySelector("[name=daily]").value) || 0;
+      const days = Math.max(0, Math.min(7, Number(root.querySelector("[name=days]").value) || 0));
+      if (!pay || !daily || !days) return fill(out, {});
+      const week = daily * days;
+      const apply = root.querySelector("[name=apply]")?.checked;
+      const restH = apply && week >= 15 ? Math.min(8, week / 40 * 8) : 0;
+      const restW = floor(restH * pay);
+      const monthH = Math.ceil((week + restH) * 4.345);
+      fill(out, { week, restH, restW, restM: floor(restW * 4.345), month: floor(monthH * pay) });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
+  const houseSlide = (price) => {
+    if (price <= 600000000) return 1;
+    if (price <= 900000000) return price * 2 / 3 / 100000000 - 3;
+    return 3;
+  };
+
+  const acqParts = (price, kind, how, hold, over85, land) => {
+    if (kind === "building") {
+      if (how === "gift") return { acq: 3.5, rural: 0.2, edu: 0.3 };
+      if (how === "inherit") return { acq: 2.8, rural: 0.2, edu: 0.16 };
+      return { acq: 4, rural: 0.2, edu: 0.4 };
+    }
+    if (kind === "land") {
+      if (land === "self") return { acq: 0, rural: 0, edu: 0 };
+      if (land === "farm") return how === "inherit" ? { acq: 2.3, rural: 0, edu: 0.06 } : { acq: 3, rural: 0, edu: 0.2 };
+      return how === "inherit" ? { acq: 2.8, rural: 0.2, edu: 0.16 } : { acq: 4, rural: 0.2, edu: 0.4 };
+    }
+    if (how === "new") return { acq: 2.8, rural: over85 ? 0.2 : 0, edu: 0.16 };
+    if (how === "gift") {
+      if (hold === "heavy2" || hold === "heavy3") return { acq: 12, rural: 1, edu: 0 };
+      return { acq: 3.5, rural: over85 ? 0.2 : 0, edu: 0.3 };
+    }
+    if (how === "inherit") {
+      if (hold === "none") return { acq: 0.8, rural: 0, edu: 0.08 };
+      return { acq: 2.8, rural: over85 ? 0.2 : 0, edu: 0.16 };
+    }
+    if (hold === "heavy2") return { acq: 8, rural: 0.6, edu: 0.4 };
+    if (hold === "heavy3") return { acq: 12, rural: 1, edu: 0 };
+    const acq = houseSlide(price);
+    return { acq, rural: over85 ? 0.2 : 0, edu: acq * 0.1 };
+  };
+
+  const acq = (root) => {
+    const out = root.querySelector("[data-result]");
+    const run = () => {
+      const price = digits(root.querySelector("[name=amount]").value);
+      if (!price) return fill(out, {});
+      const kind = root.querySelector("[name=kind]:checked")?.value || "house";
+      const how = root.querySelector("[name=how]:checked")?.value || "buy";
+      const hold = root.querySelector("[name=hold]")?.value || "one";
+      const over85 = root.querySelector("[name=over]")?.checked;
+      const land = root.querySelector("[name=land]")?.value || "other";
+      const part = acqParts(price, kind, how, hold, over85, land);
+      const tax = floor(price * part.acq / 100);
+      const rural = floor(price * part.rural / 100);
+      const edu = floor(price * part.edu / 100);
+      fill(out, { rate: part.acq, tax, rural, edu, pay: tax + rural + edu });
+    };
+    root.addEventListener("input", run);
+    root.addEventListener("change", run);
+    run();
+  };
+
   const boot = {
     vat,
     insurance,
     salary,
+    wage,
+    holiday,
     severance,
     transfer,
+    acq,
     gift,
     inheritance,
     income,

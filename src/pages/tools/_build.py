@@ -12,9 +12,12 @@ NAV = """        <div class="drop">
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
+            <a href="/tools/wage/">최저시급 계산기</a>
+            <a href="/tools/holiday/">주휴수당 계산기</a>
             <a href="/tools/income/">종합소득세 계산기</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
             <a href="/tools/transfer/">부동산 양도세</a>
+            <a href="/tools/acq/">취득세 계산기</a>
             <a href="/tools/gift/">증여세 계산기</a>
             <a href="/tools/inheritance/">상속세 계산기</a>
           </div>
@@ -26,9 +29,12 @@ OVERLAY = """      <details>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
+        <a href="/tools/wage/">최저시급 계산기</a>
+        <a href="/tools/holiday/">주휴수당 계산기</a>
         <a href="/tools/income/">종합소득세 계산기</a>
         <a href="/tools/severance/">퇴직금 계산기</a>
         <a href="/tools/transfer/">부동산 양도세</a>
+        <a href="/tools/acq/">취득세 계산기</a>
         <a href="/tools/gift/">증여세 계산기</a>
         <a href="/tools/inheritance/">상속세 계산기</a>
       </details>
@@ -75,9 +81,12 @@ HEAD = """<!DOCTYPE html>
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
+            <a href="/tools/wage/">최저시급 계산기</a>
+            <a href="/tools/holiday/">주휴수당 계산기</a>
             <a href="/tools/income/">종합소득세 계산기</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
             <a href="/tools/transfer/">부동산 양도세</a>
+            <a href="/tools/acq/">취득세 계산기</a>
             <a href="/tools/gift/">증여세 계산기</a>
             <a href="/tools/inheritance/">상속세 계산기</a>
           </div>
@@ -123,9 +132,12 @@ HEAD = """<!DOCTYPE html>
         <a href="/tools/vat/">부가세 계산기</a>
         <a href="/tools/insurance/">4대보험 계산기</a>
         <a href="/tools/salary/">급여 실수령액</a>
+        <a href="/tools/wage/">최저시급 계산기</a>
+        <a href="/tools/holiday/">주휴수당 계산기</a>
         <a href="/tools/income/">종합소득세 계산기</a>
         <a href="/tools/severance/">퇴직금 계산기</a>
         <a href="/tools/transfer/">부동산 양도세</a>
+        <a href="/tools/acq/">취득세 계산기</a>
         <a href="/tools/gift/">증여세 계산기</a>
         <a href="/tools/inheritance/">상속세 계산기</a>
       </details>
@@ -176,9 +188,12 @@ FOOT = """  </main>
             <a href="/tools/vat/">부가세 계산기</a>
             <a href="/tools/insurance/">4대보험 계산기</a>
             <a href="/tools/salary/">급여 실수령액</a>
+            <a href="/tools/wage/">최저시급 계산기</a>
+            <a href="/tools/holiday/">주휴수당 계산기</a>
             <a href="/tools/income/">종합소득세 계산기</a>
             <a href="/tools/severance/">퇴직금 계산기</a>
             <a href="/tools/transfer/">부동산 양도세</a>
+            <a href="/tools/acq/">취득세 계산기</a>
             <a href="/tools/gift/">증여세 계산기</a>
             <a href="/tools/inheritance/">상속세 계산기</a>
           </div>
@@ -206,9 +221,12 @@ TABS = """      <nav class="svc-tabs">
         <a{vat} href="/tools/vat/">부가세</a>
         <a{ins} href="/tools/insurance/">4대보험</a>
         <a{sal} href="/tools/salary/">실수령액</a>
-        <a{inc} href="/tools/income/">종소세</a>
+        <a{wage} href="/tools/wage/">최저시급</a>
+        <a{hol} href="/tools/holiday/">주휴수당</a>
+        <a{inc} href="/tools/income/">종합소득세</a>
         <a{sev} href="/tools/severance/">퇴직금</a>
         <a{tr} href="/tools/transfer/">양도세</a>
+        <a{acq} href="/tools/acq/">취득세</a>
         <a{gift} href="/tools/gift/">증여세</a>
         <a{inh} href="/tools/inheritance/">상속세</a>
       </nav>
@@ -216,7 +234,7 @@ TABS = """      <nav class="svc-tabs">
 
 
 def tabs(on):
-    mark = {k: ' class="on"' if k == on else "" for k in ("vat", "ins", "sal", "inc", "sev", "tr", "gift", "inh")}
+    mark = {k: ' class="on"' if k == on else "" for k in ("vat", "ins", "sal", "wage", "hol", "inc", "sev", "tr", "acq", "gift", "inh")}
     return TABS.format(**mark)
 
 
@@ -241,7 +259,7 @@ def write(path: Path, title: str, desc: str, body: str, extra: str = ""):
 HUB = """    <section class="svc tools wrap">
       <p class="eyebrow">무료서비스</p>
       <h1>사업과 급여에 필요한 계산을<br>빠르게 확인하세요.</h1>
-      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여 실수령액, 종합소득세, 퇴직금, 양도세, 증여세, 상속세를 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
+      <p class="sub">2026년 공식 요율을 기준으로 부가세, 4대보험, 급여, 최저시급, 주휴수당, 종합소득세, 퇴직금, 양도세, 취득세, 증여세, 상속세를 계산합니다. 로그인 없이 이용할 수 있고, 입력값은 저장하지 않습니다.</p>
       <div class="tools-grid">
         <a href="/tools/vat/">
           <b>부가세 계산기</b>
@@ -258,6 +276,16 @@ HUB = """    <section class="svc tools wrap">
           <p>4대보험과 간이세액 기준으로 월 예상 실수령액을 계산합니다.</p>
           <span>계산하기 →</span>
         </a>
+        <a href="/tools/wage/">
+          <b>최저시급 계산기</b>
+          <p>주 근로시간과 주휴수당으로 2026년 최저시급 기준 월급·연봉을 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
+        <a href="/tools/holiday/">
+          <b>주휴수당 계산기</b>
+          <p>시급과 근무시간으로 주휴수당과 예상 월급을 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
         <a href="/tools/income/">
           <b>종합소득세 계산기</b>
           <p>종합소득과 필요경비, 소득공제·세액공제로 예상 종합소득세를 계산합니다.</p>
@@ -271,6 +299,11 @@ HUB = """    <section class="svc tools wrap">
         <a href="/tools/transfer/">
           <b>부동산 양도세 계산기</b>
           <p>양도가액, 취득가액, 필요경비, 보유기간으로 예상 양도세를 계산합니다.</p>
+          <span>계산하기 →</span>
+        </a>
+        <a href="/tools/acq/">
+          <b>취득세 계산기</b>
+          <p>주택·건축물·토지 취득가액과 세율로 취득세·농특세·교육세를 계산합니다.</p>
           <span>계산하기 →</span>
         </a>
         <a href="/tools/gift/">
@@ -721,7 +754,158 @@ INH = f"""    <section class="svc tools wrap">
 """ + CTA + """    </section>
 """
 
-SCRIPT = '<script src="/src/js/tools.js?v=4"></script>'
+WAGE = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>최저시급 계산기</h1>
+      <p class="sub">주 근로시간을 입력해 주휴수당을 포함한 최저시급 기준 월급과 연봉을 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-26 · 2026년 시간급 10,320원 · 입력값을 저장·전송하지 않음</p>
+{tabs("wage")}
+      <div class="tools-work" data-tool="wage">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label>적용 연도</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="year" value="2024"><span>2024년</span></label>
+                <label><input type="radio" name="year" value="2025"><span>2025년</span></label>
+                <label><input type="radio" name="year" value="2026" checked><span>2026년</span></label>
+              </div>
+              <small>2026년 10,320원, 2025년 10,030원, 2024년 9,860원입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="wage-hours">주 근로시간</label>
+              <input id="wage-hours" name="hours" inputmode="decimal" placeholder="40" value="40">
+              <small>주 15시간 미만은 주휴수당이 없습니다. 주휴시간은 최대 8시간입니다.</small>
+            </div>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>시간급</dt><dd data-out="hourly">—</dd></div>
+            <div><dt>주휴시간</dt><dd data-out="restH" data-unit="시간">—</dd></div>
+            <div><dt>한달 근무시간</dt><dd data-out="monthH" data-unit="시간">—</dd></div>
+            <div><dt>예상 월급</dt><dd data-out="month">—</dd></div>
+            <div class="sum"><dt>예상 연봉</dt><dd data-out="yearPay">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 한달 근무시간 = (주 근로시간 + 주휴시간) × 4.345주를 올림합니다. 연장·야간 가산과 실수령액은 반영하지 않습니다.</p>
+""" + CTA + """    </section>
+"""
+
+HOLIDAY = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>주휴수당 계산기</h1>
+      <p class="sub">시급과 근무시간으로 주휴수당과 주휴를 포함한 예상 월급을 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-26 · 근로기준법 주휴일 · 입력값을 저장·전송하지 않음</p>
+{tabs("hol")}
+      <div class="tools-work" data-tool="holiday">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label for="hol-wage">시급</label>
+              <input id="hol-wage" name="wage" data-money inputmode="numeric" placeholder="10,320" value="10,320">
+              <small>2026년 최저시급은 10,320원입니다.</small>
+            </div>
+            <div class="tools-field">
+              <label for="hol-daily">일일 근무시간</label>
+              <input id="hol-daily" name="daily" inputmode="decimal" placeholder="8" value="8">
+            </div>
+            <div class="tools-field">
+              <label for="hol-days">주 근무 일수</label>
+              <input id="hol-days" name="days" type="number" min="1" max="7" value="5">
+              <small>주 소정근로시간이 15시간 이상이고 개근한 경우 주휴수당이 발생합니다.</small>
+            </div>
+            <label class="tools-check"><input type="checkbox" name="apply" checked><span>주휴수당을 적용합니다.</span></label>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>주 근로시간</dt><dd data-out="week" data-unit="시간">—</dd></div>
+            <div><dt>주휴시간</dt><dd data-out="restH" data-unit="시간">—</dd></div>
+            <div><dt>주휴수당 (주)</dt><dd data-out="restW">—</dd></div>
+            <div><dt>주휴수당 (월)</dt><dd data-out="restM">—</dd></div>
+            <div class="sum"><dt>예상 월급</dt><dd data-out="month">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 주휴시간 = 주 근로시간 ÷ 40 × 8시간, 최대 8시간입니다. 4대보험·원천세는 급여 실수령액 계산기에서 확인하세요.</p>
+""" + CTA + """    </section>
+"""
+
+ACQ = f"""    <section class="svc tools wrap">
+      <p class="eyebrow">무료서비스</p>
+      <h1>취득세 계산기</h1>
+      <p class="sub">물건과 취득 구분, 취득가액을 입력해 취득세·농특세·지방교육세를 확인하세요.</p>
+      <p class="tools-meta">기준일 2026-08-26 · 2026년 지방세법 세율 · 입력값을 저장·전송하지 않음</p>
+{tabs("acq")}
+      <div class="tools-work" data-tool="acq">
+        <form class="tools-box" onsubmit="return false">
+          <h2>입력</h2>
+          <div class="tools-fields">
+            <div class="tools-field">
+              <label>취득 물건</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="kind" value="house" checked><span>주택</span></label>
+                <label><input type="radio" name="kind" value="building"><span>건축물</span></label>
+                <label><input type="radio" name="kind" value="land"><span>토지</span></label>
+              </div>
+            </div>
+            <div class="tools-field">
+              <label>취득 구분</label>
+              <div class="tools-seg">
+                <label><input type="radio" name="how" value="buy" checked><span>매매</span></label>
+                <label><input type="radio" name="how" value="new"><span>신축</span></label>
+                <label><input type="radio" name="how" value="gift"><span>증여</span></label>
+                <label><input type="radio" name="how" value="inherit"><span>상속</span></label>
+              </div>
+            </div>
+            <div class="tools-field">
+              <label for="acq-hold">주택 보유</label>
+              <select id="acq-hold" name="hold">
+                <option value="one">조정 1주택 · 비조정 1~2주택</option>
+                <option value="heavy2">조정 2주택 · 비조정 3주택</option>
+                <option value="heavy3">조정 3주택 이상 · 비조정 4주택 이상</option>
+                <option value="none">무주택 가구 주택 상속</option>
+              </select>
+              <small>주택 매매·증여·상속에만 쓰입니다. 1주택 매매는 6억 이하 1%, 9억 초과 3%입니다.</small>
+            </div>
+            <label class="tools-check"><input type="checkbox" name="over"><span>전용면적 85㎡를 초과합니다. (농특세)</span></label>
+            <div class="tools-field">
+              <label for="acq-land">토지 구분</label>
+              <select id="acq-land" name="land">
+                <option value="other">농지 외</option>
+                <option value="farm">농지</option>
+                <option value="self">자경농지 (감면 가정)</option>
+              </select>
+            </div>
+            <div class="tools-field">
+              <label for="acq-amount">취득가액</label>
+              <input id="acq-amount" name="amount" data-money inputmode="numeric" placeholder="800,000,000">
+              <small>시가인정액이 있으면 그 금액을, 없으면 취득가액 또는 기준시가를 입력하세요.</small>
+            </div>
+          </div>
+        </form>
+        <div class="tools-box tools-result" data-result>
+          <h2>계산 결과</h2>
+          <dl>
+            <div><dt>취득세율</dt><dd data-out="rate" data-unit="%">—</dd></div>
+            <div><dt>취득세</dt><dd data-out="tax">—</dd></div>
+            <div><dt>농어촌특별세</dt><dd data-out="rural">—</dd></div>
+            <div><dt>지방교육세</dt><dd data-out="edu">—</dd></div>
+            <div class="sum"><dt>예상 납부세액</dt><dd data-out="pay">—</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="tools-note"><b>참고용입니다.</b> 일시적 2주택, 생애최초, 무주택 감면, 공시가격 중과 배제는 반영하지 않습니다. 실제 고지세액과 다를 수 있습니다.</p>
+""" + CTA + """    </section>
+"""
+
+SCRIPT = '<script src="/src/js/tools.js?v=5"></script>'
 
 
 def inject_existing():
@@ -759,13 +943,16 @@ def inject_existing():
 
 
 def main():
-    write(PAGES / "tools" / "index.html", "무료서비스", "판기세무회계 무료 계산기. 부가세, 4대보험, 급여 실수령액, 종합소득세, 퇴직금, 양도세, 증여세, 상속세를 로그인 없이 계산합니다.", HUB)
+    write(PAGES / "tools" / "index.html", "무료서비스", "판기세무회계 무료 계산기. 부가세, 4대보험, 급여, 최저시급, 주휴수당, 종합소득세, 퇴직금, 양도세, 취득세, 증여세, 상속세를 로그인 없이 계산합니다.", HUB)
     write(PAGES / "tools" / "vat" / "index.html", "부가세 계산기", "공급가액이나 합계금액으로 부가세를 계산합니다. 판기세무회계 무료서비스.", VAT, SCRIPT)
     write(PAGES / "tools" / "insurance" / "index.html", "4대보험 계산기", "2026년 요율로 근로자와 사업주 4대보험 부담액을 계산합니다. 판기세무회계 무료서비스.", INS, SCRIPT)
     write(PAGES / "tools" / "salary" / "index.html", "급여 실수령액 계산기", "4대보험과 간이세액 기준으로 월 예상 실수령액을 계산합니다. 판기세무회계 무료서비스.", SAL, SCRIPT)
+    write(PAGES / "tools" / "wage" / "index.html", "최저시급 계산기", "주 근로시간과 주휴수당으로 최저시급 기준 월급·연봉을 계산합니다. 판기세무회계 무료서비스.", WAGE, SCRIPT)
+    write(PAGES / "tools" / "holiday" / "index.html", "주휴수당 계산기", "시급과 근무시간으로 주휴수당과 예상 월급을 계산합니다. 판기세무회계 무료서비스.", HOLIDAY, SCRIPT)
     write(PAGES / "tools" / "income" / "index.html", "종합소득세 계산기", "종합소득과 필요경비, 소득공제·세액공제로 예상 종합소득세를 계산합니다. 판기세무회계 무료서비스.", INC, SCRIPT)
     write(PAGES / "tools" / "severance" / "index.html", "퇴직금 계산기", "직전 3개월 평균임금과 재직일수로 예상 퇴직금을 계산합니다. 판기세무회계 무료서비스.", SEV, SCRIPT)
     write(PAGES / "tools" / "transfer" / "index.html", "부동산 양도세 계산기", "양도가액, 취득가액, 필요경비, 보유기간으로 예상 양도세를 계산합니다. 판기세무회계 무료서비스.", TR, SCRIPT)
+    write(PAGES / "tools" / "acq" / "index.html", "취득세 계산기", "주택·건축물·토지 취득가액과 세율로 취득세·농특세·교육세를 계산합니다. 판기세무회계 무료서비스.", ACQ, SCRIPT)
     write(PAGES / "tools" / "gift" / "index.html", "증여세 계산기", "증여재산과 관계별 공제로 예상 증여세를 계산합니다. 판기세무회계 무료서비스.", GIFT, SCRIPT)
     write(PAGES / "tools" / "inheritance" / "index.html", "상속세 계산기", "상속재산과 일괄·배우자 공제로 예상 상속세를 계산합니다. 판기세무회계 무료서비스.", INH, SCRIPT)
     inject_existing()
